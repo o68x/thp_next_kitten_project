@@ -1,0 +1,57 @@
+require: rubocop-rspec
+
+inherit_from:
+  - http://relaxed.ruby.style/rubocop.yml
+
+AllCops:
+  DisplayStyleGuide: true
+  DisplayCopNames: true
+  Exclude:
+    - 'db/schema.rb'
+    - 'vendor/**/*'
+    - 'config/environments/*.rb'
+    - 'bin/*'
+    - 'lib/tasks/auto_annotate_models.rake'
+
+Rails:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'Guardfile'
+    - 'vendor/bundle'
+
+# Unpractical and not DRY
+RSpec/NamedSubject:
+  Enabled: false
+
+# I don't want the extra burden of test instanciation
+# For testing things closely related
+RSpec/MultipleExpectations:
+  Enabled: false
+
+# Meh. Less readable.
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+# Same.
+RSpec/MessageSpies:
+  Enabled: false
+
+# Not configurable (even truer with MultipleExpectations)
+RSpec/ExampleLength:
+  Enabled: false
+
+# Meh. Unpractical.
+RSpec/NestedGroups:
+  Enabled: false
+
+# Collide with rspec_in_context
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+# Prevent proper overriding
+RSpec/LetSetup:
+  Enabled: false
+  
