@@ -9,13 +9,13 @@ default: &default
 
 development:
   <<: *default
-  database: mvc_exercise_development
+  database: thp_next_kitten_development
 
 
 test:
   <<: *default
-  database: mvc_exercise_test
+  database: thp_next_kitten_test
 
 production:
   <<: *default
-  database: mvc_exercise_production
+  database: thp_next_kitten_production
