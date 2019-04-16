@@ -20,6 +20,11 @@ jobs:
     steps:
       - checkout
 
+      # Which version of bundler?
+      - run:
+          name: Which bundler?
+          command: bundle -v
+
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
@@ -27,8 +32,7 @@ jobs:
 
       - run:
           name: install dependencies
-          command: |
-            bundle install
+          command: bundle check || bundle install
 
       - save_cache:
           paths:
