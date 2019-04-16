@@ -21,6 +21,10 @@ jobs:
 
       # Which version of bundler?
       - run:
+          name: update bundler version
+          command: gem install bundler:2.0.1
+
+      - run:
           name: Which bundler?
           command: bundle -v
 
@@ -28,10 +32,6 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "Gemfile.lock" }}
           - v1-dependencies-
-
-      - run:
-          name: update bundler version
-          command: gem install bundler:2.0.1
 
       - run:
           name: install dependencies
