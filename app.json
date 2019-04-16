@@ -34,6 +34,7 @@
   },
   "name": "thp_next_kitten_project",
   "scripts": {
+    "postdeploy": "bundle exec rake db:migrate db:seed"
   },
   "stack": "heroku-18"
 }
