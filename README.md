@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/ocardinaux/thp_next_kitten_project.svg?style=svg)](https://circleci.com/gh/ocardinaux/thp_next_kitten_project)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
