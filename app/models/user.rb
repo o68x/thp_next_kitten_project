@@ -28,6 +28,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_many :cats, dependent: :destroy
 
   validates :first_name, presence: true
   validates :email,
