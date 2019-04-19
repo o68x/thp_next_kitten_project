@@ -2,25 +2,14 @@
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## EXTERNAL DEV LINKS
 
-Things you may want to cover:
+* (Zaratan's project spec)[https://github.com/denispasin/thp_next_session_2/tree/master/Projet1]
 
-* Ruby version
+## INTERNAL DEV LINKS
 
-* System dependencies
+* [The wiki](https://github.com/ocardinaux/thp_next_kitten_project/wiki)
+* [Open milestones](https://github.com/ocardinaux/thp_next_kitten_project/milestones?direction=asc&sort=due_date)
+* [Open issues](https://github.com/ocardinaux/thp_next_kitten_project/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+* [Open PRs](https://github.com/ocardinaux/thp_next_kitten_project/pulls?q=is%3Apr+is%3Aopen)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
