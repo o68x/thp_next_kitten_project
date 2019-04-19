@@ -12,4 +12,6 @@
  *
  *= require_tree .
  *= require_self
- */
+ *= require css/vendor
+ *= require css/style
+
