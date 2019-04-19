@@ -5,6 +5,7 @@
 ## EXTERNAL DEV LINKS
 
 * [Zaratan's project spec](https://github.com/denispasin/thp_next_session_2/tree/master/Projet1)
+* [Zaratan's MVC](https://github.com/denispasin/thp_next_session_2/tree/master/Semaine1)
 
 ## INTERNAL DEV LINKS
 
