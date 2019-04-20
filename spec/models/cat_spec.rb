@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: cats
@@ -8,7 +7,7 @@
 #  age         :integer
 #  description :text
 #  image       :text
-#  price       :decimal(4, 2)    default(0.0)
+#  price       :decimal(, )      default(0.0)
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

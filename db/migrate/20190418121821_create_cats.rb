@@ -7,7 +7,7 @@ class CreateCats < ActiveRecord::Migration[5.2]
       t.text :description
       t.integer :age
       t.text :image
-      t.decimal :price, precision: 4, scale: 2, default: 0
+      t.decimal :price, default: 0
 
       t.timestamps
     end

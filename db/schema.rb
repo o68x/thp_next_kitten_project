@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_04_18_121821) do
     t.text "description"
     t.integer "age"
     t.text "image"
-    t.decimal "price", precision: 4, scale: 2, default: "0.0"
+    t.decimal "price", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
