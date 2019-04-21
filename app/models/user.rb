@@ -7,8 +7,6 @@
 #  id                     :bigint(8)        not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  first_name             :string
-#  last_name              :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -29,7 +27,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  validates :first_name, presence: true
+  validates :encrypted_password, presence: true
   validates :email,
             presence: true,
             uniqueness: true,
