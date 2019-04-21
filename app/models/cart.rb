@@ -25,6 +25,6 @@ class Cart < ApplicationRecord
   has_many :cart_cats, dependent: :destroy
 
   validates :user_id, presence: true
-  validates :status, presence: true
+  validates :status, inclusion: { in: [true, false] }
   validates :order_placed, presence: true, if: :status
 end
