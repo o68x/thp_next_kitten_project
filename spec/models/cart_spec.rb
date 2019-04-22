@@ -36,7 +36,7 @@ RSpec.describe Cart, type: :model do
     describe 'validations' do
       it { is_expected.to validate_presence_of(:user_id) }
       it { is_expected.to validate_inclusion_of(:status).in_array([true, false]) }
-      xit('TODO: conditional validation of presence?') { is_expected.to validate_presence_of(:order_placed) }
+      xit('#TODO: conditional validation of presence?') { is_expected.to validate_presence_of(:order_placed) }
     end
   end
 end
