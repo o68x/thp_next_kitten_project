@@ -7,13 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
   </head>
 
   <body>
   <%=render 'layouts/header' %>
     <%= yield %>
   <%=render 'layouts/footer' %>
-  <script src="assets/js/vendor.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src="vendor/js/vendor.js"></script>
+  <script src="vendor/js/app.js"></script>
   </body>
 </html>
