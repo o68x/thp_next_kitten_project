@@ -2,26 +2,25 @@
 
 # == Schema Information
 #
-# Table name: profiles
+# Table name: carts
 #
 #  id           :bigint(8)        not null, primary key
-#  address      :string
-#  description  :text
-#  phone_number :integer
+#  order_placed :datetime
+#  status       :boolean          default(FALSE), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  user_id      :bigint(8)
 #
 # Indexes
 #
-#  index_profiles_on_user_id  (user_id)
+#  index_carts_on_user_id  (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (user_id => users.id)
 #
 
-class Profile < ApplicationRecord
-  belongs_to :user
-  has_one_attached :profile_picture
+FactoryBot.define do
+  factory :cart do
+  end
 end

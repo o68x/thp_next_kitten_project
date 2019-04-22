@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_04_19_175054) do
+ActiveRecord::Schema.define(version: 2019_04_21_072217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +35,33 @@ ActiveRecord::Schema.define(version: 2019_04_19_175054) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  create_table "cart_cats", force: :cascade do |t|
+    t.decimal "price", precision: 5, scale: 2
+    t.bigint "cart_id"
+    t.bigint "cat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_cats_on_cart_id"
+    t.index ["cat_id"], name: "index_cart_cats_on_cat_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.boolean "status", default: false, null: false
+    t.datetime "order_placed"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "cats", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "age"
+    t.text "image"
+    t.decimal "price", default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -54,12 +82,13 @@ ActiveRecord::Schema.define(version: 2019_04_19_175054) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cart_cats", "carts"
+  add_foreign_key "cart_cats", "cats"
+  add_foreign_key "carts", "users"
   add_foreign_key "profiles", "users"
 end
