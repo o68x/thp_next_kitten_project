@@ -1,0 +1,23 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <% @cats.each do |c| %>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                <small class="text-muted"></b> <%= c.created_at.strftime("%m/%d/%Y") %></small>
+
+                <p class="card-title"><b> <%= c.title %>, <%=c.age%> mois </b></p>
+                <p class="card-text"><%= c.description %></p>
+
+
+                <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a class="btn btn-outline-primary btn-sm" href="" role="button">More about the cats &raquo;</a>
+                </div>
+                <small class="text-muted"><b>prix:</b> <%= c.price %>€</small>
+            </div>
+        </div>
+    </div>
+</div>
+                <%end%>
