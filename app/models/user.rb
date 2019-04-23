@@ -41,6 +41,10 @@ class User < ApplicationRecord
     set_current_cart
   end
 
+  def current_cart
+    carts.find_by(status: false)
+  end
+
   private
 
   def create_cart

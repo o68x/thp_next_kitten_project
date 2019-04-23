@@ -1,0 +1,10 @@
+CATS!
+
+<ul>
+<% @cats.each do |cat| %>
+  <li><%= cat.title %>
+      <%= cat.price %>
+      <%= button_to "Buy me!", action: 'create', controller: 'cart_cats', id: cat.id %>
+  </li>
+<% end %>
+</ul>
