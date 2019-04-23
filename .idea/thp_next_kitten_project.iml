@@ -52,7 +52,7 @@
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.5, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v1.7.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="devise (v4.5.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="devise (v4.6.2, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="docile (v1.3.1, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />

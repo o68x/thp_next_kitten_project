@@ -15,11 +15,13 @@
  *= require css/vendor
  *= require css/style
 
+
  */
- @import 'bootstrap';
-    @import 'bootstrap_overrides';
-    @import 'icons';
-    @import 'colors';
-    @import 'layout';
-    @import 'naked';
-    @import 'pages';
+
+@import 'bootstrap';
+@import 'bootstrap_overrides';
+@import 'icons';
+@import 'colors';
+@import 'layout';
+@import 'naked';
+@import 'pages';

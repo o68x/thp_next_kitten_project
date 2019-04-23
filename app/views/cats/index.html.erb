@@ -1,0 +1,77 @@
+
+
+            <!-- cover -->
+            <section class="bg-purple text-white pattern"
+                     data-top-top="transform: translateY(0px);"
+                     data-top-bottom="transform: translateY(250px);">
+              <div class="container pt-10">
+                <div class="row mb-2">
+                  <div class="col-md-8 col-lg-6">
+                    <h1>Chatte picture</h1>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Inner Pages</li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- / cover -->
+
+            <% if @cats.present? %>
+            <% @cats.each do |c| %>
+              <%= c.created_at.strftime("%m/%d/%Y") %>
+
+              <b> <%= c.title %>, <%=c.age%> mois </b>
+              <%= c.description %>
+              <%=  cat_path(id:c.id)%>" role="button">M
+               <b>prix:</b> <%= c.price %>€</small>
+
+
+            <section class="bg-white">
+              <div class="container">
+                <div class="row gutter-1 gutter-md-3 demo-preview">
+                  <div class="col-6 col-lg-4">
+                    <article class="card card-minimal">
+                      <a href="html/pages/about.html"  class="card-img-container">
+                        <img class="card-img" src="" alt="About">
+                      </a>
+                      <div class="card-body">
+                        <h5 class="card-title text-center"><%= link_to '#{c.title}', cat_path(id:c.id)%></h5>
+                        <p class="card-title text-center">  <%= c.price %>€ </p>
+                      </div>
+                    </article>
+                  </div>
+
+
+
+                  </div>
+                </div>
+              </div>
+            <%end%>
+            <%end%>
+            </section>
+
+
+
+            <!-- cta -->
+            <section class="pb-0 bg-dark text-white separator-bottom">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 text-center">
+                    <h1>Start building <b>beautiful & functional</b> landing pages in minutes.</h1>
+                    <a href="https://themes.getbootstrap.com/product/go-multipurpose-landing-page-template/" class="btn btn-lg btn-purple btn-rounded mt-2 py-2 px-7">Purchase - $49</a>
+                  </div>
+                  <div class="col-12 mt-10">
+                    <img src="" alt="Demo Pages Preview">
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- / cta -->

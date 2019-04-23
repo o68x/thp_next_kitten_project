@@ -1,0 +1,8 @@
+<% @cats.each do |c| %>
+  <%= c.created_at.strftime("%m/%d/%Y") %>
+
+  <b> <%= c.title %>, <%=c.age%> mois </b>
+  <%= c.description %>
+  <%=  cat_path(id:c.id)%>" role="button">M
+  <b>prix:</b> <%= c.price %>€</small>
+              <%end %>
