@@ -5,3 +5,4 @@ class ProfilesController < ApplicationController
         redirect_to(profile_path(@profile))
     end
 end
+
