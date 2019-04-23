@@ -25,6 +25,18 @@
     },
     "SECRET_KEY_BASE": {
       "required": true
+    },
+    "AMAZON_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AMAZON_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "S3_BUCKET": {
+      "required": true
+    },
+    "AWS_REGION": {
+      "required": true
     }
   },
   "formation": {
