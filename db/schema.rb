@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_094233) do
+ActiveRecord::Schema.define(version: 2019_04_21_072217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cart_cats", force: :cascade do |t|
+    t.decimal "price", precision: 5, scale: 2
+    t.bigint "cart_id"
+    t.bigint "cat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_cats_on_cart_id"
+    t.index ["cat_id"], name: "index_cart_cats_on_cat_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.boolean "status", default: false, null: false
+    t.datetime "order_placed"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "cats", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "age"
+    t.text "image"
+    t.decimal "price", default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.text "description"
@@ -39,5 +68,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_094233) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cart_cats", "carts"
+  add_foreign_key "cart_cats", "cats"
+  add_foreign_key "carts", "users"
   add_foreign_key "profiles", "users"
 end
