@@ -6,6 +6,7 @@
 #
 #  id         :bigint(8)        not null, primary key
 #  price      :decimal(5, 2)
+#  quantity   :integer          default(1)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  cart_id    :bigint(8)
