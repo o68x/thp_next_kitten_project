@@ -1,10 +1,23 @@
-CATS!
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <% @cats.each do |c| %>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                <small class="text-muted"></b> <%= c.created_at.strftime("%m/%d/%Y") %></small>
 
-<ul>
-<% @cats.each do |cat| %>
-  <li><%= cat.title %>
-      <%= cat.price %>
-      <%= button_to "Buy me!", action: 'create', controller: 'cart_cats', id: cat.id %>
-  </li>
-<% end %>
-</ul>
+                <p class="card-title"><b> <%= c.title %>, <%=c.age%> mois </b></p>
+                <p class="card-text"><%= c.description %></p>
+
+
+                <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                      <a class="btn btn-outline-primary btn-sm" href="<%=  cat_path(id:c.id)%>" role="button">More about the event &raquo;</a>
+                </div>
+                <small class="text-muted"><b>prix:</b> <%= c.price %>€</small>
+            </div>
+        </div>
+    </div>
+</div>
+                <%end%>

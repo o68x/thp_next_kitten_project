@@ -46,7 +46,7 @@ RSpec.describe Cart, type: :model do
     end
 
     context 'when true (ordered)' do
-      pending("order_placed is valid date")
+      xit('TODO: conditional validation of presence?') { is_expected.to validate_presence_of(:order_placed) }
     end
   end
 end
