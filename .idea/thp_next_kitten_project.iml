@@ -39,6 +39,12 @@
     <orderEntry type="library" scope="PROVIDED" name="annotate (v2.7.4, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v9.0.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-eventstream (v1.0.2, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-partitions (v1.151.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-core (v3.48.4, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-kms (v1.17.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-s3 (v1.36.1, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sigv4 (v1.1.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.12, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.7.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.4.3, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
@@ -70,6 +76,7 @@
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.6.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jaro_winkler (v1.5.2, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.8.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jmespath (v1.4.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.2.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.1.5, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.2.3, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />

@@ -24,40 +24,29 @@
             </section>
             <!-- / cover -->
 
-            <% if @cats.present? %>
-            <% @cats.each do |c| %>
-              <%= c.created_at.strftime("%m/%d/%Y") %>
-
-              <b> <%= c.title %>, <%=c.age%> mois </b>
-              <%= c.description %>
-              <%=  cat_path(id:c.id)%>" role="button">M
-               <b>prix:</b> <%= c.price %>€</small>
 
 
             <section class="bg-white">
+              <% if @cats.present? %>
               <div class="container">
                 <div class="row gutter-1 gutter-md-3 demo-preview">
-                  <div class="col-6 col-lg-4">
+                  <% @cats.each do |c| %>
+                  <div class="col-6 col-lg-4 ">
                     <article class="card card-minimal">
-                      <a href="html/pages/about.html"  class="card-img-container">
-                        <img class="card-img" src="" alt="About">
-                      </a>
+                        <img class="card-img card-img-container" src="" alt="About">
                       <div class="card-body">
-                        <h5 class="card-title text-center"><%= link_to '#{c.title}', cat_path(id:c.id)%></h5>
+                        <h5 class="card-title text-center"><%= link_to 'c.title', cat_path(id:c.id)%></h5>
                         <p class="card-title text-center">  <%= c.price %>€ </p>
                       </div>
                     </article>
                   </div>
-
-
-
+                  <%end%>
                   </div>
                 </div>
               </div>
             <%end%>
-            <%end%>
             </section>
-
+5
 
 
             <!-- cta -->
