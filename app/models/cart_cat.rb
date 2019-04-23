@@ -29,4 +29,8 @@ class CartCat < ApplicationRecord
 
   validates :cat_id, presence: true
   validates :cart_id, presence: true
+
+  def increment_quantity
+    increment(:quantity)
+  end
 end

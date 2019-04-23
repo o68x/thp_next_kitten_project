@@ -42,11 +42,11 @@ RSpec.describe Cart, type: :model do
 
   describe 'Cart status' do
     context 'when false (not ordered)' do
-      pending("order_placed is nil")
+      pending "order_placed is nil"
     end
 
     context 'when true (ordered)' do
-      xit('TODO: conditional validation of presence?') { is_expected.to validate_presence_of(:order_placed) }
+      xit 'order_place is datetime'
     end
   end
 end
