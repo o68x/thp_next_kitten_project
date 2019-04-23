@@ -19,5 +19,5 @@ class Cat < ApplicationRecord
   validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed. " }
   validates :title, length: { maximum: 140, too_long: "%{count} characters is the maximum allowed. " }
   validates :price, length: { maximum: 6 }
-  has_one_attached :item_picture #active storage
+  has_one_attached :item_picture # active storage
 end

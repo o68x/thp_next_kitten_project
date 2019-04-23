@@ -2,5 +2,5 @@
 
 require 'rails_helper'
 
-RSpec.describe ProfilesController, type: :controller do
+RSpec.describe AdminController, type: :controller do
 end
