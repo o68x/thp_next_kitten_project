@@ -27,6 +27,8 @@ class User < ApplicationRecord
 
   after_create :create_profile, :create_cart
 
+  after_create :send_email
+
   has_one  :profile, dependent: :destroy
   has_many :carts, dependent: :destroy
 
@@ -43,6 +45,10 @@ class User < ApplicationRecord
 
   def current_cart
     carts.find_by(status: false)
+  end
+
+  def send_email
+    UserMailer.welcome_email(self).deliver_now
   end
 
   private
