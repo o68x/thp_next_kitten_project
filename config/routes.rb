@@ -3,7 +3,10 @@
 Rails.application.routes.draw do
   # root 'static_pages#home'
   devise_for :users
+
+  # minimal carts and cats routes for dev purposes
   resources :cats
-  # root 'cats#index'
+  resources :cart_cats, only: [:create]
+
   root 'cats#index'
 end

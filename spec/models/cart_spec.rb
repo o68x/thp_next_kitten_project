@@ -27,7 +27,7 @@ RSpec.describe Cart, type: :model do
     subject(:new_cart) { described_class.new }
   end
 
-  describe 'records' do
+  describe 'Records' do
     describe 'associations' do
       it { is_expected.to belong_to(:user) }
       it { is_expected.to have_many(:cart_cats) }
@@ -36,6 +36,16 @@ RSpec.describe Cart, type: :model do
     describe 'validations' do
       it { is_expected.to validate_presence_of(:user_id) }
       it { is_expected.to validate_inclusion_of(:status).in_array([true, false]) }
+      xit('#TODO: conditional validation of presence?') { is_expected.to validate_presence_of(:order_placed) }
+    end
+  end
+
+  describe 'Cart status' do
+    context 'when false (not ordered)' do
+      pending("order_placed is nil")
+    end
+
+    context 'when true (ordered)' do
       xit('TODO: conditional validation of presence?') { is_expected.to validate_presence_of(:order_placed) }
     end
   end

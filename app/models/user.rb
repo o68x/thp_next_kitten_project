@@ -27,6 +27,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  after_create :create_profile, :create_cart
+
   has_one  :profile, dependent: :destroy
   has_many :carts, dependent: :destroy
 
@@ -35,4 +37,24 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: true,
             format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
+
+  # This is a devise helper methode
+  def after_database_authentication
+    set_current_cart
+  end
+
+  def current_cart
+    carts.find_by(status: false)
+  end
+
+  private
+
+  def create_cart
+    carts.create!
+  end
+
+  def set_current_cart
+    # create a new cart if none open (e.g. status = 0)
+    carts.find_by(status: false) || create_cart
+  end
 end
