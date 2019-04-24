@@ -7,8 +7,6 @@
 #  id                     :bigint(8)        not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  first_name             :string
-#  last_name              :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -23,7 +21,7 @@
 
 FactoryBot.define do
   factory :user do
-    email { Faker::Internet.unique.safe_email }
-    password { "password" }
+    email    { Faker::Internet.unique.safe_email }
+    password { Faker::Internet.password }
   end
 end
