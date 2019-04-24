@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   resources :cats
   resources :cart_cats, only: [:create]
 
+  namespace :admin do
+    resources :cats
+    # root 'admin#index' not created yet
+  end
   root 'cats#index'
 end
