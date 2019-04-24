@@ -40,4 +40,16 @@ RSpec.describe User, type: :model do
       it { is_expected.to have_many(:carts) }
     end
   end
+
+  describe "#create" do
+    user = FactoryBot.create(:user)
+
+    it 'creates a profile' do
+      expect(user.profile.user_id).to eq(user.id)
+    end
+
+    it 'create a first cart' do
+      expect(user.carts.length).to eq(1)
+    end
+  end
 end
