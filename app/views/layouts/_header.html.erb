@@ -1,0 +1,47 @@
+<header class="header-sticky header-dark">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+       <%= link_to 'Kitten Project', root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav align-items-center mr-auto">
+          <li class="nav-item">
+            <%= link_to 'Home', root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown dropdown-mega">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Components
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown-1">
+              <div class="row">
+                <div class="col">
+                  <ul class="mega-list">
+                    <li><a href="components/index.html" class="highlight">Getting Started</a></li>
+                    <li><a href="components/features.html">Features</a></li>
+                  </ul>
+                </div>
+                </div>
+              </div>
+          </li>
+        </ul>
+          <ul class="navbar-nav align-items-center mr-0">
+            <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <a><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></a></li>
+            <li class="nav-item dropdown">
+              <%= link_to "Profile", edit_user_registration_path, class: "nav-link" %>
+            </li>
+        <% else %>
+            <li class="nav-item dropdown">
+              <%= link_to "Log in", new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+            </li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

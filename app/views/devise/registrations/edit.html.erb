@@ -1,0 +1,174 @@
+<section class=" bg-purple text-white pattern",
+         data-top-top="transform: translateY(0px);">
+<div class="container">
+  <div class="row justify-content-center align-items-end vh-20 mb-4">
+    <div class="col col-md-10 col-lg-8">
+      <div class="row align-items-center">
+        <div class="col-4 col-lg-3">
+          <img class="mr-3 avatar avatar-xl rounded" src="../../assets/images/demo/user-2.jpg" alt="Generic placeholder image">
+        </div>
+        <div class="col">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <h2 class="mb-0"><b><%= current_user.email %></b></h2>
+              <span class="text-muted"><%= resource_name.to_s.humanize %></span>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section class="bg-light p-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-md-10 col-lg-8">
+        <div class="nav nav-tabs mb-1">
+          <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-1">Profile</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Connections</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Groups</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-4">Settings</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-5">Payments</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="bg-light pt-2">
+
+  <div class="container">
+    <div class="tab-content" id="demo-2">
+
+      <!-- tab info -->
+      <div class="tab-pane show active" id="demo-2-1" role="tabpanel" aria-labelledby="demo-2-1">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+
+            <!-- stats -->
+            <div class="row gutter-1 mb-2">
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed bg-primary text-white">
+                    <div class="equal-header">
+                      <b class="h2">89</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">friends</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2">14</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">likes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2">9</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">articles</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2">119</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">following</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>git
+            <div class="row mb-1">
+              <div class="col">
+                <article class="card">
+                  <div class="card-header">
+                    <div class="row align-items-center">
+
+                      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %>
+
+                        <div class="form-group">
+                          <%= f.label :email, class: "text-dark" %><br />
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                        </div>
+
+                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                        <% end %>
+
+                        <div class="form-group">
+                          <%= f.label :password, placeholder: "(leave blank if you don't want to change it)", class: "text-dark" %> <br />
+                          <%= f.password_field :password, autocomplete: "new-password" %>
+                          <% if @minimum_password_length %>
+                            <br />
+                            <small><%= @minimum_password_length %> characters minimum</small>
+                          <% end %>
+                        </div>
+
+                        <div class="form-group">
+                          <%= f.label :password_confirmation, class: "text-dark"%><br />
+                          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                        </div>
+
+                        <div class="form-group">
+                          <%= f.label :current_password, class: "text-dark" %> <br />
+                          <%= f.password_field :current_password, autocomplete: "current-password" %>
+                        </div>
+                        </br>
+                        <div>
+                          <%= f.submit "Update", class:"btn btn-primary"  %>
+                        </div>
+                      <% end %>
+
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+
+<section class="bg-light p-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-md-10 col-lg-8">
+        <div class="nav nav-tabs mb-1">
+          <h4>Cancel my account</h4><br/>
+          <div class="form-group">
+            <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class:"btn btn-primary"%>
+          </div>
+        </div>
+    </div>
+</div>
+  </div>
+</section>

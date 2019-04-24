@@ -1,0 +1,48 @@
+<section class="bg-purple text-white pattern"
+         data-top-top="transform: translateY(0px);"
+         data-top-bottom="transform: translateY(250px);">
+  <div class="container pt-5">
+    <div class="row mb-2">
+      <div class="col-md-8 col-lg-6">
+        <h2>Sign Up</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+                <small>(<%= @minimum_password_length %> characters minimum)</small>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+                <br />
+            <div class="actions">
+              <%= f.submit "Sign up" %>
+            </div>
+          <% end %>
+            <br/>
+          <%= render "devise/shared/links" %>
+      </div>
+      </ol>
+      </nav>
+    </div>
+  </div>
+  </div>
+</section>
