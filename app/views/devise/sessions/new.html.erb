@@ -1,0 +1,47 @@
+
+<section class="bg-purple text-white pattern"
+         data-top-top="transform: translateY(0px);"
+         data-top-bottom="transform: translateY(250px);">
+  <div class="container pt-7">
+    <div class="row justify-content-center mb-2">
+      <div class="col-md-8 col-lg-6">
+        <h1>log In</h1>
+      </div>
+    </div>
+    <div class="row justify-content-center ">
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <div>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-group">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "current-password" %>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+                <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end %>
+
+              <div class="actions">
+                <%= f.submit "Log in" %>
+              </div>
+              <br />
+            <% end %>
+
+            <%= render "devise/shared/links" %>
+          </div>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
