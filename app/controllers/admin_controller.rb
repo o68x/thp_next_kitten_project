@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AdminController < ApplicationController
-  before_action :require_admin
+  #  before_action :require_admin
 
   def require_admin
     if current_user.is_admin?
