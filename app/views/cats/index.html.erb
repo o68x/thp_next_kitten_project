@@ -1,25 +1,64 @@
-<div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <% @cats.each do |c| %>
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                <div class="card-body">
-                <small class="text-muted"></b> <%= c.created_at.strftime("%m/%d/%Y") %></small>
 
-                <p class="card-title"><b> <%= c.title %>, <%=c.age%> mois </b></p>
-                <p class="card-text"><%= c.description %></p>
-
-
-                <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <%= link_to "View me!", cat_path(c.id), {class:"btn btn-outline-primary btn-sm"} %>
-                    <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
-                    <!-- , class: 'btn btn-outline-primary btn-sm' -->
+            <!-- cover -->
+            <section class="bg-purple text-white pattern"
+                     data-top-top="transform: translateY(0px);"
+                     data-top-bottom="transform: translateY(250px);">
+              <div class="container pt-10">
+                <div class="row mb-2">
+                  <div class="col-md-8 col-lg-6">
+                    <h1>Chatte picture</h1>
+                  </div>
                 </div>
-                <small class="text-muted"><b>prix:</b> <%= c.price %>€</small>
-            </div>
-        </div>
-    </div>
-</div>
-                <%end%>
+                <div class="row">
+                  <div class="col">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Inner Pages</li>
+                      </ol>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- / cover -->
+
+
+
+            <section class="bg-white">
+              <% if @cats.present? %>
+              <div class="container">
+                <div class="row gutter-1 gutter-md-3 demo-preview">
+                  <% @cats.each do |c| %>
+                  <div class="col-6 col-lg-4 ">
+                    <article class="card card-minimal">
+                        <%= image_tag c.item_picture, alt: 'Cat' %>
+                      <div class="card-body">
+                        <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
+                        <p class="card-title text-center">  <%= c.price %>€ </p>
+                      </div>
+                    </article>
+                  </div>
+                  <%end%>
+                  </div>
+                </div>
+              </div>
+            <%end%>
+            </section>
+
+
+
+            <!-- cta -->
+            <section class="pb-0 bg-dark text-white separator-bottom">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 text-center">
+                    <h1>Start building <b>beautiful & functional</b> landing pages in minutes.</h1>
+                    <a href="https://themes.getbootstrap.com/product/go-multipurpose-landing-page-template/" class="btn btn-lg btn-purple btn-rounded mt-2 py-2 px-7">Purchase - $49</a>
+                  </div>
+                  <div class="col-12 mt-10">
+                    <img src="" alt="Demo Pages Preview">
+                  </div>
+                </div>
+              </div>
+            </section>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module AdminController
-  class CatsController < Admin
+module Admin
+  class CatsController < AdminController
     def index
       @cats = Cat.all.order(:id).reverse
     end
