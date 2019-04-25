@@ -49,6 +49,11 @@ class User < ApplicationRecord
     carts.find_by(status: false)
   end
 
+  def set_current_cart
+    # create a new cart if none open (e.g. status = 0)
+    carts.find_by(status: false) || create_cart
+  end
+
   def send_email
     UserMailer.welcome_email(self).deliver_now
   end
@@ -57,10 +62,5 @@ class User < ApplicationRecord
 
   def create_cart
     carts.create!
-  end
-
-  def set_current_cart
-    # create a new cart if none open (e.g. status = 0)
-    carts.find_by(status: false) || create_cart
   end
 end
