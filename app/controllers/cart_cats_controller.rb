@@ -36,5 +36,7 @@ class CartCatsController < ApplicationController
     redirect_to cart_path(current_user.current_cart)
   end
 
+  def index_current_cart(cart_id); end
+
   delegate :current_cart, to: :current_user
 end

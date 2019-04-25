@@ -1,12 +1,16 @@
-<p><%= debug @cart %></p>
+<h1>Cart id: <%= @cart.id %></h1>
+<p> for user: <%=@cart.user_id %> (current: <%= current_user.id %>)</p>
 <ul>
 <% @cart.cart_cats.each do |cart_cat| %>
   <li>
-    <%= cart_cat.id %>
-    <%= cart_cat.price %>
-    <%= cart_cat.quantity %>
-    <%= cart_cat.cat_id %>
+    Cat id: <%= cart_cat.id %>
+    Price: <%= cart_cat.price %>
+    Quantity: <%= cart_cat.quantity %>
+    Id in cart: <%= cart_cat.cat_id %>
     <%= link_to "delete", cart_cat_path(cart_cat.id), method: :delete %>
   </li>
 <% end %>
+<%= link_to "empty cart", cart_path(@cart.id), method: :delete, class: "btn btn-outline-primary m-1" %>
+<%= link_to "checkout", "#", class: "btn btn-outline-primary m-1" %>
+
 </ul>
