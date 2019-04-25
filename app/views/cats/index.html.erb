@@ -1,26 +1,6 @@
 
             <!-- cover -->
-            <section class="bg-purple text-white pattern"
-                     data-top-top="transform: translateY(0px);"
-                     data-top-bottom="transform: translateY(250px);">
-              <div class="container pt-10">
-                <div class="row mb-2">
-                  <div class="col-md-8 col-lg-6">
-                    <h1>Chatte picture</h1>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Inner Pages</li>
-                      </ol>
-                    </nav>
-                  </div>
-                </div>
-              </div>
-            </section>
+          <%= render 'banner' %>
             <!-- / cover -->
 
 
@@ -32,7 +12,11 @@
                   <% @cats.each do |c| %>
                   <div class="col-6 col-lg-4 ">
                     <article class="card card-minimal">
+                      <%if c.item_picture.attached?%>
                         <%= image_tag c.item_picture, alt: 'Cat' %>
+                      <%else%>
+                        <p>=== Come back soon! ===</p>
+                      <%end%>
                       <div class="card-body">
                         <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
                         <p class="card-title text-center">  <%= c.price %>€ </p>
