@@ -7,6 +7,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 sleep(1)
 User.destroy_all
@@ -23,11 +24,13 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
   )
 end
 
-1.upto(10) do |_i|
-  Cat.create!(
+1.upto(10) do
+  cat = Cat.create!(
     title: Faker::Artist.name,
     description: Faker::Lorem.questions(3),
     age: rand(1...8).to_i,
     price: rand(80..500).to_f
   )
+  dl_cat_image = URI.parse(Faker::LoremFlickr.image).open
+  cat.item_picture.attach(io: dl_cat_image, filename: 'cat_image.jpg', content_type: "image/jpeg")
 end
