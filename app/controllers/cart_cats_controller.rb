@@ -34,7 +34,7 @@ class CartCatsController < ApplicationController
     @cart_cat = CartCat.find(params[:id])
     @cart_cat.destroy
     redirect_to cart_path(current_user.current_cart)
-  end  
+  end
 
   delegate :current_cart, to: :current_user
 end
