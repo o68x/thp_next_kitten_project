@@ -1,8 +1,22 @@
-<% @cats.each do |c| %>
-  <%= c.created_at.strftime("%m/%d/%Y") %>
+<%= render 'banner' %>
 
-  <b> <%= c.title %>, <%=c.age%> mois </b>
-  <%= c.description %>
-  <%=  cat_path(id:c.id)%>" role="button">M
-  <b>prix:</b> <%= c.price %>€</small>
-              <%end %>
+<section class="bg-white">
+  <div class="container">
+    <div class="row gutter-1 gutter-md-3 demo-preview">
+      <div class="col-6 col-lg-4 ">
+        <article class="card card-minimal">
+          <% if @cat.item_picture.attached?%>
+            <%=image_tag @cat.item_picture, alt: 'item picture'%>
+          <% else %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= @cat.title %></h5>
+              <p class="card-title text-center">  <%= @cat.price %>€ </p>
+              <p class="card-title text-center">  <%= @cat.description %>€ </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

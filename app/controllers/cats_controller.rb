@@ -6,6 +6,6 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cats = Cat.find(params[:id])
+    @cat = Cat.find(params[:id])
   end
 end
