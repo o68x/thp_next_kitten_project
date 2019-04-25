@@ -32,7 +32,7 @@
                   <% @cats.each do |c| %>
                   <div class="col-6 col-lg-4 ">
                     <article class="card card-minimal">
-                      <%if @c.item_picture.attached?%>
+                      <%if c.item_picture.attached?%>
                         <%= image_tag c.item_picture, alt: 'Cat' %>
                       <%else%>
                         <p>=== Come back soon! ===</p>
