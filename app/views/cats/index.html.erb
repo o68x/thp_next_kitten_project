@@ -32,7 +32,11 @@
                   <% @cats.each do |c| %>
                   <div class="col-6 col-lg-4 ">
                     <article class="card card-minimal">
+                      <%if @c.item_picture.attached?%>
                         <%= image_tag c.item_picture, alt: 'Cat' %>
+                      <%else%>
+                        <p>=== Come back soon! ===</p>
+                      <%end%>
                       <div class="card-body">
                         <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
                         <p class="card-title text-center">  <%= c.price %>€ </p>
