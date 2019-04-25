@@ -52,6 +52,7 @@ class User < ApplicationRecord
   def set_current_cart
     # create a new cart if none open (e.g. status = 0)
     carts.find_by(status: false) || create_cart
+  end
 
   def send_email
     UserMailer.welcome_email(self).deliver_now
