@@ -1,0 +1,12 @@
+<p><%= debug @cart %></p>
+<ul>
+<% @cart.cart_cats.each do |cart_cat| %>
+  <li>
+    <%= cart_cat.id %>
+    <%= cart_cat.price %>
+    <%= cart_cat.quantity %>
+    <%= cart_cat.cat_id %>
+    <%= link_to "delete", cart_cat_path(cart_cat.id), method: :delete %>
+  </li>
+<% end %>
+</ul>

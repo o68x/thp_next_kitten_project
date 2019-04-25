@@ -34,8 +34,9 @@
                     <article class="card card-minimal">
                         <img class="card-img card-img-container" src="" alt="About">
                       <div class="card-body">
-                        <h5 class="card-title text-center"><%= link_to 'c.title', cat_path(id:c.id)%></h5>
+                        <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
                         <p class="card-title text-center">  <%= c.price %>€ </p>
+                        <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
                       </div>
                     </article>
                   </div>

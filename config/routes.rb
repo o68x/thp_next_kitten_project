@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   # minimal carts and cats routes for dev purposes
   resources :cats
-  resources :cart_cats, only: [:create]
+  resources :cart_cats, only: [:create, :destroy]
+  resources :carts
 
   root 'cats#index'
 end
