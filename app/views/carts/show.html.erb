@@ -1,10 +1,16 @@
-<div class="container">
-  <section class="hero hero-with-header">
-    <div class="pb-5 text-center">
-      <h1>Cart id: <%= @cart.id %></h1>
-      <p> for user: <%= @cart.user_id %> (current: <%= current_user.id %>)</p>
-    </div>
-  </section>
+<div class="container-fluid">
+    <section class="bg-purple text-white pattern"
+    data-top-top="transform: translateY(0px);"
+    data-top-bottom="transform: translateY(250px);">
+        <div class="container pt-10">
+            <div class="row mb-2 pb-2">
+                <div class="col-md-8 col-lg-6">
+                    <h1>Panier <%= @cart.id %></h1>
+                    <p><%= @cart.user.email %></p>
+                </div>  
+            </div>
+        </div>
+    </section>
   <section>
     <div class="container">
       <!-- TODO: fix spacing -->
@@ -25,6 +31,7 @@
                 <%= link_to "Continue Shopping", cats_path, class: "btn btn-outline-primary btn-sm m-1" %>  
               </span>
               <span class="w-80"></span>
+              <% if !@cart.total_cart_price.zero? %>
               <span class="align-content-end">
                   <%= form_tag charges_path do %>
                   <article>
@@ -48,11 +55,13 @@
               </span>
               <span class="w-10"><%= link_to "empty cart", cart_path(@cart.id), method: :delete, class: "btn btn-outline-primary btn-sm m-1" %>
               </span>
+              <% end %>
             </li>
           </ul>
         </div>
         <div class="col-md-2">
-          <h4>Some things</h4>
+          <h4>Paiement</h4>
+          <p>Votre paiement est sécurisé par Stripe.</p>
         </div>
       </div>
     </div>

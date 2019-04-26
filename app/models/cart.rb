@@ -28,6 +28,10 @@ class Cart < ApplicationRecord
   validates :status, inclusion: { in: [true, false] }
   validates :order_placed, presence: true, if: :status
 
+  def cart_user
+    User.find(user_id)
+  end
+  
   def total_cart_price
     cart_cats.map(&:total_cat_price).sum
   end
