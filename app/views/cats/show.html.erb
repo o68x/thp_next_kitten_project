@@ -1,22 +1,29 @@
 <%= render 'banner' %>
 
-<section class="bg-white">
-  <div class="container">
-    <div class="row gutter-1 gutter-md-3 demo-preview">
-      <div class="col-6 col-lg-4 ">
-        <article class="card card-minimal">
-          <% if @cat.item_picture.attached?%>
-            <%=image_tag @cat.item_picture, alt: 'item picture'%>
-          <% else %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title text-center"><%= @cat.title %></h5>
-              <p class="card-title text-center">  <%= @cat.price %>€ </p>
-              <p class="card-title text-center">  <%= @cat.description %>€ </p>
+    <section id="default" class="component">
+      <div class="tab-content" id="component-1">
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <% if @cat.item_picture.attached?%>
+              <%=image_tag @cat.item_picture, alt: 'item picture'%>
+            <% else %>
+                <%= image_tag("example.jpg")%>
+            <% end %>
+            <div class="card-body text-center">
+              <h5 class="card-title"><%= @cat.title %></h5>
+              <p class="card-text"><%= @cat.description %></p>
             </div>
-          </article>
+            <ul class="list-group list-group-flush text-center">
+              <li class="list-group-item">Age : <%= @cat.age%> mois</li>
+              <li class="list-group-item">Price : <%= @cat.price %> €</li>
+            </ul>
+            <div class="card-body text-center">
+              <a><%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: @cat.id, price: @cat.price}, {class:"btn btn-outline-primary btn-sm"} %></a>
+              <a><%= link_to "Home", root_path, class: "card-link" %></a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
+

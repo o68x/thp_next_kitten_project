@@ -1,49 +1,55 @@
 
-            <!-- cover -->
-          <%= render 'banner' %>
-            <!-- / cover -->
+<!-- cover -->
+ <%= render 'banner' %>
+<!-- / cover -->
 
 
 
-            <section class="bg-white">
-              <% if @cats.present? %>
-              <div class="container">
-                <div class="row gutter-1 gutter-md-3 demo-preview">
-                  <% @cats.each do |c| %>
-                  <div class="col-6 col-lg-4 ">
-                    <article class="card card-minimal">
-                      <%if c.item_picture.attached?%>
-                        <%= image_tag c.item_picture, alt: 'Cat' %>
-                      <%else%>
-                        <p>=== Come back soon! ===</p>
-                      <%end%>
-                      <div class="card-body">
-                        <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
-                        <p class="card-title text-center">  <%= c.price %>€ </p>
-                        <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
+    <section id="default" class="component">
+      <div class="tab-pane show active bg-light" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
+        <div class="component-example">
+
+        <% if @cats.present? %>
+
+          <div class="container mt-4">
+            <div class="row">
+
+            <% @cats.each do |c| %>
+
+              <div class="col-6 col-lg-4 ">
+                <article class="card card-minimal">
+
+                <%if c.item_picture.attached?%>
+                  <%= image_tag c.item_picture, alt: 'Cat' %>
+                <%else%>
+                  <%= image_tag("example.jpg")%>
+                <%end%>
+
+                  <div class="card-body">
+                    <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
+                      <p class="card-title text-center">  <%= c.price %>€ </p>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row align-items-center">
+                      <div class="col-8">
+                        <%= link_to "", cat_path(id:c.id), class: 'btn btn-ico btn-rounded btn-outline-primary' %>
                       </div>
-                    </article>
+                      <div class="col-4 text-right">
+                        <ul class="list-inline mb-0">
+                          <li class="list-inline-item">
+                            <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  <%end%>
-                  </div>
-                </div>
+                </article>
               </div>
             <%end%>
-            </section>
+          </div>
+          
+        </div>
+      </div>
+    <%end%>
+  </section>
 
-
-
-            <!-- cta -->
-            <section class="pb-0 bg-dark text-white separator-bottom">
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-md-10 text-center">
-                    <h1>Start building <b>beautiful & functional</b> landing pages in minutes.</h1>
-                    <a href="https://themes.getbootstrap.com/product/go-multipurpose-landing-page-template/" class="btn btn-lg btn-purple btn-rounded mt-2 py-2 px-7">Purchase - $49</a>
-                  </div>
-                  <div class="col-12 mt-10">
-                    <img src="" alt="Demo Pages Preview">
-                  </div>
-                </div>
-              </div>
-            </section>

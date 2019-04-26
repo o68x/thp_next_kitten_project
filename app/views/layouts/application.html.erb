@@ -8,14 +8,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= favicon_link_tag asset_path('favicon.png') %>
   </head>
 
   <body>
 
   <%=render 'layouts/header' %>
+
+  
   <%= yield %>
+
   <%=render 'layouts/footer' %>
-  <!--<script src="vendor/js/vendor.js"></script>
-  <script src="vendor/js/app.js"></script>-->
+    
+<%# <script src="vendor/js/vendor.js"></script>
+<script src="vendor/js/app.js"></script> %>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
   </body>
 </html>
