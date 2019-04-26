@@ -6,7 +6,7 @@
     {
       "url": "heroku/ruby"
     }
-  ],  
+  ],
   "env": {
     "LANG": {
       "required": true
@@ -43,7 +43,13 @@
     },
     "SECRET_KEY": {
       "required": true
-    }
+    },
+    "SENDGRID_LOGIN": {
+      "required": true
+    },
+    "SENDGRID_PWD": {
+      "required": true
+    },
   },
   "formation": {
     "web": {
