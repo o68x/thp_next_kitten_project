@@ -33,4 +33,12 @@ class CartCat < ApplicationRecord
   def increment_quantity
     increment(:quantity)
   end
+
+  def total_cat_price
+    price * quantity
+  end
+
+  def include_cat_info
+    Cat.find(cat_id)
+  end
 end

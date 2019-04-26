@@ -6,7 +6,7 @@
     {
       "url": "heroku/ruby"
     }
-  ],
+  ],  
   "env": {
     "LANG": {
       "required": true
@@ -36,6 +36,12 @@
       "required": true
     },
     "AWS_REGION": {
+      "required": true
+    },
+    "PUBLISHABLE_KEY": {
+      "required": true
+    },
+    "SECRET_KEY": {
       "required": true
     }
   },

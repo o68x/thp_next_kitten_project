@@ -27,7 +27,7 @@ end
 1.upto(10) do
   cat = Cat.create!(
     title: Faker::Artist.name,
-    description: Faker::Lorem.questions(3),
+    description: Faker::Lorem.questions(3).join(" "),
     age: rand(1...8).to_i,
     price: rand(80..500).to_f
   )
