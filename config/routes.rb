@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :cats
   resources :cart_cats, only: %i[create destroy]
   resources :carts
+  resources :charges
 
   namespace :admin do
     resources :cats
