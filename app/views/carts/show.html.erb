@@ -47,10 +47,17 @@
                     <%= hidden_field_tag :cart_id, @cart.id %>
                   </article>
                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                          data-key="<%= ENV['PUBLISHABLE_KEY'] %>"
-                          data-description="Votre commande"
-                          data-amount="<%= @cart.total_cart_price %> * 100"
-                          data-locale="auto"></script>
+                    data-key="<%= ENV['PUBLISHABLE_KEY'] %>"
+                    data-amount="<%= @cart.total_cart_price_in_cents %>"
+                    data-email="<%= @cart.user.email %>"
+                    data-name="NextKittens"
+                    data-description="Next kitten picture"
+                    data-panel-label="Paiement de {{amount}}"
+                    data-panel-label="Paiement par carte"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="fr"
+                    data-currency="EUR">
+                  </script>
                 <% end %>
               </span>
               <span class="w-10"><%= link_to "empty cart", cart_path(@cart.id), method: :delete, class: "btn btn-outline-primary btn-sm m-1" %>
