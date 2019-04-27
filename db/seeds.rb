@@ -8,23 +8,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
+ActionMailer::Base.perform_deliveries = false
 
 sleep(1)
+puts "Destroying previous records"
 User.destroy_all
 Cat.destroy_all
 
 sleep(1)
+puts "Resetting sequence"
 ActiveRecord::Base.connection.reset_pk_sequence!('cats')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
-1.upto(10) do |_i|
+(1..10).to_a.each do |i|
+  puts "Creating User #{i}"
   User.create!(
-    email: Faker::Internet.email,
-    password: Faker::Number.number(8)
+    email: "#{Faker::Internet.unique.username}@yopmail.com",
+    password: "password"
   )
 end
 
-1.upto(10) do
+(1..10).to_a.each do |i|
+  puts "Creating Cat #{i}"
   cat = Cat.create!(
     title: Faker::Artist.name,
     description: Faker::Lorem.questions(3).join(" "),
