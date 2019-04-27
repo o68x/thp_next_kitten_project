@@ -54,4 +54,7 @@ RSpec/EmptyExampleGroup:
 # Prevent proper overriding
 RSpec/LetSetup:
   Enabled: false
-  
+
+# Don't error on 'puts', they are useful
+Rails/Output:
+  Enabled: false
