@@ -1,5 +1,36 @@
-<section class="m-5" style="margin-top: 100px;">
-  <!-- TODO: use a modal instead -->
-<h2>Thanks, your payment was proceeded!</h2>
-<%= link_to 'Retour', root_path %>
-</section>
+<div class="container-fluid">
+  <section class="bg-purple text-white pattern" data-top-top="transform: translateY(0px);"
+    data-top-bottom="transform: translateY(250px);">
+    <div class="container pt-10">
+      <div class="row mb-2 pb-2">
+        <div class="col-md-8 col-lg-6">
+          <h1>Votre commande <%= @cart.id %></h1>
+          <p><%= @cart.user.email %></p>
+          <pre>create.html.erb</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <!-- TODO: fix spacing -->
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Contenu</h5>
+            <div class="card-body">
+                <p class="card-text">Votre commande est validée et prête à être téléchargée ! Un mail vous à aussi été envoyé avec ce lien.</p>
+                <ul class="list-group bg-light mb-2">
+                    <li class="list-group-item">Une photo</li>
+                    <li class="list-group-item">Une autre photo</li>
+                    <li class="list-group-item">Une dernière photo</li>
+                </ul>
+              <p class="card-text">Vous pourrez également retrouver votre commande dans votre espace utilisateur.</p>
+              <%= link_to "Télécharger", download_cart_zip_path(cart: @cart.id), class: "btn btn-primary" %></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -240,6 +240,7 @@ GEM
       rubocop (>= 0.60.0)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
+    rubyzip (1.2.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -320,6 +321,7 @@ DEPENDENCIES
   rspec-rails (~> 3.7, >= 3.7.2)
   rubocop
   rubocop-rspec
+  rubyzip (~> 1.2.2)
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
   simplecov (~> 0.16.1)

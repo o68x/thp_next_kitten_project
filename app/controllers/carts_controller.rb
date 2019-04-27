@@ -13,4 +13,9 @@ class CartsController < ApplicationController
     current_user.set_current_cart
     redirect_to root_path
   end
+
+  def download_cart_zip
+    @cart = Cart.find(params[:cart])
+    send_file(ZipCartContent.perform(cart: @cart.id), type: 'application/zip', disposition: 'attachment', filename: 'NextKittens')
+  end
 end

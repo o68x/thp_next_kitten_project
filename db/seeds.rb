@@ -10,12 +10,12 @@
 require 'open-uri'
 
 sleep(1)
-User.destroy_all
-Cat.destroy_all
+# User.destroy_all
+# Cat.destroy_all
 
 sleep(1)
-ActiveRecord::Base.connection.reset_pk_sequence!('cats')
-ActiveRecord::Base.connection.reset_pk_sequence!('users')
+# ActiveRecord::Base.connection.reset_pk_sequence!('cats')
+# ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 1.upto(10) do |_i|
   User.create!(
@@ -24,7 +24,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
   )
 end
 
-1.upto(10) do
+1.upto(10) do |i|
+  puts "Seeding cat #{i}"
   cat = Cat.create!(
     title: Faker::Artist.name,
     description: Faker::Lorem.questions(3).join(" "),
