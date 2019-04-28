@@ -13,6 +13,8 @@ module ZipCartContent
       create_temporary_zip_file(files)
     end
 
+    private
+
     def save_files_on_server(files)
       # get a temporary folder and create it
       temp_folder = File.join(Dir.tmpdir, "cart#{@cart.id}")
