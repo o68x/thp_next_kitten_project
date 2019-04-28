@@ -19,13 +19,11 @@
           <div class="card">
             <h5 class="card-header">Contenu</h5>
             <div class="card-body">
-                <p class="card-text">Votre commande est validée et prête à être téléchargée ! Un mail vous à aussi été envoyé avec ce lien.</p>
-                <ul class="list-group bg-light mb-2">
-                    <li class="list-group-item">Une photo</li>
-                    <li class="list-group-item">Une autre photo</li>
-                    <li class="list-group-item">Une dernière photo</li>
-                </ul>
-              <p class="card-text">Votre commande restera disponible dans votre espace utilisateur.</p>
+              <p class="card-text">Votre commande a été validée et est prête à être téléchargée ! Un mail vous à aussi été envoyé avec ce lien.</p>
+              <ul class="list-group bg-light mb-2">
+                <%= render partial: 'ordered_cat', collection: @cart.cart_cats %>
+              </ul>
+              <p class="card-text">Votre commande restera disponible dans votre <%= link_to "espace utilisateur", edit_user_registration_path %>.</p>
               <%= link_to "Télécharger", download_cart_zip_path(cart: @cart.id), class: "btn btn-primary btn-lg" %></a>
             </div>
           </div>

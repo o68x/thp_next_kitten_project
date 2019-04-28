@@ -7,8 +7,7 @@ module ZipCartContent
       @cart = Cart.find(params[:cart])
       @images = @cart.cart_cats.all.map(&:include_cat_info)
       filename = 'NextKittens_Order.zip'
-      tempfile = Tempfile.new(filename)
-      puts tempfile.path
+      Tempfile.new(filename)
       files = save_files_on_server(@images)
       create_temporary_zip_file(files)
     end
@@ -43,8 +42,6 @@ module ZipCartContent
         Zip::File.open(temp_file.path, Zip::File::CREATE) do |zip|
           filepaths.each do |filepath|
             filename = File.basename filepath
-            puts filename
-            puts "#" * 50
             # add file into the zip
             zip.add filename, filepath
           end
