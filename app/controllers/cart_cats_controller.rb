@@ -16,8 +16,8 @@ class CartCatsController < ApplicationController
         @cart_cat.increment_quantity
       else
         @cart_cat = CartCat.new(cart_id: current_cart.id, cat_id: params[:id], price: params[:price])
-        # TODO: flash message on cat save
       end
+      # TODO: flash message on cat save
       if @cart_cat.save
         flash[:success] = "Cat was successfully saved to cart."
       else

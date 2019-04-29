@@ -28,3 +28,4 @@
 .vscode/settings.json
 .env
 coverage
+.vscode/tasks.json
