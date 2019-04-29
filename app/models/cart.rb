@@ -41,6 +41,10 @@ class Cart < ApplicationRecord
     total_cart_price * 100
   end
 
+  def count_cats
+    CartCat.where(cart_id: id).count
+  end
+
   def zipfile
     ZipCartContent.perform(cart: id)
   end

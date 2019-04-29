@@ -17,6 +17,6 @@ class CartsController < ApplicationController
   def download_cart_zip
     @cart = Cart.find(params[:cart])
     send_data(ZipCartContent.perform(cart: @cart.id), type: 'application/zip', filename: "NextKittensOrder#{@cart.order_placed.to_formatted_s(:number)[0..-7]}.zip")
-    # TODO: where should we redirect here ?
+    # TODO: CTRL where should we redirect here ?
   end
 end
