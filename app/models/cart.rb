@@ -35,4 +35,8 @@ class Cart < ApplicationRecord
   def total_cart_price
     cart_cats.map(&:total_cat_price).sum
   end
+
+  def total_cart_price_in_cents
+    total_cart_price * 100
+  end
 end
