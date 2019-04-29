@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   resources :carts
   resources :charges
 
+  get 'admin', to: 'admin#index_admin'
+
   namespace :admin do
     resources :cats
-    # root 'admin#index' not created yet
   end
   root 'cats#index'
 end
