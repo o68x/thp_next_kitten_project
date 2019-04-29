@@ -21,7 +21,7 @@ class CartCatsController < ApplicationController
       if @cart_cat.save
         flash[:success] = "Cat was successfully saved to cart."
       else
-        flash[:alert] = "There was a problem. Cat was not saved to cart."
+        flash[:alert] = "Something went wrong: cat could not be saved to cart."
       end
     else
       # TODO: change this to more user friendly redirection?

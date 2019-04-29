@@ -43,26 +43,21 @@
                 <div id="error_explanation">
                   <p><%= flash[:error] %></p>
                 </div>
-                    <% end %>
-                  <label style="font-size: 12pt; color: black;">
-                    <span>Total : <%= @cart.total_cart_price %></span>
-                    <%= hidden_field_tag :amount, @cart.total_cart_price %>
-                  </label>
-                  <%= hidden_field_tag :cart_id, @cart.id %>
-                </article>
-                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= ENV['PUBLISHABLE_KEY'] %>"
-                  data-amount="<%= @cart.total_cart_price_in_cents %>"
-                  data-email="<%= @cart.user.email %>"
-                  data-name="NextKittens"
-                  data-description="The best kitten pictures!"
-                  data-panel-label="Paiement de {{amount}}"
-                  data-image="<%= asset_url('Kitten_logo.png') %>"
-                  data-allow-remember-me="false"
-                  data-locale="fr"
-                  data-currency="EUR">
-                </script>
                 <% end %>
+                <label style="font-size: 12pt; color: black;">
+                  <span>Total : <%= @cart.total_cart_price %></span>
+                  <%= hidden_field_tag :amount, @cart.total_cart_price %>
+                </label>
+                <%= hidden_field_tag :cart_id, @cart.id %>
+              </article>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= ENV['PUBLISHABLE_KEY'] %>" data-amount="<%= @cart.total_cart_price_in_cents %>"
+                data-email="<%= @cart.user.email %>" data-name="NextKittens"
+                data-description="The best kitten pictures!" data-panel-label="Paiement de {{amount}}"
+                data-image="<%= asset_url('Kitten_logo.png') %>" data-allow-remember-me="false" data-locale="fr"
+                data-currency="EUR">
+              </script>
+              <% end %>
             </span>
             <span
               class="w-10"><%= link_to "empty cart", cart_path(@cart.id), method: :delete, class: "btn btn-outline-primary btn-sm m-1" %>
@@ -73,7 +68,28 @@
       </div>
       <div class="col-md-2">
         <h4>Paiement</h4>
-        <p>Votre paiement est sécurisé par Stripe.</p>
+        <div class="accordion-group accordion-group-steps" data-accordion-group>
+          <div class="accordion open" data-accordion>
+            <div class="accordion-control" data-control>
+              <h5>Payement</h5>
+            </div>
+            <div class="accordion-content" data-content>
+              <div>
+                <p>Payement sécurisé avec Stripe</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion open" data-accordion>
+            <div class="accordion-control" data-control>
+              <h5>Téléchargement</h5>
+            </div>
+            <div class="accordion-content" data-content>
+              <div>
+                <p>Téléchargement</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
