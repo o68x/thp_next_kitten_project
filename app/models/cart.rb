@@ -36,6 +36,10 @@ class Cart < ApplicationRecord
     cart_cats.map(&:total_cat_price).sum
   end
 
+  def total_cart_price_in_cents
+    total_cart_price * 100
+  end
+
   def zipfile
     ZipCartContent.perform(cart: id)
   end
