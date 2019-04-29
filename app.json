@@ -49,7 +49,7 @@
     },
     "SENDGRID_PWD": {
       "required": true
-    },
+    }
   },
   "formation": {
     "web": {
