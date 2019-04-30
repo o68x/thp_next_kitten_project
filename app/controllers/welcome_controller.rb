@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
 class WelcomeController < ApplicationController
-  def index
-    body
-  end
+  def index; end
 end
