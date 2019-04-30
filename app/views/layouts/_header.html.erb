@@ -20,20 +20,29 @@
                 <%= link_to "Profile", edit_user_registration_path, class: "nav-link" %>
               </li>
               <%end%>
-              <li class="nav-item">
-                <%= link_to "Cart", cart_path(current_user.current_cart), class: "nav-link" %>
-              </li>
-          <% else %>
-              <li class="nav-item dropdown">
-                <%= link_to "Sign in", new_user_registration_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item dropdown">
-                <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-              </li>
-          <% end %>
+               <li class="nav-item">
+                <a id="drop_cart_btn" class="btn btn-outline-primary btn-sm">
+                    <!-- #TODO: CSS Get color right on scroll -->
+                    <span class="navbar-text nav-link">Cart&nbsp;</span>
+                    <small class="badge badge-pill badge-info">
+                      <%= current_cart.count_cats %>
+                    </small>
+                 </a>
+            </li>
+        <% else %>
+            <li class="nav-item dropdown">
+              <%= link_to "Sign in", new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+            </li>
+        <% end %>
         </ul>
       </div>
     </nav>
+    <% if user_signed_in? %>
+      <%= render 'carts/partials/cart_dropdown' %>
+    <% end %>
   </div>
 </header>
 

@@ -1,72 +1,96 @@
-<div class="container-fluid">
-    <section class="bg-purple text-white pattern"
-    data-top-top="transform: translateY(0px);"
-    data-top-bottom="transform: translateY(250px);">
-        <div class="container pt-10">
-            <div class="row mb-2 pb-2">
-                <div class="col-md-8 col-lg-6">
-                    <h1>Panier <%= @cart.id %></h1>
-                    <p><%= @cart.user.email %></p>
-                </div>  
-            </div>
-        </div>
-    </section>
-  <section>
-    <div class="container">
-      <!-- TODO: fix spacing -->
-      <div class="row">
-        <div class="col-md-10">
-          <h4>Votre panier</h4>
-          <ul class="list-group bg-light">
-            <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
-              <h6 class="flex-shrink-1 w-50">Nom</h6>
-              <span class="flex-shrink-0 w-10">Prix</span>
-              <span class="flex-shrink-0 w-10">Quantité</span>
-              <span class="flex-shrink-0 w-10">Total</span>
-              <span class="flex-shrink-0 w-20"> </span>
-            </li>
-            <%= render partial: 'cart_cat', collection: @cart.cart_cats %>
-            <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
-              <span class="w-20">
-                <%= link_to "Continue Shopping", cats_path, class: "btn btn-outline-primary btn-sm m-1" %>  
-              </span>
-              <span class="w-80"></span>
-              <% if !@cart.total_cart_price.zero? %>
-              <span class="align-content-end">
-                  <%= form_tag charges_path do %>
-                  <article>
-                    <% if flash[:error].present? %>
-                      <div id="error_explanation">
-                        <p><%= flash[:error] %></p>
-                      </div>
-                    <% end %>
-                    <label style="font-size: 12pt; color: black;">
-                      <span>Total : <%= @cart.total_cart_price %></span>
-                      <%= hidden_field_tag :amount, @cart.total_cart_price %>
-                    </label>
-                    <%= hidden_field_tag :cart_id, @cart.id %>
-                  </article>
-                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                          data-key="<%= ENV['PUBLISHABLE_KEY'] %>"
-                          data-description="Votre commande"
-                          data-amount="<%= @cart.total_cart_price %> * 100"
-                          data-locale="auto"></script>
+<section class="bg-purple text-white pattern" data-top-top="transform: translateY(0px);"
+  data-top-bottom="transform: translateY(250px);">
+  <div class="container pt-10">
+    <div class="row mb-2 pb-2">
+      <div class="col-md-8 col-lg-6">
+        <h1>Panier <%= @cart.id %></h1>
+        <p><%= @cart.user.email %></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <!-- TODO: CSS fix spacing -->
+    <div class="row">
+      <div class="col-md-10">
+        <h4>Votre panier</h4>
+        <ul class="list-group bg-light">
+          <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
+            <h6 class="flex-shrink-1 w-50">Nom</h6>
+            <span class="flex-shrink-0 w-10">Prix</span>
+            <span class="flex-shrink-0 w-10">Quantité</span>
+            <span class="flex-shrink-0 w-10">Total</span>
+            <span class="flex-shrink-0 w-20"> </span>
+          </li>
+          <%= render partial: 'carts/partials/show_list', collection: @cart.cart_cats %>
+          <% if @cart.cart_cats.empty? %>
+          <div class="d-flex flex-column justify-content-center align-content-center align-items-center m-10">
+            <h5>Votre panier est actuellement vide !</h5>
+            <%= link_to "Commencer mes achats", root_path, class: "btn btn-primary btn-large" %>
+          </div>
+          <% end %>
+          <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
+            <span class="w-20">
+              <%= link_to "Continue Shopping", cats_path, class: "btn btn-outline-primary btn-sm m-1" %>
+            </span>
+            <span class="w-80"></span>
+            <% if !@cart.total_cart_price.zero? %>
+            <span class="align-content-end">
+              <%= form_tag charges_path do %>
+              <article>
+                <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
                 <% end %>
-              </span>
-              <span class="w-10"><%= link_to "empty cart", cart_path(@cart.id), method: :delete, class: "btn btn-outline-primary btn-sm m-1" %>
-              </span>
+                <label style="font-size: 12pt; color: black;">
+                  <span>Total : <%= @cart.total_cart_price %></span>
+                  <%= hidden_field_tag :amount, @cart.total_cart_price %>
+                </label>
+                <%= hidden_field_tag :cart_id, @cart.id %>
+              </article>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>" data-amount="<%= @cart.total_cart_price_in_cents %>"
+                data-email="<%= @cart.user.email %>" data-name="NextKittens"
+                data-description="The best kitten pictures!" data-panel-label="Paiement de {{amount}}"
+                data-image="<%= asset_url('Kitten_logo.png') %>" data-allow-remember-me="false" data-locale="fr"
+                data-currency="EUR">
+              </script>
               <% end %>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-2">
-          <h4>Paiement</h4>
-          <p>Votre paiement est sécurisé par Stripe.</p>
+            </span>
+            <span
+              class="w-10"><%= link_to "empty cart", cart_path(@cart.id), method: :delete, class: "btn btn-outline-primary btn-sm m-1" %>
+            </span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <h4>Paiement</h4>
+        <div class="accordion-group accordion-group-steps" data-accordion-group>
+          <div class="accordion open" data-accordion>
+            <div class="accordion-control" data-control>
+              <h5>Payement</h5>
+            </div>
+            <div class="accordion-content" data-content>
+              <div>
+                <p>Payement sécurisé avec Stripe</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion open" data-accordion>
+            <div class="accordion-control" data-control>
+              <h5>Téléchargement</h5>
+            </div>
+            <div class="accordion-content" data-content>
+              <div>
+                <p>Téléchargement</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
-  <section>
-    What else?
-  </section>
-</div>
+  </div>
+</section>

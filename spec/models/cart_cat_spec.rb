@@ -37,4 +37,13 @@ RSpec.describe CartCat, type: :model do
       it { is_expected.to validate_presence_of(:cart_id) }
     end
   end
+
+  describe '#increment_quantity' do
+    it 'increments the quantity by 1' do
+      subject { build :cart_cat, quantity: 1 }
+
+      subject.increment_quantity
+      expect(subject.quantity).to eq(2)
+    end
+  end
 end
