@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :cats
+    resources :carts
   end
   root 'cats#index'
 end

@@ -44,7 +44,7 @@ module Admin
       end
     end
 
-     def destroy
+    def destroy
       @cat = Cat.find(params[:id])
       @cat.destroy
       redirect_to admin_cats_path
