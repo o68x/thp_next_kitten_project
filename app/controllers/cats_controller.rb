@@ -2,7 +2,7 @@
 
 class CatsController < ApplicationController
   def index
-    @cats = Cat.all.order("created_at desc")
+    @cats = Cat.where('is_available').order("created_at desc")
   end
 
   def show
