@@ -41,7 +41,7 @@ RSpec.describe Cart, type: :model do
       it { is_expected.to validate_presence_of(:user_id) }
       context 'when status is true (ordered)' do
         it 'validates the presence of order_placed date' do
-          pending("#TODO: That's not gonna work")
+          pending("#TODO: RSPEC That's not gonna work")
           subject { build(:cart, status: false) }
           expect(subject).to validate_presence_of(:order_placed)
         end
@@ -86,7 +86,7 @@ RSpec.describe Cart, type: :model do
 
     describe '#zipfile' do
       it 'returns a non empty object' do
-        pending("#TODO: Should build the whole stuff, including attachments")
+        pending("#TODO: RSPEC Should build the whole stuff, including attachments")
         create(:cart)
         cat1 = create(:cat)
         cat2 = create(:cat)
