@@ -1,11 +1,11 @@
 <%= render 'banner' %>
-
+<%= link_to "Home", root_path, class: "card-link" %>
     <section id="default" class="component">
       <div class="tab-content" id="component-1">
-        <div class="col-md-6 col-lg-4">
+        <div class="container justify-content-center">
           <div class="card">
             <% if @cat.item_picture.attached?%>
-              <%=image_tag @cat.item_picture, alt: 'item picture'%>
+              <%=image_tag @cat.item_picture, alt: 'item picture', style: 'width: 60%', class:'mx-auto d-block'%>
             <% else %>
                 <%= image_tag("example.jpg")%>
             <% end %>
@@ -18,8 +18,7 @@
               <li class="list-group-item">Price : <%= @cat.price %> €</li>
             </ul>
             <div class="card-body text-center">
-              <a><%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: @cat.id, price: @cat.price}, {class:"btn btn-outline-primary btn-sm"} %></a>
-              <a><%= link_to "Home", root_path, class: "card-link" %></a>
+              <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: @cat.id, price: @cat.price}, {class:"btn btn-outline-primary btn-sm"} %>
             </div>
           </div>
         </div>

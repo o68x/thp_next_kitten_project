@@ -1,16 +1,5 @@
-<div class="container-fluid">
-    <section class="bg-purple text-white pattern"
-    data-top-top="transform: translateY(0px);"
-    data-top-bottom="transform: translateY(250px);">
-        <div class="container pt-10">
-            <div class="row mb-2 pb-2">
-                <div class="col-md-8 col-lg-6">
-                    <h1>Panier <%= @cart.id %></h1>
-                    <p><%= @cart.user.email %></p>
-                </div>  
-            </div>
-        </div>
-    </section>
+<%= render 'banner' %>
+
   <section>
     <div class="container">
       <!-- TODO: fix spacing -->
@@ -72,8 +61,5 @@
         </div>
       </div>
     </div>
-  </section>
-  <section>
-    What else?
   </section>
 </div>

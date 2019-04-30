@@ -1,31 +1,20 @@
-
 <!-- cover -->
  <%= render 'banner' %>
 <!-- / cover -->
-
-
-
     <section id="default" class="component">
       <div class="tab-pane show active bg-light" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
         <div class="component-example">
-
-        <% if @cats.present? %>
-
-          <div class="container mt-4">
+         <% if @cats.present? %>
+          <div class="container ">
             <div class="row">
-
-            <% @cats.each do |c| %>
-
-              <div class="col-6 col-lg-4 ">
+             <% @cats.each do |c| %>
+              <div class="col-6 col-lg-4 col-sm-12 ">
                 <article class="card card-minimal">
-
-                <%if c.item_picture.attached?%>
-
-                    <%= link_to (image_tag c.item_picture, alt: 'Cat', style:'width: 100%'), cat_path(id:c.id)  %>
+                 <%if c.item_picture.attached?%>
+                    <%= link_to (image_tag c.item_picture, alt: 'Cat', style:'width: 100%', class: 'transition'), cat_path(id:c.id)  %>
                 <%else%>
                   <%= image_tag("example.jpg")%>
                 <%end%>
-
                   <div class="card-body">
                     <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
                       <p class="card-title text-center">  <%= c.price %>€ </p>
@@ -39,7 +28,6 @@
                         </ul>
                       </div>
                     </div>
-
                 </article>
               </div>
             <%end%>
