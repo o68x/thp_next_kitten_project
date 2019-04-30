@@ -15,7 +15,7 @@ module Admin
       @cat.item_picture.attach(params[:item_picture])
 
       if @cat.save
-        redirect_to admin_cat_path(@cat.id), success: "Nouvel item créé !"
+        redirect_to cat_path(@cat.id), success: "Nouvel item créé !"
       else
         render 'new'
       end
@@ -37,14 +37,14 @@ module Admin
         @cat.item_picture.attach(params[:item_picture])
       end
 
-      if @item.update(cat_params)
+      if @cat.update(cat_params)
         redirect_to admin_cat_path(@cat.id), notice: "L'item a bien été mis à jour"
       else
         render :show
       end
     end
 
-    def destroy
+     def destroy
       @cat = Cat.find(params[:id])
       @cat.destroy
       redirect_to admin_cats_path
