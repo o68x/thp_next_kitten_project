@@ -14438,7 +14438,7 @@ header {
       border-radius: 0.25rem;
       margin: 15px;
       width: calc(100% - 30px);
-      background: #fff; } }
+      background: #fff0; } }
 
 @media (min-width: 1200px) {
   .header-sticky {
