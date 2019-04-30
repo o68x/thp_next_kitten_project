@@ -6,6 +6,12 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav align-items-center mr-auto">
+          <li class="nav-item">
+            <%= link_to "About Us", about_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Team Project", team_project_path, class: "nav-link"%>
+          </li>
         </ul>
           <ul class="navbar-nav align-items-center mr-0">
             <% if user_signed_in? %>

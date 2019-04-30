@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   root 'cats#index'
 
   # static_pages
-  get '/about', to: 'pages#about'
+  get 'about', to: 'static_pages#about'
+  get 'team_project', to: 'static_pages#team_project'
 end

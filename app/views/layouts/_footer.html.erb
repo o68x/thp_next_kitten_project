@@ -10,7 +10,11 @@
               <div class="col">
                 <br>
                 <br>
-                <h3><%= link_to "About Us", about_path %><h3>
+                 <ul class="list-group list-group-minimal">
+                  <li class="list-group-item"><%= link_to "About Us", about_path %></li>
+                  <li class="list-group-item"><%= link_to "Team Project", team_project_path%></li>
+                </ul>
+              
               </div>
               <div class="col-center">
                 <%= image_tag("Kitten_logo.png", size: "150x150", alt: "Logo" )%>
