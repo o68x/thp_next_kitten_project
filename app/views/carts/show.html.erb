@@ -89,7 +89,7 @@
               <%= form_tag charges_path do %>
               <article>git </article>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= ENV['PUBLISHABLE_KEY'] %>" data-amount="<%= @cart.total_cart_price_in_cents %>"
+                data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>" data-amount="<%= @cart.total_cart_price_in_cents %>"
                 data-email="<%= @cart.user.email %>" data-name="NextKittens"
                 data-description="The best kitten pictures!" data-panel-label="Paiement de {{amount}}"
                 data-image="<%= asset_url('Kitten_logo.png') %>" data-allow-remember-me="false" data-locale="fr"
