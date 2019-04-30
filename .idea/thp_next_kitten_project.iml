@@ -128,6 +128,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rubocop-rspec (v1.32.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.10.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby_dep (v1.5.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubyzip (v1.2.2, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.7.4, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-listen (v4.0.0, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.7, RVM: ruby-2.6.2 [thp_next_kitten_project]) [gem]" level="application" />

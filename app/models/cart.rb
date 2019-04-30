@@ -33,10 +33,19 @@ class Cart < ApplicationRecord
   end
 
   def total_cart_price
-    cart_cats.map(&:total_cat_price).sum
+    # cart_cats.map(&:total_cat_price).sum
+    CartCat.where(cart_id: id).select(:price, :quantity).map { |c| c.price * c.quantity }.sum
   end
 
   def total_cart_price_in_cents
     total_cart_price * 100
+  end
+
+  def count_cats
+    CartCat.where(cart_id: id).count
+  end
+
+  def zipfile
+    ZipCartContent.perform(cart: id)
   end
 end

@@ -32,4 +32,8 @@ module ThpNextKittenProject
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+
+  Raven.configure do |config|
+    config.dsn = 'https://5ec51d20af0443ccbbd6bcbe3370ec05:311f78ae321644869dc613ed09b2e8f3@sentry.io/1448208'
+  end
 end

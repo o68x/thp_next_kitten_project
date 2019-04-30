@@ -16,7 +16,15 @@
             </li>
             <li class="nav-item">
               <%= link_to (image_tag "caddie.png", alt: "Carts", class: "nav-link", style:"width: 5%"), cart_path(current_user.current_cart)  %>
+                <a id="drop_cart_btn" class="btn btn-outline-primary btn-sm">
+                    <!-- #TODO: CSS Get color right on scroll -->
+                    <span class="navbar-text nav-link">Cart&nbsp;</span>
+                    <span class="badge badge-pill badge-info" style="font-size: 80%">
+                      <%= current_cart.count_cats %>
+                    </span>
+                 </a>
             </li>
+
         <% else %>
             <li class="nav-item dropdown">
               <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
