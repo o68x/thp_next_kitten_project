@@ -20,7 +20,8 @@
                 <article class="card card-minimal">
 
                 <%if c.item_picture.attached?%>
-                  <%= image_tag c.item_picture, alt: 'Cat' %>
+
+                    <%= link_to (image_tag c.item_picture, alt: 'Cat', style:'width: 100%'), cat_path(id:c.id)  %>
                 <%else%>
                   <%= image_tag("example.jpg")%>
                 <%end%>
@@ -30,11 +31,7 @@
                       <p class="card-title text-center">  <%= c.price %>€ </p>
                   </div>
                   <div class="card-footer">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <%= link_to "", cat_path(id:c.id), class: 'btn btn-ico btn-rounded btn-outline-primary' %>
-                      </div>
-                      <div class="col-4 text-right">
+                    <div class="row justify-content-center">
                         <ul class="list-inline mb-0">
                           <li class="list-inline-item">
                             <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
@@ -42,14 +39,14 @@
                         </ul>
                       </div>
                     </div>
-                  </div>
+
                 </article>
               </div>
             <%end%>
           </div>
-          
         </div>
       </div>
     <%end%>
+   </div>
   </section>
 
