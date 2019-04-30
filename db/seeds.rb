@@ -14,11 +14,15 @@ sleep(1)
 puts "Destroying previous records"
 User.destroy_all
 Cat.destroy_all
+Cart.destroy_all
+CartCat.destroy_all
 
 sleep(1)
 puts "Resetting sequence"
 ActiveRecord::Base.connection.reset_pk_sequence!('cats')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
+ActiveRecord::Base.connection.reset_pk_sequence!('carts')
+ActiveRecord::Base.connection.reset_pk_sequence!('cart_cats')
 
 (1..10).to_a.each do |i|
   puts "Creating User #{i}"
@@ -38,4 +42,24 @@ end
   )
   dl_cat_image = URI.parse(Faker::LoremFlickr.image).open
   cat.item_picture.attach(io: dl_cat_image, filename: 'cat_image.jpg', content_type: "image/jpeg")
+end
+
+(1..5).to_a.each do |i|
+  puts "Creating closed (ordered) Cart #{i}"
+  Cart.find(i).update!(
+    status: true,
+    order_placed: Faker::Date.backward(30)
+  )
+  rand(1..3).times do
+    cat = Cat.find(Faker::Number.unique.between(1, 10))
+    CartCat.create!(
+      cart_id: i,
+      cat_id: cat.id,
+      price: cat.price,
+      quantity: rand(1..2)
+    )
+    Cart.create!(
+      user_id: Cart.find(i).user_id
+    )
+  end
 end

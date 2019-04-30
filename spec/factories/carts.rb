@@ -23,5 +23,16 @@
 FactoryBot.define do
   factory :cart do
     user_id { 1 }
+    status  { false }
+
+    trait :order_not_placed do
+      order_placed { nil }
+      status       { false }
+    end
+
+    trait :order_placed do
+      order_placed { Faker::Date.backward(14) }
+      status       { true }
+    end
   end
 end
