@@ -17,14 +17,14 @@ class CartCatsController < ApplicationController
       else
         @cart_cat = CartCat.new(cart_id: current_cart.id, cat_id: params[:id], price: params[:price])
       end
-      # TODO: flash message on cat save
+      # TODO: JS flash message on cat save
       if @cart_cat.save
         flash[:success] = "Cat was successfully saved to cart."
       else
         flash[:alert] = "Something went wrong: cat could not be saved to cart."
       end
     else
-      # TODO: change this to more user friendly redirection?
+      # TODO: CTRL change this to more user friendly redirection?
       flash[:alert] = "You must login to use your cart"
       redirect_to new_user_session_path
     end
