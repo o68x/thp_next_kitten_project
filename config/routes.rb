@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     # root 'admin#index' not created yet
   end
   root 'cats#index'
+
+  # static_pages
+  get '/about', to: 'pages#about'
 end
