@@ -38,10 +38,10 @@
     "AWS_REGION": {
       "required": true
     },
-    "PUBLISHABLE_KEY": {
+    "STRIPE_PUBLISHABLE_KEY": {
       "required": true
     },
-    "SECRET_KEY": {
+    "STRIPE_SECRET_KEY": {
       "required": true
     },
     "SENDGRID_LOGIN": {
@@ -49,9 +49,12 @@
     },
     "SENDGRID_PWD": {
       "required": true
+    },
+    "SENTRY_DNS": {
+      "required": true
     }
-  },
-  "formation": {
+},
+"formation": {
     "web": {
       "quantity": 1
     }
