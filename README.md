@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/ocardinaux/thp_next_kitten_project.svg?style=svg)](https://circleci.com/gh/ocardinaux/thp_next_kitten_project)
+[![codecov](https://codecov.io/gh/ocardinaux/thp_next_kitten_project/branch/master/graph/badge.svg)](https://codecov.io/gh/ocardinaux/thp_next_kitten_project)
 
 # README
 
