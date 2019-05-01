@@ -45,6 +45,10 @@ class Cart < ApplicationRecord
     CartCat.where(cart_id: id).select(:quantity).map { |q| q[:quantity] }.sum
   end
 
+  def list_cat_names
+    CartCat.where(cart_id: id).map { |c| c.include_cat_info.title }
+  end
+
   def zipfile
     ZipCartContent.perform(cart: id)
   end
