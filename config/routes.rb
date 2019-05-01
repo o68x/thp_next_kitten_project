@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     resources :cats
     # root 'admin#index' not created yet
   end
-  root 'cats#index'
+  # root 'cats#index'
+  root 'welcome#index'
 end
