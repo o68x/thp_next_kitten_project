@@ -23,12 +23,13 @@
             <span class="flex-shrink-0 w-10">Total</span>
             <span class="flex-shrink-0 w-20"> </span>
           </li>
-          <%= render partial: 'carts/partials/show_list', collection: @cart.cart_cats %>
           <% if @cart.cart_cats.empty? %>
           <div class="d-flex flex-column justify-content-center align-content-center align-items-center m-10">
             <h5>Votre panier est actuellement vide !</h5>
             <%= link_to "Commencer mes achats", root_path, class: "btn btn-primary btn-large" %>
           </div>
+          <% else %>
+            <%= render partial: 'carts/partials/show_list', collection: @cart.cart_cats %>
           <% end %>
           <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
             <span class="w-20">
