@@ -5,9 +5,9 @@
         <div class="col-md-6 col-lg-4">
           <div class="card">
             <% if @cat.item_picture.attached?%>
-              <%=image_tag @cat.item_picture, alt: 'item picture'%>
+              <%=image_tag @cat.item_picture, alt: @cat.title, class: "card-img-top"%>
             <% else %>
-                <%= image_tag("example.jpg")%>
+                <%= image_tag("example.jpg", class: "card-img-top")%>
             <% end %>
             <div class="card-body text-center">
               <h5 class="card-title"><%= @cat.title %></h5>

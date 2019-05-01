@@ -19,14 +19,14 @@
                 <article class="card card-minimal">
 
                 <%if c.item_picture.attached?%>
-                  <%= image_tag c.item_picture, alt: c.title %>
+                  <%= image_tag c.item_picture, alt: c.title, class: "card-img-top" %>
                 <%else%>
-                  <%= image_tag("example.jpg")%>
+                  <%= image_tag("example.jpg", class: "card-img-top")%>
                 <%end%>
 
                   <div class="card-body">
                     <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
-                      <p class="card-title text-center">  <%= c.price %>€ </p>
+                      <p class="card-title text-center">  <%= number_to_currency(c.price) %> </p>
                   </div>
                   <div class="card-footer">
                     <div class="row align-items-center">
