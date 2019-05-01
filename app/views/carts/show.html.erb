@@ -13,7 +13,8 @@
   <div class="container">
     <!-- TODO: CSS fix spacing -->
     <div class="row">
-      <div class="col-md-10">
+      <!-- Section table des achats -->
+      <div class="col-md-8">
         <h4>Votre panier</h4>
         <ul class="list-group bg-light">
           <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
@@ -29,7 +30,7 @@
             <%= link_to "Commencer mes achats", root_path, class: "btn btn-primary btn-large" %>
           </div>
           <% else %>
-            <%= render partial: 'carts/partials/show_list', collection: @cart.cart_cats %>
+          <%= render partial: 'carts/partials/show_list', collection: @cart.cart_cats %>
           <% end %>
           <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
             <span class="w-20">
@@ -46,7 +47,7 @@
                 </div>
                 <% end %>
                 <label style="font-size: 12pt; color: black;">
-                  <span>Total : <%= @cart.total_cart_price %></span>
+                  <span>Total : <%= number_to_currency(@cart.total_cart_price) %></span>
                   <%= hidden_field_tag :amount, @cart.total_cart_price %>
                 </label>
                 <%= hidden_field_tag :cart_id, @cart.id %>
@@ -60,33 +61,43 @@
               </script>
               <% end %>
             </span>
-            <span
-              class="w-10"><%= link_to "empty cart", cart_path(@cart.id), method: :delete, class: "btn btn-outline-primary btn-sm m-1" %>
-            </span>
             <% end %>
           </li>
         </ul>
+        <span class="w-10"><%= link_to "vider le panier", cart_path(@cart.id), method: :delete, class: "text-danger" %>
+        </span>
       </div>
-      <div class="col-md-2">
-        <h4>Paiement</h4>
+      <!-- Section informations -->
+      <div class="col-md-4">
+        <h4>Déroulement</h4>
         <div class="accordion-group accordion-group-steps" data-accordion-group>
-          <div class="accordion open" data-accordion>
+          <div class="accordion" data-accordion>
             <div class="accordion-control" data-control>
-              <h5>Payement</h5>
+              <h5>Paiement</h5>
             </div>
             <div class="accordion-content" data-content>
-              <div>
-                <p>Payement sécurisé avec Stripe</p>
+              <div class="accordion-content-wrapper">
+                <p>Votre paiement est sécurisé par Stripe</p>
               </div>
             </div>
           </div>
-          <div class="accordion open" data-accordion>
+          <div class="accordion" data-accordion>
             <div class="accordion-control" data-control>
               <h5>Téléchargement</h5>
             </div>
             <div class="accordion-content" data-content>
-              <div>
-                <p>Téléchargement</p>
+              <div class="accordion-content-wrapper">
+                <p>Une version digitale de vos achats est immédiatement disponible</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-control" data-control>
+              <h5>Expédition</h5>
+            </div>
+            <div class="accordion-content" data-content>
+              <div class="accordion-content-wrapper">
+                <p>Votre commande sera expédiée</p>
               </div>
             </div>
           </div>
