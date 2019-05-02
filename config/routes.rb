@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   get 'download_cart_zip', to: "carts#download_cart_zip"
   resources :charges
 
+  get 'admin', to: 'admin#index_admin'
+
   namespace :admin do
     resources :cats
-    # root 'admin#index' not created yet
+    resources :carts
+    resources :profiles
   end
   # root 'cats#index'
   root 'welcome#index'
