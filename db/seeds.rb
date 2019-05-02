@@ -50,14 +50,16 @@ end
     status: true,
     order_placed: Faker::Date.backward(30)
   )
+  j = 1
   rand(1..3).times do
-    cat = Cat.find(Faker::Number.unique.between(1, 10))
+    cat = Cat.find(j)
     CartCat.create!(
       cart_id: i,
       cat_id: cat.id,
       price: cat.price,
       quantity: rand(1..2)
     )
+    j += 1
     Cart.create!(
       user_id: Cart.find(i).user_id
     )

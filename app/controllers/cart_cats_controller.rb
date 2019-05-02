@@ -20,6 +20,7 @@ class CartCatsController < ApplicationController
       # TODO: JS flash message on cat save
       if @cart_cat.save
         flash[:success] = "Cat was successfully saved to cart."
+        redirect_to cats_path
       else
         flash[:alert] = "Something went wrong: cat could not be saved to cart."
       end
@@ -39,4 +40,10 @@ class CartCatsController < ApplicationController
   def index_current_cart(cart_id); end
 
   delegate :current_cart, to: :current_user
+
+  private
+
+  def cart_cat_params
+    params.require(:cart_cat).permit(:cat_id, :quantity, :price)
+  end
 end

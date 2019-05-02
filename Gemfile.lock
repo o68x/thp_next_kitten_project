@@ -70,6 +70,10 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
+    codecov (0.1.14)
+      json
+      simplecov
+      url
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -291,6 +295,7 @@ GEM
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.5.0)
+    url (0.3.2)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -311,6 +316,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.1.0)
   byebug
+  codecov
   coffee-rails (~> 4.2)
   database_cleaner (~> 1.7)
   devise (~> 4.6.0)

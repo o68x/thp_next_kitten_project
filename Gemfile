@@ -44,6 +44,7 @@ group :development do
 end
 
 group :test do
+  gem 'codecov', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', '~> 0.16.1', require: false
