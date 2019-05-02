@@ -3,10 +3,11 @@
     <h6 class="font-weight-bold"><%= show_list.include_cat_info.title %></h6>
     <small class="text-muted"><%= show_list.include_cat_info.description %></small>
   </div>
-  <span class="flex-shrink-0 w-10"><%= show_list.price %></span>
+  <span class="flex-shrink-0 w-10"><%= number_to_currency(show_list.price) %></span>
   <span class="flex-shrink-0 w-10"><%= show_list.quantity %></span>
-  <span class="flex-shrink-0 w-10"><%= show_list.total_cat_price %></span>
+  <span class="flex-shrink-0 w-10"><%= number_to_currency(show_list.total_cat_price) %></span>
   <span class="flex-shrink-0 w-10">
-    <%= link_to "Supprimer", cart_cat_path(show_list.id), method: :delete, class: 'btn btn-outline-primary text-primary btn-sm' %>
+    <!-- TODO: modify quantity instead of delete-->
+    <%= link_to "supprimer", cart_cat_path(show_list.id), method: :delete, class: 'text-warning' %>
   </span>
 </li>
