@@ -49,9 +49,6 @@
     },
     "SENDGRID_PWD": {
       "required": true
-    },
-    "SENTRY_DNS": {
-      "required": true
     }
 },
 "formation": {

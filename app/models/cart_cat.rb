@@ -29,6 +29,9 @@ class CartCat < ApplicationRecord
 
   validates :cat_id, presence: true
   validates :cart_id, presence: true
+  validates :quantity,
+            presence: true,
+            numericality: { only_integer: true, greater_than: 0 }
 
   def increment_quantity
     increment(:quantity)

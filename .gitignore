@@ -25,7 +25,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-.vscode/settings.json
+.vscode/*
 .env
 coverage
-.vscode/tasks.json

@@ -13,33 +13,36 @@
 
           <div class="container mt-4">
             <div class="row">
-
             <% @cats.each do |c| %>
 
               <div class="col-6 col-lg-4 ">
                 <article class="card card-minimal">
 
                 <%if c.item_picture.attached?%>
-                  <%= image_tag c.item_picture, alt: 'Cat' %>
+                  <%= image_tag c.item_picture, alt: c.title, class: "card-img-top" %>
                 <%else%>
-                  <%= image_tag("example.jpg")%>
+                  <%= image_tag("example.jpg", class: "card-img-top")%>
                 <%end%>
 
                   <div class="card-body">
                     <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
-                      <p class="card-title text-center">  <%= c.price %>€ </p>
+                      <p class="card-title text-center">  <%= number_to_currency(c.price) %> </p>
                   </div>
                   <div class="card-footer">
                     <div class="row align-items-center">
-                      <div class="col-8">
+                      <div class="col-6">
                         <%= link_to "", cat_path(id:c.id), class: 'btn btn-ico btn-rounded btn-outline-primary' %>
                       </div>
-                      <div class="col-4 text-right">
-                        <ul class="list-inline mb-0">
-                          <li class="list-inline-item">
-                            <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
-                          </li>
-                        </ul>
+                      <div class="col-3 text-right">
+                        <% if cart_cats_quantity(c.id) %>
+                        <span class="badge badge-pill badge-info">
+                          <!-- cart_cats_quantity method defined in helper -->
+                          <%= cart_cats_quantity(c.id) %>
+                        </span>
+                        <% end %>
+                      </div>
+                      <div class="col-3 text-right">
+                            <%= button_to "Ajouter", {action: 'create', controller: 'cart_cats', render: true, id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
                       </div>
                     </div>
                   </div>

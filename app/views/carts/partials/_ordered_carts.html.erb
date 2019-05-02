@@ -1,0 +1,11 @@
+<li class="list-group-item d-flex justify-content-between lh-condensed">
+  <div class="flex-shrink-1 w-50">
+    <span class="font-weight-bold"><%= cart.list_cat_names.join(", ") %></span>
+    <small class="text-muted">(<%= cart.count_cats %> articles)</small>
+  </div>
+  <span class="flex-shrink-0 w-10"><%= cart.order_placed.strftime("%F")  %></span>
+  <div class="flex-shrink-0 w-20">
+    <span><%= number_to_currency(cart.total_cart_price) %></span>
+    <small><%= link_to "Télécharger", root_path %></small>
+  </div>
+</li>
