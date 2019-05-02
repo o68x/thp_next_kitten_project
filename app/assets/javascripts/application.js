@@ -17,3 +17,9 @@
 //= require js/vendor
 //= require js/app
 //= require js/vendor
+
+window.setTimeout(function () {
+    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+      $(this).remove();
+    });
+  }, 5000);
