@@ -15,9 +15,9 @@ module Admin
       @cat.item_picture.attach(params[:item_picture])
 
       if @cat.save
-        redirect_to cat_path(@cat.id), success: "Nouvel item créé !"
+        redirect_to admin_cats_path, success: "Nouvel item créé !"
       else
-        render 'new'
+        render 'index'
       end
     end
 
@@ -31,7 +31,7 @@ module Admin
 
     def update
       @cat = Cat.find(params[:id])
-      cat_params = params.permit(:title, :description, :price)
+      cat_params = params.permit(:title, :description, :price, :is_available)
 
       if !params[:item_picture].nil?
         @cat.item_picture.attach(params[:item_picture])
@@ -40,7 +40,7 @@ module Admin
       if @cat.update(cat_params)
         redirect_to admin_cat_path(@cat.id), notice: "L'item a bien été mis à jour"
       else
-        render :show
+        render 'index'
       end
     end
 

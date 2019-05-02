@@ -1,0 +1,58 @@
+<%= render 'cats/banner' %>
+
+          <div class="component-example">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-8">
+                <h2>Add a new cat picture</h2>
+                <div class="row">
+                  <div class="col">
+
+                    <%= form_tag url_for(action: 'update'), method: "patch", multipart: true do %>
+                    <div class="form-row mb-1 flex-center">
+                      <div class="col-md-7">
+                        <div class="form-group">
+                          <%= label_tag 'Title' %>
+                          <%= text_field_tag 'title', @cat.title, class: "form-control", placeholder:""  %>
+                        </div>
+                        
+                        <div class="form-group">
+                        <%= label_tag 'Price' %>
+                        <%= text_field_tag 'price', @cat.price, class: "form-control", placeholder: "" %>
+                        </div>
+
+                        <div class="form-group">
+                        <%= label_tag 'Description' %>
+                          <%= text_field_tag 'description', @cat.description, class: "form-control", placeholder: "" %>
+                        </div>
+                        <div class="form-group">
+                        <%= label_tag 'Availability' %> <%= @cat.is_available %>
+                        <%= radio_button_tag(:is_available, "false") %> 
+                        </div>
+
+                        <div>
+                        <%if @cat.item_picture.attached?%>
+                          <%=image_tag @cat.item_picture, alt: 'item picture'%>
+                          <% else %>
+                          <%end%>
+                        </div>
+
+                        <div class="form-group">
+                        <%= label_tag 'Image' %> <br>
+                          <%= file_field_tag :item_picture %>
+                        </div>  
+                        <br>
+                              
+                        </div>
+                       </div>
+                          <div class="form-group">
+                            <div class='col flex-center'>
+                              <%= submit_tag "Update",  class: "btn btn-primary px-5" %>
+                            </div> 
+                          </div>
+                        <% end %>
+                
+                   </div>
+                </div>
+              </div>
+            </div>
+          </div>

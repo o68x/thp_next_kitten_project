@@ -2,7 +2,8 @@
 
           <div class="component-example">
             <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8"">
+              <div class="col-md-10 col-lg-8">
+                <h2>Add a new cat picture</h2>
                 <div class="row">
                   <div class="col">
 
@@ -24,14 +25,11 @@
                           <%= text_field_tag 'description', @cat.description, class: "form-control", placeholder: "" %>
                         </div>
 
-                        <br>
-
                         <div class="form-group">
-                        <%= label_tag 'Image*' %> 
+                        <%= label_tag 'Image' %> <br>
                           <%= file_field_tag :item_picture %>
                         </div>  
                         <br>
-                              
                               
                         </div>
                        </div>
