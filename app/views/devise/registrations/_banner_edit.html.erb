@@ -8,18 +8,10 @@
               <% if user_signed_in? %>
                 <% if current_user.profile.profile_picture.attached? %>
                   <%= image_tag current_user.profile.profile_picture, class: "rounded-circle", id: "pp-edit"%>
-                <% end %>
               <% else %>
-                <%= image_tag "pp-edit.jpg", class: "rounded-circle", id: "pp-edit"%>
-              <% end %>
-            <%= form_for(resource, as: profile, url: edit_user_registration(current_user.profile.id), html: { method: :put }) do |f| %>
-              <div class="field">
-                <%= f. file_field :profile_picture%>
-              </div>
-              <div class="action">
-                <%= f.submit %>
-              </div>
-              <% end %>
+                  <%= image_tag "profile_nil.png", class: "rounded-circle", id: "pp-edit"%>
+                <% end %>
+            <% end %>
           </div>
           <div class="col">
             <div class="row align-items-center">
