@@ -16,7 +16,7 @@
 #
 
 class Cat < ApplicationRecord
-  validates :title, :age, :price, presence: true
+  validates :title, :price, presence: true
   validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed. " }
   validates :title, length: { maximum: 140, too_long: "%{count} characters is the maximum allowed. " }
   validates :price, length: { maximum: 6 }
