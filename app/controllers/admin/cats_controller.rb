@@ -15,7 +15,7 @@ module Admin
       @cat.item_picture.attach(params[:item_picture])
 
       if @cat.save
-        redirect_to admin_cats_path, success: "Nouvel item créé !"
+        redirect_to admin_cats_path, flash[:success] = "Nouvel item créé !"
       else
         render 'index'
       end
@@ -38,7 +38,7 @@ module Admin
       end
 
       if @cat.update(cat_params)
-        redirect_to admin_cat_path(@cat.id), notice: "L'item a bien été mis à jour"
+        redirect_to admin_cats_path, flash: { success: "L'item a bien été mis à jour" }
       else
         render 'index'
       end

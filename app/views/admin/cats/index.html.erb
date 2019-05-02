@@ -37,7 +37,6 @@
                       <th>Price</th>
                       <th>See</th>
                       <th>Edit</th>
-                      <th>Change Availability</th>
                       <th>Availability</th>
 
                     </tr>
@@ -50,7 +49,6 @@
                       <td><%= cat.price%></td>
                       <td><span title= "Voir" ><%= link_to '<i class="btn btn-sm btn-ico btn-primary "></i>'.html_safe, cat_path(cat)%></span></td>
                       <td><span title= "Editer" ><%= link_to '<i class="btn btn-sm btn-ico btn-instagram"></i>'.html_safe, edit_admin_cat_path(cat)%></span></td>
-                      <td><span title= "Supprimer" ><%= link_to '<i class="btn btn-sm btn-ico btn-git"></i>'.html_safe, cat_path(cat) , method: "delete", data: { confirm: "Es-tu sûr de vouloir supprimer ce chat ?" } %></span></td>
                       <td><%= cat.is_available%></td>
 
                     </tr>
