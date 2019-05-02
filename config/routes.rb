@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # minimal carts and cats routes for dev purposes
   resources :cats
-  resources :cart_cats, only: %i[create destroy]
+  resources :cart_cats, only: %i[create update destroy]
   resources :carts
   get 'download_cart_zip', to: "carts#download_cart_zip"
   resources :charges
@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     resources :carts
     resources :profiles
   end
-  root 'cats#index'
+  # root 'cats#index'
+  root 'welcome#index'
 end

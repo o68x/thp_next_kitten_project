@@ -55,6 +55,10 @@ class User < ApplicationRecord
     carts.find_by(status: false) || create_cart
   end
 
+  def ordered_carts
+    carts.where(status: true)
+  end
+
   def send_email
     UserMailer.welcome_email(self).deliver_now
   end
