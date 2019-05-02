@@ -49,6 +49,12 @@
     },
     "SENDGRID_PWD": {
       "required": true
+    },
+    "REDIS_URL": {
+      "required": true
+    },
+    "HOST": {
+      "required": true
     }
 },
 "formation": {
