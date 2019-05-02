@@ -7,6 +7,7 @@
 #  id                     :bigint(8)        not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  is_admin               :boolean          default(FALSE)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -50,6 +51,10 @@ class User < ApplicationRecord
   def set_current_cart
     # create a new cart if none open (e.g. status = 0)
     carts.find_by(status: false) || create_cart
+  end
+
+  def ordered_carts
+    carts.where(status: true)
   end
 
   def send_email

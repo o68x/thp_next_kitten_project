@@ -16,15 +16,28 @@
             </li>
             <li class="nav-item">
               <%= link_to (image_tag "caddie.png", alt: "Carts", class: "nav-link", style:"width: 5%"), cart_path(current_user.current_cart)  %>
+
+              <a><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %></a>
+            </li>
+            
+              <% if current_user.is_admin %>
+              <li class="nav-item dropdown">
+                <a><%= link_to "Admin interface", admin_path, class: "nav-link" %></a></li>
+                <%else%>
+                <li class="nav-item dropdown">
+                <%= link_to "Profile", edit_user_registration_path, class: "nav-link" %>
+              </li>
+              <%end%>
+               <li class="nav-item">
+
                 <a id="drop_cart_btn" class="btn btn-outline-primary btn-sm">
                     <!-- #TODO: CSS Get color right on scroll -->
                     <span class="navbar-text nav-link">Cart&nbsp;</span>
-                    <small class="badge badge-pill badge-info">
+                    <small id="drop_car_badge" class="badge badge-pill badge-info">
                       <%= current_cart.count_cats %>
                     </small>
                  </a>
             </li>
-
         <% else %>
             <li class="nav-item dropdown">
               <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
@@ -41,3 +54,4 @@
     <% end %>
   </div>
 </header>
+

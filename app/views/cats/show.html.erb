@@ -5,9 +5,11 @@
         <div class="container justify-content-center">
           <div class="card">
             <% if @cat.item_picture.attached?%>
-              <%=image_tag @cat.item_picture, alt: 'item picture', style: 'width: 60%', class:'mx-auto d-block'%>
+
+              <%=image_tag @cat.item_picture, alt: @cat.title, class: "card-img-top"%>
+
             <% else %>
-                <%= image_tag("example.jpg")%>
+                <%= image_tag("example.jpg", class: "card-img-top")%>
             <% end %>
             <div class="card-body text-center">
               <h5 class="card-title"><%= @cat.title %></h5>

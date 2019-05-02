@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  codecov: codecov/codecov@1.0.4
 jobs:
   build:
     docker:
@@ -56,3 +58,5 @@ jobs:
           name: run tests
           command: |
             bundle exec rspec --format progress \
+      - store_artifacts:
+          path: coverage
