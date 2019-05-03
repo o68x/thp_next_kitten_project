@@ -1,45 +1,31 @@
 <!-- cover -->
- <%= render 'banner' %>
+<%= render 'banner' %>
 <!-- / cover -->
-    <section id="default" class="component">
-      <div class="tab-pane show active bg-light" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
-        <div class="component-example">
-         <% if @cats.present? %>
-          <div class="container ">
-            <div class="row">
-
+<section id="default" class="component">
+  <div class="tab-pane show active bg-light" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
+    <div class="component-example">
+      <% if @cats.present? %>
+        <div class="container ">
+          <div class="row">
             <% @cats.each do |c| %>
-
-              <div class="col-6 col-lg-4 ">
+              <div class="col-6 col-lg-4 col-sm-12 ">
                 <article class="card card-minimal">
-
-                <%if c.item_picture.attached?%>
-                  <%= image_tag c.item_picture, alt: c.title, class: "card-img-top" %>
-
-                <%else%>
-                  <%= image_tag("example.jpg", class: "card-img-top")%>
-                <%end%>
+                  <%if c.item_picture.attached?%>
+                    <%= link_to (image_tag c.item_picture, alt: 'Cat', style:'width: 100%', class: 'transition'), cat_path(id:c.id)  %>
+                  <%else%>
+                    <%= image_tag("example.jpg")%>
+                  <%end%>
                   <div class="card-body">
                     <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
-                      <p class="card-title text-center">  <%= number_to_currency(c.price) %> </p>
+                    <p class="card-title text-center">  <%= c.price %>€ </p>
                   </div>
                   <div class="card-footer">
-
-                    <div class="row align-items-center">
-                      <div class="col-6">
-                        <%= link_to "", cat_path(id:c.id), class: 'btn btn-ico btn-rounded btn-outline-primary' %>
-                      </div>
-                      <div class="col-3 text-right">
-                        <% if cart_cats_quantity(c.id) %>
-                        <span class="badge badge-pill badge-info">
-                          <!-- cart_cats_quantity method defined in helper -->
-                          <%= cart_cats_quantity(c.id) %>
-                        </span>
-                        <% end %>
-                      </div>
-                      <div class="col-3 text-right">
-                            <%= button_to "Ajouter", {action: 'create', controller: 'cart_cats', render: true, id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
-                      </div>
+                    <div class="row justify-content-center">
+                      <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                          <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </article>
@@ -47,22 +33,8 @@
             <%end%>
           </div>
         </div>
+        </div>
+      <%end%>
       </div>
-    <%end%>
-   </div>
+</section>
 
-<style>
-
-  .transition {
-    width: 100%;
-    height: 100%;
-    transition: width 1s, height 1s;
-  }
-
-  .transition:hover {
-    width: 110%;
-    height: 110%;
-  }
-
-</style>
-    </section>

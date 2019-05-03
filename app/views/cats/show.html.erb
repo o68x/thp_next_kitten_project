@@ -1,15 +1,14 @@
 <%= render 'banner' %>
-<%= link_to "Home", root_path, class: "card-link" %>
+<%= link_to "Home", root_path, class:"btn btn-outline-primary btn-sm" %>
+
     <section id="default" class="component">
       <div class="tab-content" id="component-1">
         <div class="container justify-content-center">
           <div class="card">
             <% if @cat.item_picture.attached?%>
-
-              <%=image_tag @cat.item_picture, alt: @cat.title, class: "card-img-top"%>
-
+              <%=image_tag @cat.item_picture, alt: @cat.title, class: "card-img-top image_cat"%>
             <% else %>
-                <%= image_tag("example.jpg", class: "card-img-top")%>
+                <%= image_tag("example.jpg", class: "card-img-top image_cat",)%>
             <% end %>
             <div class="card-body text-center">
               <h5 class="card-title"><%= @cat.title %></h5>
@@ -25,6 +24,14 @@
           </div>
         </div>
       </div>
+      <style>
+        .image_cat {
+          margin: auto;
+          width: 70%;
+
+        }
+      </style>
     </section>
+
 
 
