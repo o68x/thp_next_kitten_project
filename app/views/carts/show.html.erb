@@ -21,8 +21,7 @@
               </span>
               <span class="w-80"></span>
               <% if !@cart.total_cart_price.zero? %>
-              <span class="align-content-end">
-                  <%= form_tag charges_path do %>
+              <span class="align-content-end"><%= form_tag charges_path do %></span>
                   <article>
                     <% if flash[:error].present? %>
                       <div id="error_explanation">
@@ -37,7 +36,13 @@
                     <%= hidden_field_tag :cart_id, @cart.id %>
                   </article>
 
-
+                  <%end %>
+                <%end %>
+                  </li>
+                </ul>
+               </div>
+              </div>
+            </div>
 
                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= ENV['PUBLISHABLE_KEY'] %>"
@@ -51,9 +56,8 @@
                     data-locale="fr"
                     data-currency="EUR">
                   </script>
-                  <% end %>
-              </span>
-                <% end %>
+</section>
+
 <section class="bg-purple text-white pattern" data-top-top="transform: translateY(0px);"
   data-top-bottom="transform: translateY(250px);">
   <div class="container pt-10">
@@ -90,7 +94,7 @@
           <% end %>
           <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
             <span class="w-20">
-              <%= link_to "Continue Shopping", cats_path, class: "btn btn-outline-primary btn-sm m-1" %>
+              <%= link_to "Co_header.htmlntinue Shopping", cats_path, class: "btn btn-outline-primary btn-sm m-1" %>
             </span>
             <span class="w-80"></span>
             <% if !@cart.total_cart_price.zero? %>
@@ -118,6 +122,12 @@
               </script>
               <% end %>
             </span>
+<<<<<<< HEAD
+=======
+            <span class="w-10">
+              <%= link_to "empty cart", cart_path(@cart.id), method: :delete, class: "btn btn-outline-primary btn-sm m-1" %>
+            </span>
+>>>>>>> issue/66_improve_footer
             <% end %>
           </li>
         </ul>

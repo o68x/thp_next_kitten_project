@@ -1,9 +1,38 @@
-<footer class="bg-dark text-white">
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-md-2 text-center">
-        <%= image_tag("Kitten_logo.png", alt: "Logo" )%>
+
+<footer class="bg-dark text-white" >
+  <div class="tab-content" id="component-2">
+    <div class="tab-pane" id="component-2-1" role="tabpanel" aria-labelledby="component-2-1"></div>
+    <div class="tab-pane show active" id="component-2-2" role="tabpanel" aria-labelledby="component-2-2">
+      <div class="component-example component-example-fit">
+        <footer class="bg-dark text-white">
+          <div class="container pb-5">
+            <div class="row">
+              <div class="col">
+                <br>
+                <br>
+                 <ul class="list-group list-group-minimal">
+                  <li class="list-group-item"><%= link_to "About Us", about_path %></li>
+                  <li class="list-group-item"><%= link_to "Team Project", team_project_path%></li>
+                </ul>
+              
+              </div>
+              <div class="col-center">
+                <%= image_tag("Kitten_logo.png", size: "150x150", alt: "Logo" )%>
+              </div>
+
+              <div class="col text-right">
+                <ul class="list-group list-group-minimal">
+                  <li class="list-group-item"><a href="">Facebook</a></li>
+                  <li class="list-group-item"><a href="">Twitter</a></li>
+                  <li class="list-group-item"><a href="">Instagram</a></li>
+                  <li class="list-group-item"><a href="">Linkedin</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
+    </div>
     </div>
   </div>
 </footer>

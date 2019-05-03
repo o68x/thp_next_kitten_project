@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="abb0fcd0-556b-48c7-80be-1120aeb52128" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/app/views/carts/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/carts/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/css/style.css" afterDir="false" />
+>>>>>>> issue/66_improve_footer
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -33,6 +39,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -148,6 +155,76 @@
         </leaf>
       </split-second>
     </splitter>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/cats/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="4652" column="25" lean-forward="true" selection-start-line="4652" selection-start-column="25" selection-end-line="4652" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/cats/_banner.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/carts/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-819">
+              <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/profile.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="516">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+>>>>>>> issue/66_improve_footer
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -161,6 +238,8 @@
       <find>card</find>
       <find>buger</find>
       <find>min</find>
+      <find>background</find>
+      <find>background: #fff</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,17 +270,25 @@
         <option value="$PROJECT_DIR$/app/views/cats/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/carts/_banner.html.erb" />
         <option value="$PROJECT_DIR$/app/views/cats/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/carts/show.html.erb" />
         <option value="$PROJECT_DIR$/vendor/css/style.css" />
+        <option value="$PROJECT_DIR$/app/views/carts/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="67" />
     <option name="y" value="25" />
     <option name="width" value="1853" />
     <option name="height" value="1055" />
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1920" />
+    <option name="y" value="-2" />
+    <option name="width" value="1920" />
+    <option name="height" value="1082" />
+>>>>>>> issue/66_improve_footer
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -222,6 +309,47 @@
               <item name="thp_next_kitten_project" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
+=======
+            <path>
+              <item name="thp_next_kitten_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thp_next_kitten_project" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thp_next_kitten_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thp_next_kitten_project" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="cats" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thp_next_kitten_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thp_next_kitten_project" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thp_next_kitten_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thp_next_kitten_project" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thp_next_kitten_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thp_next_kitten_project" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thp_next_kitten_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thp_next_kitten_project" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="style.css" type="620a8d5e:NestingTreeNode" />
+            </path>
+>>>>>>> issue/66_improve_footer
           </expand>
           <select />
         </subPane>
@@ -376,12 +504,16 @@
       <workItem from="1556034219443" duration="11826000" />
       <workItem from="1556063972824" duration="5167000" />
       <workItem from="1556582337952" duration="1508000" />
-      <workItem from="1556590694294" duration="14058000" />
+      <workItem from="1556590694294" duration="21302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="67003000" />
+=======
+    <option name="totallyTimeSpent" value="72610000" />
+>>>>>>> issue/66_improve_footer
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -393,9 +525,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="67" y="25" width="1853" height="1055" extended-state="7" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19977863" />
+=======
+    <frame x="1920" y="-2" width="1920" height="1082" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19263607" />
+>>>>>>> issue/66_improve_footer
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -408,8 +547,13 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32932165" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49861687" visible="true" weight="0.34573305" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013831" side_tool="true" weight="0.34573305" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49896482" visible="true" weight="0.3092455" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50034505" side_tool="true" weight="0.32932165" />
+>>>>>>> issue/66_improve_footer
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32932165" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -625,13 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/cats/_banner.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cats/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -647,34 +784,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/cats/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/cats/_banner.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="336">
           <caret line="22" column="47" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="58" />
+=======
+        <state>
+          <caret selection-end-line="8" />
+>>>>>>> issue/66_improve_footer
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/carts/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="105">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#label#0;n#article#0;n#span#2;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="-819">
+          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+>>>>>>> issue/66_improve_footer
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/cats/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="372">
           <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+=======
+        <state relative-caret-position="336">
+          <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="58" />
+>>>>>>> issue/66_improve_footer
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
+<<<<<<< HEAD
           <caret line="4652" column="25" selection-start-line="4652" selection-start-column="25" selection-end-line="4652" selection-end-column="25" />
+=======
+          <caret line="4652" column="25" lean-forward="true" selection-start-line="4652" selection-start-column="25" selection-end-line="4652" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_header.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+>>>>>>> issue/66_improve_footer
         </state>
       </provider>
     </entry>
