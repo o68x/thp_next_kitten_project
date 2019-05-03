@@ -32,6 +32,7 @@ class User < ApplicationRecord
 
   has_one  :profile, dependent: :destroy
   has_many :carts, dependent: :destroy
+  has_many :cats, foreign_key: 'seller_id', inverse_of: "seller", dependent: :destroy
 
   validates :encrypted_password, presence: true
   validates :email,
