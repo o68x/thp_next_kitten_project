@@ -6,9 +6,6 @@ class AdminController < ApplicationController
   def index_admin; end
 
   def require_admin
-    unless current_user.try(:is_admin?)
-      flash[:error] = "You must be admin to access"
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.try(:is_admin?)
   end
 end
