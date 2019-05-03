@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :cats
   resources :cart_cats, only: %i[create destroy]
   resources :carts
+  get 'download_cart_zip', to: "carts#download_cart_zip"
   resources :charges
   resources :profiles
 

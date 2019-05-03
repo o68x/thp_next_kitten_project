@@ -23,30 +23,78 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  describe 'Model instantiation' do
-    subject(:new_cart) { described_class.new }
+  let(:not_ordered_cart) { create(:cart, :order_not_placed) }
+  let(:ordered_cart) { create(:cart, :order_placed) }
+  let(:cart) { create(:cart) }
+
+  it "has a valid factory" do
+    expect(create(:cart)).to be_valid
   end
 
-  describe 'Records' do
-    describe 'associations' do
+  describe 'ActiveRecord' do
+    describe 'Associations' do
       it { is_expected.to belong_to(:user) }
       it { is_expected.to have_many(:cart_cats) }
     end
 
-    describe 'validations' do
+    describe 'Validations' do
       it { is_expected.to validate_presence_of(:user_id) }
-      it { is_expected.to validate_inclusion_of(:status).in_array([true, false]) }
-      xit('#TODO: conditional validation of presence?') { is_expected.to validate_presence_of(:order_placed) }
+      context 'when status is true (ordered)' do
+        it 'validates the presence of order_placed date' do
+          pending("#TODO: RSPEC That's not gonna work")
+          subject { build(:cart, status: false) }
+          expect(subject).to validate_presence_of(:order_placed)
+        end
+      end
     end
   end
 
-  describe 'Cart status' do
-    context 'when false (not ordered)' do
-      pending "order_placed is nil"
+  describe '#status' do
+    it { expect(cart.status).to be_in [true, false] }
+
+    context 'when nil (not ordered)' do
+      it "order_placed is nil" do
+        subject { :not_ordered_cart }
+
+        expect(not_ordered_cart.order_placed).to be_nil
+      end
     end
 
     context 'when true (ordered)' do
-      xit 'order_place is datetime'
+      it 'order_placed is datetime' do
+        subject { :ordered_cart }
+
+        expect(ordered_cart.order_placed).to be_instance_of ActiveSupport::TimeWithZone
+      end
+    end
+  end
+
+  describe '#cart_user' do
+    it { expect(cart.cart_user).to be_instance_of(User) }
+  end
+
+  describe '#total_cart_price' do
+    it 'returns the total price of cats' do
+      create(:cart)
+      cat1 = create(:cat)
+      cat2 = create(:cat)
+      create(:cart_cat, cart_id: cart.id, cat_id: cat1.id, price: 10, quantity: 1)
+      create(:cart_cat, cart_id: cart.id, cat_id: cat2.id, price: 10, quantity: 2)
+
+      expect(cart.total_cart_price).to eq(30)
+    end
+
+    describe '#zipfile' do
+      it 'returns a non empty object' do
+        pending("#TODO: RSPEC Should build the whole stuff, including attachments")
+        create(:cart)
+        cat1 = create(:cat)
+        cat2 = create(:cat)
+        create(:cart_cat, cart_id: cart.id, cat_id: cat1.id, price: 10, quantity: 1)
+        create(:cart_cat, cart_id: cart.id, cat_id: cat2.id, price: 10, quantity: 2)
+
+        expect(cart.zipfile).not_to be_empty
+      end
     end
   end
 end

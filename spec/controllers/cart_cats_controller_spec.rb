@@ -9,8 +9,6 @@ RSpec.describe CartCatsController, type: :controller do
 
   # Probably better off with view tests?
   describe '#create' do
-    user = FactoryBot.create :user
-
     xit 'TODO: what to test?' do
       sign_in user
     end

@@ -524,42 +524,6 @@
         <!--edit -->
         <div class="row mb-1 justify-content-center">
 
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
-
-            <div class="form-group">
-              <%= f.label :email, class: "text-dark" %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
-
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
-
-            <div class="form-group">
-              <%= f.label :password, placeholder: "(leave blank if you don't want to change it)", class: "text-dark" %> <br />
-              <%= f.password_field :password, autocomplete: "new-password" %>
-              <% if @minimum_password_length %>
-                <br />
-                <small><%= @minimum_password_length %> characters minimum</small>
-              <% end %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :password_confirmation, class: "text-dark"%><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :current_password, class: "text-dark" %> <br />
-              <%= f.password_field :current_password, autocomplete: "current-password" %>
-            </div>
-            </br>
-            <div>
-              <%= f.submit "Update", class:"btn btn-primary"  %>
-            </div>
-          <% end %>
-
         </div>
         <!-- / Connections -->
       </div>
