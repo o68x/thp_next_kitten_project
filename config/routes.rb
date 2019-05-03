@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :carts
   get 'download_cart_zip', to: "carts#download_cart_zip"
   resources :charges
+  resources :profiles
 
   get 'admin', to: 'admin#index_admin'
 
@@ -17,6 +18,11 @@ Rails.application.routes.draw do
     resources :carts
     resources :profiles
   end
+
   # root 'cats#index'
   root 'welcome#index'
+
+  # static_pages
+  get 'about', to: 'static_pages#about'
+  get 'team_project', to: 'static_pages#team_project'
 end
