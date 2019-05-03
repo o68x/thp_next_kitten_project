@@ -40,10 +40,4 @@ class CartCat < ApplicationRecord
   def total_cat_price
     price * quantity
   end
-
-  def include_cat_info
-    Cat.find(cat_id)
-  end
-
-  delegate :item_picture, to: :include_cat_info
 end

@@ -22,7 +22,7 @@
 
 class Cart < ApplicationRecord
   belongs_to :user
-  has_many :cart_cats, dependent: :destroy
+  has_many :cart_cats, -> { includes :cat }, inverse_of: :cart, dependent: :destroy
 
   validates :user_id, presence: true
   validates :status, inclusion: { in: [true, false] }
@@ -46,7 +46,7 @@ class Cart < ApplicationRecord
   end
 
   def list_cat_names
-    CartCat.where(cart_id: id).map { |c| c.include_cat_info.title }
+    CartCat.where(cart_id: id).map { |c| c.cat.title }
   end
 
   def zipfile
