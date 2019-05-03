@@ -50,7 +50,7 @@
     "SENDGRID_PWD": {
       "required": true
     },
-    "REDIS_URL": {
+    "REDISTOGO_URL": {
       "required": true
     },
     "HOST": {
