@@ -46,7 +46,7 @@ class Cart < ApplicationRecord
   end
 
   def list_cat_names
-    CartCat.where(cart_id: id).map { |c| c.include_cat_info.title }
+    CartCat.where(cart_id: id).map { |c| c.cat.title }
   end
 
   def zipfile
