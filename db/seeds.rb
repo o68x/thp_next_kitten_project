@@ -16,6 +16,7 @@ User.destroy_all
 Cat.destroy_all
 Cart.destroy_all
 CartCat.destroy_all
+Profile.destroy_all
 
 sleep(1)
 puts "Resetting sequence"
@@ -23,6 +24,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('cats')
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('carts')
 ActiveRecord::Base.connection.reset_pk_sequence!('cart_cats')
+ActiveRecord::Base.connection.reset_pk_sequence!('profiles')
 
 (1..10).to_a.each do |i|
   puts "Creating User #{i}"
@@ -38,7 +40,8 @@ end
     title: Faker::Artist.name,
     description: Faker::Lorem.questions(3).join(" "),
     age: rand(1...8).to_i,
-    price: rand(80..500).to_f
+    price: rand(80..500).to_f,
+    seller_id: User.all.sample.id
   )
   dl_cat_image = URI.parse(Faker::LoremFlickr.image).open
   cat.item_picture.attach(io: dl_cat_image, filename: 'cat_image.jpg', content_type: "image/jpeg")

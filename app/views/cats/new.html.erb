@@ -1,0 +1,21 @@
+<section class="container slice-lg">
+  <h1>Télécharger votre image</h1>
+    <div class="row">
+      <div class="col-md-6">
+          <%= form_for [@cat], class:"form-group", action: root_path, method: :POST do |form| %>
+            <%= form.text_field :title, placeholder: 'Title', class:"form-control form-control-lg mb-4", type:'text' %>
+            <%= form.text_area :description, placeholder: 'Description...', class:"form-control form-control-lg textarea-autogrow" %>
+            <div class="mt-4">
+              <%= form.number_field :price, placeholder: 'Price', class:"form-control form-control-lg mb-4" %>
+            </div>
+            <div  class="mt-4">
+              <%= form.file_field :item_picture %>
+            </div>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <div class="mt-4">
+              <%= form.submit 'Vendre', class:"btn btn-success" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+</section>

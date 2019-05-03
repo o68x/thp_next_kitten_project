@@ -1,0 +1,41 @@
+<section class="container mt-5 slice">
+  <h1 class="text-center">Image: "<%= @cat.title.to_s %>"</h1>
+</section>
+
+<section class="container mb-4 d-flex justify-content-center   flex-direction: column;">
+
+  <div class="col-7 row">
+    <div class="col-md-6">
+        <%= form_for [@cat], class:"form-group", action: root_path, method: :PUT do |form| %>
+          Title
+          <%= form.text_field :title, placeholder: 'Title', class:"form-control form-control-lg mb-4 mt-1", type:'text' %>
+          Description
+          <%= form.text_area :description, placeholder: 'Description...', class:"form-control form-control-lg textarea-autogrow mt-1" %>
+          <div class="mt-4">
+            Price
+            <%= form.number_field :price, placeholder: 'Price', :step => 0.01, class:"form-control form-control-lg mb-4 mt-1" %>
+          </div>
+          <div  class="mt-4">
+            Image
+            <%= form.file_field :item_picture%>
+          </div>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <div class="mt-4">
+            <%= form.submit 'Confirmer la modification', class:"btn btn-success text-white" %>
+          </div>
+        <% end %>
+        <div>
+          <%= link_to "Retour", :back, class:"btn btn-primary mt-4 text-white" %>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-5">
+    <% if @cat.item_picture.attached? %>
+      <%= image_tag(@cat.item_picture, alt: 'cat', :class => "img-fluid img-center img-primary") %>
+    <% else %>
+      <%= image_tag(@cat.image, alt: 'cat', :class => "img-fluid img-center img-primary") %>
+    <% end %>
+  </div>
+
+</section>
