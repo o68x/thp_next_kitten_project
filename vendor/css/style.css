@@ -177,6 +177,7 @@ figure {
   margin: 0 0 1rem; }
 
 img {
+  border-radius: 10px;
   vertical-align: middle;
   border-style: none; }
 
@@ -14437,7 +14438,7 @@ header {
       border-radius: 0.25rem;
       margin: 15px;
       width: calc(100% - 30px);
-      background: #fff; } }
+      background: #fff0; } }
 
 @media (min-width: 1200px) {
   .header-sticky {
@@ -20297,4 +20298,3 @@ pre[class*="language-"] {
     top: 1.875rem;
     right: 1.875rem; }
 
-/*# sourceMappingURL=style.css.map */

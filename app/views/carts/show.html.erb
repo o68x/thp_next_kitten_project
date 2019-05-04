@@ -1,5 +1,5 @@
 <section class="bg-purple text-white pattern" data-top-top="transform: translateY(0px);"
-  data-top-bottom="transform: translateY(250px);">
+         data-top-bottom="transform: translateY(250px);">
   <div class="container pt-10">
     <div class="row mb-2 pb-2">
       <div class="col-md-8 col-lg-6">
@@ -25,12 +25,12 @@
             <span class="flex-shrink-0 w-20"> </span>
           </li>
           <% if @cart.cart_cats.empty? %>
-          <div class="d-flex flex-column justify-content-center align-content-center align-items-center m-10">
-            <h5>Votre panier est actuellement vide !</h5>
-            <%= link_to "Commencer mes achats", root_path, class: "btn btn-primary btn-large" %>
-          </div>
+            <div class="d-flex flex-column justify-content-center align-content-center align-items-center m-10">
+              <h5>Votre panier est actuellement vide !</h5>
+              <%= link_to "Commencer mes achats", root_path, class: "btn btn-primary btn-large" %>
+            </div>
           <% else %>
-          <%= render partial: 'carts/partials/show_list', collection: @cart.cart_cats %>
+            <%= render partial: 'carts/partials/show_list', collection: @cart.cart_cats %>
           <% end %>
           <li class="list-group-item d-flex justify-content-between lh-condensed bg-white">
             <span class="w-20">
@@ -53,11 +53,11 @@
                 <%= hidden_field_tag :cart_id, @cart.id %>
               </article>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>" data-amount="<%= @cart.total_cart_price_in_cents %>"
-                data-email="<%= @cart.user.email %>" data-name="NextKittens"
-                data-description="The best kitten pictures!" data-panel-label="Paiement de {{amount}}"
-                data-image="<%= asset_url('Kitten_logo.png') %>" data-allow-remember-me="false" data-locale="fr"
-                data-currency="EUR">
+                      data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>" data-amount="<%= @cart.total_cart_price_in_cents %>"
+                      data-email="<%= @cart.user.email %>" data-name="NextKittens"
+                      data-description="The best kitten pictures!" data-panel-label="Paiement de {{amount}}"
+                      data-image="<%= asset_url('Kitten_logo.png') %>" data-allow-remember-me="false" data-locale="fr"
+                      data-currency="EUR">
               </script>
               <% end %>
             </span>
