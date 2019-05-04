@@ -32,7 +32,10 @@ FactoryBot.define do
 
     trait :order_placed do
       # TODO: RSPEC Create cart_cats for factory?
-      # after :create { create_list :cart_cat, 3 }
+      after :create do |cart|
+        create_list :cart_cat, Random.rand(1..3), cart_id: cart.id
+      end
+
       order_placed { Faker::Date.backward(14) }
       status       { true }
     end

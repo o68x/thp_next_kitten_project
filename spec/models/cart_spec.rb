@@ -29,6 +29,11 @@ RSpec.describe Cart, type: :model do
 
   it "has a valid factory" do
     expect(create(:cart)).to be_valid
+    expect(create(:cart, :order_not_placed)).to be_valid
+  end
+
+  it "has a valid factory with cart_cats" do
+    expect(create(:cart, :order_placed)).to be_valid
   end
 
   describe 'ActiveRecord' do

@@ -9,6 +9,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 
 Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
 
+require "capybara/rails"
 require 'rspec/rails'
 require 'faker'
 require 'simplecov'
@@ -33,6 +34,12 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # For Devise > 4.1.1
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Warden::Test::Helpers
+  # https://github.com/plataformatec/devise/wiki/How-To:-Test-with-Capybara
+  config.after do
+    Warden.test_reset!
+  end
 end
 
 Shoulda::Matchers.configure do |config|
