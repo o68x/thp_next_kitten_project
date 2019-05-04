@@ -26,6 +26,10 @@
 require 'rails_helper'
 
 RSpec.describe CartCat, type: :model do
+  it 'has a valid Factory' do
+    expect(build(:cart_cat)).to be_valid
+  end
+
   describe 'records' do
     describe 'associations' do
       it { is_expected.to belong_to(:cart) }

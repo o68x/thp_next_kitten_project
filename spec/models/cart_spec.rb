@@ -23,9 +23,9 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  let(:not_ordered_cart) { create(:cart, :order_not_placed) }
-  let(:ordered_cart) { create(:cart, :order_placed) }
   let(:cart) { create(:cart) }
+  let(:ordered_cart) { create(:cart, :order_placed) }
+  let(:not_ordered_cart) { create(:cart, :order_not_placed) }
 
   it "has a valid factory" do
     expect(create(:cart)).to be_valid

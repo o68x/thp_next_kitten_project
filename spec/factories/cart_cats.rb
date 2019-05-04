@@ -27,5 +27,7 @@ FactoryBot.define do
   factory :cart_cat do
     quantity { Faker::Number.between(1, 3) }
     price    { Faker::Number.between(10, 100) }
+    cart
+    cat
   end
 end

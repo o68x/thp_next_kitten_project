@@ -23,7 +23,7 @@
 FactoryBot.define do
   factory :cat do
     title       { Faker::Artist.name }
-    description { Faker::Lorem.sentences(3).join }
+    description { Faker::Lorem.sentences(3).join(" ") }
     age         { rand(1..8).to_i }
     price       { rand(80..500).to_f }
   end

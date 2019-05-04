@@ -22,8 +22,8 @@
 
 FactoryBot.define do
   factory :cart do
-    user_id { 1 }
-    status  { false }
+    user
+    status { false }
 
     trait :order_not_placed do
       order_placed { nil }
@@ -31,6 +31,8 @@ FactoryBot.define do
     end
 
     trait :order_placed do
+      # TODO: RSPEC Create cart_cats for factory?
+      # after :create { create_list :cart_cat, 3 }
       order_placed { Faker::Date.backward(14) }
       status       { true }
     end
