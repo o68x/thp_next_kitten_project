@@ -3,5 +3,5 @@
     <h6 class="font-weight-bold"><%= cart_dropdown_list.cat.title %></h6>
     <small class="text-muted"><%= cart_dropdown_list.quantity %></small>
   </div>
-  <span class="flex-shrink-0 w-10"><%= cart_dropdown_list.total_cat_price %></span>
+  <span class="flex-shrink-0 w-10"><%= number_to_currency(cart_dropdown_list.total_cat_price) %></span>
 </li>
