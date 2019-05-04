@@ -50,4 +50,4 @@ RSpec.describe CartCat, type: :model do
       expect(subject.quantity).to eq(2)
     end
   end
-end 
+end
