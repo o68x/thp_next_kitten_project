@@ -2,20 +2,20 @@
 
 require 'rails_helper'
 
-describe "User visits homepage", type: :feature do
+describe "Homepage", type: :feature do
   let(:user) { create(:user) }
 
-  it "when logged in" do
+  it "user logged in" do
     login_as user
     visit root_path
 
-    expect(page).to have_link "Sign out", href: destroy_user_session_path
+    expect(page).to have_current_path cats_path
   end
 
-  it "when not logged in" do
+  it "user not logged in" do
     logout
     visit root_path
 
-    expect(page).to have_link "Log in", href: new_user_session_path
+    expect(page).to have_current_path root_path
   end
 end

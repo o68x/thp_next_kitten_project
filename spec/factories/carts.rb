@@ -25,6 +25,12 @@ FactoryBot.define do
     user
     status { false }
 
+    trait :with_cart_cats do
+      after :create do |cart|
+        create_list :cart_cat, Random.rand(1..5), cart_id: cart.id
+      end
+    end
+
     trait :order_not_placed do
       order_placed { nil }
       status       { false }

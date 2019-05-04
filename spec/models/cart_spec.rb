@@ -79,27 +79,15 @@ RSpec.describe Cart, type: :model do
   end
 
   describe '#total_cart_price' do
-    # it 'returns the total price of cats' do
-    #   create(:cart)
-    #   cat1 = create(:cat)
-    #   cat2 = create(:cat)
-    #   create(:cart_cat, cart_id: cart.id, cat_id: cat1.id, price: 10, quantity: 1)
-    #   create(:cart_cat, cart_id: cart.id, cat_id: cat2.id, price: 10, quantity: 2)
+  end
 
-    #   expect(cart.total_cart_price).to eq(30)
-    # end
+  describe '#zipfile' do
+    let(:cart) { create(:cart, :with_cart_cats) }
 
-    describe '#zipfile' do
-      it 'returns a non empty object' do
-        pending("#TODO: RSPEC Should build the whole stuff, including attachments")
-        create(:cart)
-        cat1 = create(:cat)
-        cat2 = create(:cat)
-        create(:cart_cat, cart_id: cart.id, cat_id: cat1.id, price: 10, quantity: 1)
-        create(:cart_cat, cart_id: cart.id, cat_id: cat2.id, price: 10, quantity: 2)
+    it 'returns a non empty object' do
+      pending("#TODO: create factory with attachments")
 
-        expect(cart.zipfile).not_to be_empty
-      end
+      expect(cart.zipfile).not_to be_empty
     end
   end
 end
