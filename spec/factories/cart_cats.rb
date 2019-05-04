@@ -29,5 +29,16 @@ FactoryBot.define do
     price    { Faker::Number.between(10, 100) }
     cart
     cat
+
+    trait :without_picture do
+      :cat_without_picture
+    end
+
+    trait :with_picture do
+      :cat_with_picture
+    end
+
+    factory :cart_cat_without_picture, traits: %i[without_picture]
+    factory :cart_cat_with_picture, traits: %i[with_picture]
   end
 end

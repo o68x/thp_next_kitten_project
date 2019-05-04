@@ -29,7 +29,8 @@ RSpec.describe Cart, type: :model do
 
   it "has a valid factory" do
     expect(create(:cart)).to be_valid
-    expect(create(:cart, :order_not_placed)).to be_valid
+    expect(create(:cart_with_cart_cats)).to be_valid
+    expect(create(:cart_with_cart_cats_with_picture)).to be_valid
   end
 
   it "has a valid factory with cart_cats" do
@@ -82,7 +83,7 @@ RSpec.describe Cart, type: :model do
   end
 
   describe '#zipfile' do
-    let(:cart) { create(:cart, :with_cart_cats) }
+    let(:cart) { create(:cart_with_cart_cats_with_picture) }
 
     it 'returns a non empty object' do
       pending("#TODO: create factory with attachments")

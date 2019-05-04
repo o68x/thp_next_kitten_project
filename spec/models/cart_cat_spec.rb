@@ -28,6 +28,8 @@ require 'rails_helper'
 RSpec.describe CartCat, type: :model do
   it 'has a valid Factory' do
     expect(build(:cart_cat)).to be_valid
+    expect(build(:cart_cat_with_picture)).to be_valid
+    expect(build(:cart_cat_without_picture)).to be_valid
   end
 
   describe 'records' do

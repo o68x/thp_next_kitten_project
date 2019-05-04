@@ -27,7 +27,13 @@ FactoryBot.define do
 
     trait :with_cart_cats do
       after :create do |cart|
-        create_list :cart_cat, Random.rand(1..5), cart_id: cart.id
+        create_list :cart_cat_without_picture, Random.rand(1..5), cart_id: cart.id
+      end
+    end
+
+    trait :with_cart_cats_with_picture do
+      after :create do |cart|
+        create_list :cart_cat_with_picture, Random.rand(1..5), cart_id: cart.id
       end
     end
 
@@ -38,12 +44,15 @@ FactoryBot.define do
 
     trait :order_placed do
       # TODO: RSPEC Create cart_cats for factory?
-      after :create do |cart|
-        create_list :cart_cat, Random.rand(1..3), cart_id: cart.id
-      end
-
       order_placed { Faker::Date.backward(14) }
       status       { true }
+
+      after :create do |cart|
+        create_list :cart_cat_with_picture, Random.rand(1..3), cart_id: cart.id
+      end
     end
+
+    factory :cart_with_cart_cats, traits: %i[with_cart_cats]
+    factory :cart_with_cart_cats_with_picture, traits: %i[with_cart_cats_with_picture]
   end
 end
