@@ -39,7 +39,6 @@ end
   cat = Cat.create!(
     title: Faker::Artist.name,
     description: Faker::Lorem.questions(3).join(" "),
-    age: rand(1...8).to_i,
     price: rand(80..500).to_f,
     seller_id: User.all.sample.id
   )

@@ -5,7 +5,6 @@
 # Table name: cats
 #
 #  id           :bigint(8)        not null, primary key
-#  age          :integer
 #  description  :text
 #  image        :text
 #  is_available :boolean          default(TRUE)
