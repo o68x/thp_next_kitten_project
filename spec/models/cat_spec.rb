@@ -27,7 +27,6 @@ RSpec.describe Cat, type: :model do
 
     describe 'Database' do
       it { is_expected.to have_db_column(:id).of_type(:integer) }
-      it { is_expected.to have_db_column(:age).of_type(:integer) }
       it { is_expected.to have_db_column(:description).of_type(:text) }
       it { is_expected.to have_db_column(:image).of_type(:text) }
       it { is_expected.to have_db_column(:price).of_type(:decimal).with_options(null: true) }
