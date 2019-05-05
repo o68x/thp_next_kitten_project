@@ -35,6 +35,17 @@ ActiveRecord::Base.connection.reset_pk_sequence!('profiles')
 end
 
 (1..10).to_a.each do |i|
+  puts "Profile update #{i}"
+
+  Profile.find(i).update(
+    description: Faker::ChuckNorris.fact,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    user_id: User.all.sample.id
+  )
+end
+
+(1..10).to_a.each do |i|
   puts "Creating Cat #{i}"
   cat = Cat.create!(
     title: Faker::Artist.name,
