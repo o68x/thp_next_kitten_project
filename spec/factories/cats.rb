@@ -23,8 +23,19 @@
 FactoryBot.define do
   factory :cat do
     title       { Faker::Artist.name }
-    description { Faker::Lorem.sentences(3).join }
+    description { Faker::Lorem.sentences(3).join(" ") }
     age         { rand(1..8).to_i }
     price       { rand(80..500).to_f }
+
+    trait :with_picture do
+      after :create do |cat|
+        file_path = Rails.root.join('spec', 'support', 'assets', 'test-picture.jpg')
+        file = Rack::Test::UploadedFile.new(file_path, 'image/jpg')
+        cat.item_picture.attach(file)
+      end
+    end
+
+    factory :cat_with_picture, traits: %i[with_picture]
+    factory :cat_without_picture
   end
 end

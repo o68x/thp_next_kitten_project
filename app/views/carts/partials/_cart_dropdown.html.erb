@@ -2,17 +2,17 @@
 <div id="drop_cart" class="bg-light" aria-hidden="true" style="display: none">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Hello cart!</h5>
+      <h6 class="card-title">Votre panier</h6>
       <% if current_cart.cart_cats.empty? %>
         <div class="d-flex flex-column justify-content-center align-content-center align-items-center m-10">
-          <h5>Votre panier est actuellement vide !</h5>
+          <h5 class="text-center">Votre panier est actuellement vide !</h5>
           <%= link_to "Commencer mes achats", root_path, class: "btn btn-primary btn-large" %>
         </div>
       <% else %>
-      <ul class="list-group">
+      <ul class="list-unstyled">
           <%= render partial: 'carts/partials/cart_dropdown_list', collection: current_cart.cart_cats %>
       </ul>
-      <%= link_to "Acheter", cart_path(current_cart), class: "btn btn-primary btn-sm m-2" %>
+      <%= link_to "Acheter", cart_path(current_cart), class: "btn btn-primary m-2" %>
       <div>
         <small class="text-muted">Vous pourrez modifier votre commande dans le panier.</small>
       </div>
