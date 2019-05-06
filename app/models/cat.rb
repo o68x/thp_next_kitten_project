@@ -30,4 +30,8 @@ class Cat < ApplicationRecord
   def user_seller
     Cat.find(id).seller.profile.last_name
   end
+
+  def set_profile
+    current_user.id == Cat.seller_id
+  end
 end

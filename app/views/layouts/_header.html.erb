@@ -21,9 +21,8 @@
               <%= link_to "Profile", edit_profile_path(current_user.id), class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-              <%= link_to "Sell", new_cat_path, class: "nav-link" %>
+              <%= render partial: 'cats/partials/profile_seller' %>
             </li>
-
 
             <li class="nav-item dropdown">
 

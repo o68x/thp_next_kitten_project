@@ -15,10 +15,9 @@ class CatsController < ApplicationController
   end
 
   def create
-    # seller_cat == current_user.id
     cat_params = params.require(:cat).permit(:description, :price, :title, :item_picture)
-
     @cat = Cat.new(cat_params)
+    @link_between_user_and_cat = @cat.seller_id == current_user.id
     if @cat.save
       redirect_to root_path, flash: { success: "Votre image à bien été enregistrer" }
     else
