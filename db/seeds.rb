@@ -14,9 +14,10 @@ sleep(1)
 puts "Destroying previous records"
 puts Cart.count
 User.destroy_all
-# Both lines are not necessary, destroyed with users
+Profile.destroy_all
 # Cart.destroy_all
 # CartCat.destroy_all
+sleep(1)
 Cat.destroy_all
 
 sleep(1)
@@ -64,8 +65,8 @@ end
       quantity: rand(1..2)
     )
     j += 1
-    Cart.create!(
-      user_id: Cart.find(i).user_id
-    )
   end
+  Cart.create!(
+    user_id: Cart.find(i).user_id
+  )
 end
