@@ -1,18 +1,16 @@
-
 <%= render 'banner_edit' %>
 
 <section class="bg-light p-0">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col col-md-10 col-lg-5">
+
         <div class="nav nav-tabs mb-1">
           <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-1">Profile</a>
           <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Connections</a>
           <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Payments</a>
-          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-4">Settings</a>
-          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-5"><%= image_tag ('icon_parametre.png') %></a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-4"><%= image_tag ('icon_parametre.png') %></a>
         </div>
-      </div>
+      
     </div>
   </div>
 </section>
@@ -233,7 +231,6 @@
                         <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="icon-more-vertical fs-22"></i>
                         </a>
->>>>>>> issue/66_improve_footer
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-7">
                           <a class="dropdown-item" href="#">Make Primary</a>
@@ -414,22 +411,22 @@
                 <div class="boxed">
                   <div class="row align-items-center justify-content-between p-3">
                     <div class="col-md-2 pb-2 pb-md-0 text-center">
-                        <% if current_user.profile.profile_picture.attached? %>
-                          <%= image_tag current_user.profile.profile_picture, class: "avatar avatar-lg rounded", alt: "Avatar" %>
-                         <% else %>
-                          <%= image_tag "profile_nil.png", class: "avatar avatar-lg rounded", alt: "Avatar"%>
+                      <% if current_user.profile.profile_picture.attached? %>
+                        <%= image_tag current_user.profile.profile_picture, class: "avatar avatar-lg rounded", alt: "Avatar" %>
+                      <% else %>
+                        <%= image_tag "profile_nil.png", class: "avatar avatar-lg rounded", alt: "Avatar"%>
                       <% end %>
                     </div>
                     <div class="col-md-5 text-center text-md-left">
-                      <% form_with (@user.profile) do |f|%>
-                      <h4 class="mb-0"><%= current_user.email %></h4>
-                      <a href="" class="fs-14 link text-primary">Change Avatar</a>
-                    </div>
-                    <div class="col-md-4 text-center text-md-right mt-1 mt-md-0">
-                      <a href="" class="btn btn-primary btn-rounded">Upgrade Plan</a>
-                    </div>
-                        <%end %>
-                  </div>
+
+                        <h4 class="mb-0"><%= current_user.email %></h4>
+                        <a href="" class="fs-14 link text-primary">Change Avatar</a>
+                        </div>
+                        <div class="col-md-4 text-center text-md-right mt-1 mt-md-0">
+                          <a href="" class="btn btn-primary btn-rounded">Upgrade Plan</a>
+                        </div>
+
+                      </div>
                 </div>
               </div>
             </div>
@@ -522,11 +519,10 @@
       <!-- / tab -->
       =========================================================================================================================================================
       <!-- tab payment -->
-      <div class="tab-pane" id="demo-2-5" role="tabpanel" aria-labelledby="demo-2-5">
-        <!--edit -->
-        <div class="row mb-1 justify-content-center">
         </div>
+        <!-- / Connections -->
       </div>
+      <!-- / tab -->
     </div>
   </div>
 </section>

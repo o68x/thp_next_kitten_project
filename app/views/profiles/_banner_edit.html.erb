@@ -1,0 +1,29 @@
+<section class=" bg-purple text-white pattern",
+         data-top-top="transform: translateY(0px);">
+  <div class="container">
+    <div class="row justify-content-center align-items-end vh-20 mb-4">
+      <div class="col col-md-10 col-lg-8">
+        <div class="row align-items-center">
+          <div class="col-4 col-lg-3">
+              <% if user_signed_in? %>
+                <% if current_user.profile.profile_picture.attached? %>
+                  <%= image_tag current_user.profile.profile_picture, class: "rounded-circle", id: "pp-edit"%>
+              <% else %>
+                  <%= image_tag "profile_nil.png", class: "rounded-circle", id: "pp-edit"%>
+                <% end %>
+            <% end %>
+          </div>
+          <div class="col">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <h2 class="mb-0"><b><%= current_user.email %></b></h2>
+              </div>
+
+
+            </div>
+          </div>
+        </div>k
+      </div>
+    </div>
+  </div>
+</section>
