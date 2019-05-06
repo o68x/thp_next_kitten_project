@@ -418,9 +418,12 @@
                       <% end %>
                     </div>
                     <div class="col-md-5 text-center text-md-left">
+                    <%= form_tag url_for(action: 'update'), method: "patch", multipart: true do %>
+
 
                         <h4 class="mb-0"><%= current_user.email %></h4>
                         <a href="" class="fs-14 link text-primary">Change Avatar</a>
+                        <%= file_field_tag :profile_picture %>
                         </div>
                         <div class="col-md-4 text-center text-md-right mt-1 mt-md-0">
                           <a href="" class="btn btn-primary btn-rounded">Upgrade Plan</a>
@@ -439,13 +442,13 @@
                     <div class="col">
                       <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="email" class="form-control" id="firstName" aria-describedby="firstName" placeholder="John">
+                        <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="<%=@profile.first_name%>">
                       </div>
                     </div>
                     <div class="col">
                       <div class="form-group">
                         <label for="secondName">Second Name</label>
-                        <input type="email" class="form-control" id="secondName" aria-describedby="secondName" placeholder="Doe">
+                        <input type="text" class="form-control" id="secondName" aria-describedby="secondName" placeholder="Doe">
                       </div>
                     </div>
                   </div>
@@ -459,7 +462,7 @@
                   </div>
                   <div class="form-row mt-1 align-items-center">
                     <div class="col-3">
-                      <button class="btn btn-secondary">Save Changes</button>
+                      <%= submit_tag "Save Changes", class: "btn btn-secondary"%>
                     </div>
                   </div>
                 </form>
@@ -511,6 +514,8 @@
                     </div>
                   </div>
                 </form>
+                                        <% end%>
+
               </div>
             </div>
           </div>
