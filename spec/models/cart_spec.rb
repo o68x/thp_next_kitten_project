@@ -23,12 +23,18 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  let(:not_ordered_cart) { create(:cart, :order_not_placed) }
-  let(:ordered_cart) { create(:cart, :order_placed) }
   let(:cart) { create(:cart) }
+  let(:ordered_cart) { create(:cart, :order_placed) }
+  let(:not_ordered_cart) { create(:cart, :order_not_placed) }
 
   it "has a valid factory" do
     expect(create(:cart)).to be_valid
+    expect(create(:cart_with_cart_cats)).to be_valid
+    expect(create(:cart_with_cart_cats_with_picture)).to be_valid
+  end
+
+  it "has a valid factory with cart_cats" do
+    expect(create(:cart, :order_placed)).to be_valid
   end
 
   describe 'ActiveRecord' do
@@ -74,27 +80,15 @@ RSpec.describe Cart, type: :model do
   end
 
   describe '#total_cart_price' do
-    # it 'returns the total price of cats' do
-    #   create(:cart)
-    #   cat1 = create(:cat)
-    #   cat2 = create(:cat)
-    #   create(:cart_cat, cart_id: cart.id, cat_id: cat1.id, price: 10, quantity: 1)
-    #   create(:cart_cat, cart_id: cart.id, cat_id: cat2.id, price: 10, quantity: 2)
+  end
 
-    #   expect(cart.total_cart_price).to eq(30)
-    # end
+  describe '#zipfile' do
+    let(:cart) { create(:cart_with_cart_cats_with_picture) }
 
-    describe '#zipfile' do
-      it 'returns a non empty object' do
-        pending("#TODO: RSPEC Should build the whole stuff, including attachments")
-        create(:cart)
-        cat1 = create(:cat)
-        cat2 = create(:cat)
-        create(:cart_cat, cart_id: cart.id, cat_id: cat1.id, price: 10, quantity: 1)
-        create(:cart_cat, cart_id: cart.id, cat_id: cat2.id, price: 10, quantity: 2)
+    it 'returns a non empty object' do
+      pending("#TODO: create factory with attachments")
 
-        expect(cart.zipfile).not_to be_empty
-      end
+      expect(cart.zipfile).not_to be_empty
     end
   end
 end

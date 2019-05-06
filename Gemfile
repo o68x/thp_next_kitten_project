@@ -44,10 +44,13 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '>= 2.15'
   gem 'codecov', require: false
   gem 'database_cleaner', '~> 1.7'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', '~> 0.16.1', require: false
+  gem 'webdrivers', '~> 3.0'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

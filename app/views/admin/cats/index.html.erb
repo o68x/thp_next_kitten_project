@@ -35,6 +35,7 @@
                       <th>#</th>
                       <th>Title</th>
                       <th>Price</th>
+                      <th>Seller</th>
                       <th>See</th>
                       <th>Edit</th>
                       <th>Availability</th>
@@ -47,6 +48,8 @@
                       <td><%= cat.id%></td>
                       <td><%= cat.title%></td>
                       <td><%= cat.price%></td>
+                      <!-- seller_email defined in helper -->
+                      <td><%= seller_email(cat) %></td>
                       <td><span title= "Voir" ><%= link_to '<i class="btn btn-sm btn-ico btn-primary "></i>'.html_safe, cat_path(cat)%></span></td>
                       <td><span title= "Editer" ><%= link_to '<i class="btn btn-sm btn-ico btn-instagram"></i>'.html_safe, edit_admin_cat_path(cat)%></span></td>
                       <td><%= cat.is_available%></td>
