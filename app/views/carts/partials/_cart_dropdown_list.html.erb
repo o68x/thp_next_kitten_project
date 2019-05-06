@@ -1,7 +1,10 @@
-<li class="list-group-item d-flex justify-content-between lh-condensed">
-  <div class="flex-shrink-1 w-50">
-    <h6 class="font-weight-bold"><%= cart_dropdown_list.cat.title %></h6>
-    <small class="text-muted"><%= cart_dropdown_list.quantity %></small>
+<li class="media mb-2">
+    <%= image_tag cart_dropdown_list.cat.item_picture, class: "mr-3", style: "width: 48px;" %>
+  <div class="media-body d-flex justify-content-between lh-condensed">
+    <div class="flex-shrink-1 w-50">
+      <h6 class="font-weight-bold"><%= cart_dropdown_list.cat.title %></h6>
+      <small class="text-muted">Quantité : <%= cart_dropdown_list.quantity %></small>
+    </div>
+    <span class="flex-shrink-0 w-10"><%= number_to_currency(cart_dropdown_list.total_cat_price) %></span>
   </div>
-  <span class="flex-shrink-0 w-10"><%= number_to_currency(cart_dropdown_list.total_cat_price) %></span>
 </li>
