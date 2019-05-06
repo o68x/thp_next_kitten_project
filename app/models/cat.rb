@@ -26,4 +26,8 @@ class Cat < ApplicationRecord
   validates :price, length: { maximum: 6 }
   has_one_attached :item_picture # active storage
   belongs_to :seller, class_name: 'User', optional: true
+
+  def user_seller
+    Cat.find(id).seller.profile.last_name
+  end
 end

@@ -41,7 +41,7 @@ end
     description: Faker::ChuckNorris.fact,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    user_id: User.all.sample.id
+    user_id: i.to_s
   )
 end
 
@@ -51,7 +51,7 @@ end
     title: Faker::Artist.name,
     description: Faker::Lorem.questions(3).join(" "),
     price: rand(80..500).to_f,
-    seller_id: User.all.sample.id
+    seller_id: i.to_s
   )
   dl_cat_image = URI.parse(Faker::LoremFlickr.image).open
   cat.item_picture.attach(io: dl_cat_image, filename: 'cat_image.jpg', content_type: "image/jpeg")
