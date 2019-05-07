@@ -15,8 +15,7 @@
               <p class="card-text"><%= @cat.description %></p>
             </div>
             <ul class="list-group list-group-flush text-center">
-              <li class="list-group-item">Age : <%= @cat.age%> mois</li>
-              <li class="list-group-item">Price : <%= number_to_currency(@cat.price) %></li>
+              <li class="list-group-item">Price : <%= @cat.price %> €</li>
             </ul>
             <div class="card-body text-center">
               <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: @cat.id, price: @cat.price}, {class:"btn btn-outline-primary btn-sm"} %>
