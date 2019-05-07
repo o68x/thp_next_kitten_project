@@ -9,8 +9,10 @@
           <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Connections</a>
           <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Payments</a>
           <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-4"><%= image_tag ('icon_parametre.png') %></a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#tab_buyer">Mes achats</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#tab_seller">Mes ventes</a>
         </div>
-      
+
     </div>
   </div>
 </section>
@@ -537,6 +539,38 @@
           </div>
         </div>
       </div>
+
+      <!-- tab mes annonces -->
+      <div class="tab-pane" id="tab_buyer" role="tabpanel" aria-labelledby="tab_buyer">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+
+              <!-- PROFILE -->
+              <%= render 'tab_buyer' %>
+              <!-- / PROFILE -->
+
+
+            </div>
+          </div>
+        </div>
+        <!-- / tab mes annonces -->
+
+        <!-- tab mes annonces -->
+      <div class="tab-pane" id="tab_seller" role="tabpanel" aria-labelledby="tab_seller">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+
+              <!-- PROFILE -->
+              <%= render 'tab_seller' %>
+              <!-- / PROFILE -->
+
+
+            </div>
+          </div>
+        </div>
+        <!-- / tab mes annonces -->
+
+
     </div>
   </div>
 </section>

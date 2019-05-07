@@ -9,8 +9,8 @@
 #  image        :text
 #  is_available :boolean          default(TRUE)
 #  price        :decimal(, )      default(0.0)
-#  title        :string
 #  created_at   :datetime         not null
+#  title        :string
 #  updated_at   :datetime         not null
 #  seller_id    :bigint(8)
 #
@@ -27,6 +27,9 @@ class Cat < ApplicationRecord
 
   has_one_attached :item_picture # active storage
   belongs_to :seller, class_name: 'User', optional: true
+  has_many :cart_cats, dependent: :destroy
+
+  before_destroy :ensure_deletable, prepend: true
 
   def user_seller
     Cat.find(id).seller.profile.last_name
@@ -34,5 +37,10 @@ class Cat < ApplicationRecord
 
   def self.from_seller(seller)
     where(seller: seller)
+  end
+
+  def ensure_deletable
+    # TODO: Not sure this works.. but raises a PG error anyway
+    raise "Will not delete because included in carts" unless cart_cats.empty?
   end
 end
