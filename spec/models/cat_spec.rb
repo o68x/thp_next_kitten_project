@@ -5,7 +5,6 @@
 # Table name: cats
 #
 #  id           :bigint(8)        not null, primary key
-#  age          :integer
 #  description  :text
 #  image        :text
 #  is_available :boolean          default(TRUE)
@@ -23,18 +22,17 @@
 require 'rails_helper'
 
 RSpec.describe Cat, type: :model do
-  #  it "has a valid factory" do
-  #    expect(create(:cat)).to be_valid
-  #    expect(create(:cat_with_picture)).to be_valid
-  #    expect(create(:cat_without_picture)).to be_valid
-  #  end
+  # it "has a valid factory" do
+  #   expect(create(:cat)).to be_valid
+  #   expect(create(:cat_with_picture)).to be_valid
+  #   expect(create(:cat_without_picture)).to be_valid
+  # end
 
   describe 'Model instantiation' do
     subject(:new_cat) { described_class.new }
 
     describe 'Database' do
       it { is_expected.to have_db_column(:id).of_type(:integer) }
-      it { is_expected.to have_db_column(:age).of_type(:integer) }
       it { is_expected.to have_db_column(:description).of_type(:text) }
       it { is_expected.to have_db_column(:image).of_type(:text) }
       it { is_expected.to have_db_column(:price).of_type(:decimal).with_options(null: true) }

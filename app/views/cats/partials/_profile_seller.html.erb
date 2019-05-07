@@ -1,0 +1,9 @@
+            <% if current_user.profile.last_name.nil? %>
+            <li class="nav-item dropdown">
+              <%= link_to "Update Profile for Sell", edit_profile_path(current_user.id), class: "nav-link" %>
+            </li>
+            <% else %>
+            <li class="nav-item dropdown">
+              <%= link_to "Sell", new_cat_path, class: "nav-link" %>
+            </li>
+            <% end %>
