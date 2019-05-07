@@ -13,8 +13,18 @@ class ProfilesController < ApplicationController
   def edit; end
 
   def update
-    @profile.update(params_profile)
-    redirect_to(edit_profile_path(@profile.id)) if @profile.update
+    @profile = Profile.find(params[:id])
+    profile_params = params.permit(:descrition, :phone_number, :profile_picture)
+
+    if !params[:profile_picture].nil?
+      @profile.profile_picture.attach(params[:profile_picture])
+    end
+
+    if @profile.update(profile_params)
+      redirect_to edit_profile_path, flash: { success: "Profile updated" }
+    else
+      render 'index'
+    end
   end
 
   private
@@ -24,8 +34,4 @@ class ProfilesController < ApplicationController
   end
 
   def resource_name; end
-
-  def params_profile
-    params.require(:profile).permit(:profile_picture)
-  end
 end

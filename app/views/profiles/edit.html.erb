@@ -84,7 +84,6 @@
       </div>
       <!-- / tab -->
 
-      =========================================================================================================================================================
       <!-- tab connections -->
       <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2">
         <div class="row justify-content-center">
@@ -246,8 +245,8 @@
         </div>
       </div>
       <!-- / tab -->
-      =========================================================================================================================================================
-      <!-- tab groups -->
+
+      <!-- tab Payments -->
       <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
@@ -400,7 +399,7 @@
         </div>
       </div>
       <!-- / tab -->
-      =========================================================================================================================================================
+
       <!-- tab settings -->
       <div class="tab-pane" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
         <div class="row justify-content-center">
@@ -418,12 +417,14 @@
                       <% end %>
                     </div>
                     <div class="col-md-5 text-center text-md-left">
-
                         <h4 class="mb-0"><%= current_user.email %></h4>
                         <a href="" class="fs-14 link text-primary">Change Avatar</a>
+                        <%= form_tag url_for(action: 'update'), method: "patch", multipart: true do %>
+
+                        <%= file_field_tag :profile_picture %>
                         </div>
                         <div class="col-md-4 text-center text-md-right mt-1 mt-md-0">
-                          <a href="" class="btn btn-primary btn-rounded">Upgrade Plan</a>
+                         <!-- <a href="" class="btn btn-primary btn-rounded">Upgrade Plan</a> -->
                         </div>
 
                       </div>
@@ -435,17 +436,18 @@
               <div class="col">
                 <h5 class="mb-2 fs-20 font-weight-normal">General Information</h5>
                 <form>
+
                   <div class="form-row">
                     <div class="col">
                       <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="email" class="form-control" id="firstName" aria-describedby="firstName" placeholder="John">
+                        <%= text_field_tag :first_name, "", class: 'form-control' %>
                       </div>
                     </div>
                     <div class="col">
                       <div class="form-group">
-                        <label for="secondName">Second Name</label>
-                        <input type="email" class="form-control" id="secondName" aria-describedby="secondName" placeholder="Doe">
+                        <label for="secondName">Last Name</label>
+                        <%= text_field_tag :last_name, "", class: 'form-control' %>
                       </div>
                     </div>
                   </div>
@@ -457,42 +459,60 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-row mt-1 align-items-center">
+                  <!--<div class="form-row mt-1 align-items-center">
                     <div class="col-3">
-                      <button class="btn btn-secondary">Save Changes</button>
+                      <%= submit_tag "Save Changes", class: "btn btn-secondary"%>
                     </div>
-                  </div>
-                </form>
+                  </div> -->
               </div>
             </div>
 
             <div class="row">
               <div class="col">
                 <h5 class="mb-2 fs-20 font-weight-normal">Profile Information</h5>
-                <form>
                   <div class="form-row">
                     <div class="col">
                       <div class="form-group">
                         <label for="userCity">City</label>
-                        <input type="email" class="form-control" id="userCity" aria-describedby="userCity" placeholder="New York">
+                        <%= text_field_tag :city, "", class: 'form-control' %>
                       </div>
                     </div>
                     <div class="col">
                       <div class="form-group">
                         <label for="userCountry">Country</label>
-                        <input type="email" class="form-control" id="userCountry" aria-describedby="userCountry" placeholder="United States">
+                        <%= text_field_tag :country, "", class: 'form-control' %>
                       </div>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col">
                       <div class="form-group">
-                        <label for="userTwitter">Twitter</label>
+                        <label for="userCity">Zip Code</label>
+                        <%= text_field_tag :zip_code, "", class: 'form-control' %>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                  <div class="col">
+                      <div class="form-group">
+                        <label for="userCountry">Adress</label>
+                        <%= text_field_tag :adress, "", class: 'form-control' %>
+                      </div>
+                    </div>
+                    </div>
+                  <div class="form-row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="userTwitter">Phone number</label>
                         <div class="input-group">
                           <div class="input-group-prepend">
-                            <span class="input-group-text">@</span>
+                            <span class="input-group-text">+33</span>
                           </div>
-                          <input type="text" id="userTwitter" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="userTwitter">
+                            <%= telephone_field_tag :phone_number, "", class: 'form-control' %>
                         </div>
                       </div>
                     </div>
@@ -500,29 +520,23 @@
                   <div class="form-row">
                     <div class="col">
                       <div class="form-group">
-                        <label for="exampleFormControlTextarea1">About</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <%= text_area_tag :description, "", class: 'form-control' %>
                       </div>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-3">
-                      <button class="btn btn-secondary">Save Changes</button>
+                      <%= submit_tag "Save Changes", class: "btn btn-secondary"%>
                     </div>
                   </div>
                 </form>
+               <% end%>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- / tab -->
-      =========================================================================================================================================================
-      <!-- tab payment -->
-        </div>
-        <!-- / Connections -->
-      </div>
-      <!-- / tab -->
     </div>
   </div>
 </section>
