@@ -4,7 +4,7 @@
       <tr>
         <th scope="col"><strong>#</strong></th>
         <th scope="col"><strong>Nom</strong></th>
-        <th scope="col"><strong>Prix</strong></th>
+        <th scope="col"><strong data-toggle="tooltip" title="Tooltip on top">Prix</strong></th>
         <th scope="col"><strong>Vendus</strong></th>
         <th scope="col"><strong>Total</strong></th>
         <th scope="col"></th>
@@ -12,14 +12,14 @@
     </thead>
     <tbody>
     <% @cats.each do |cat|%>
-      <tr>
-        <th scope="row"><%= cat.id %></th>
+    <tr>
+      <th scope="row"><%= cat.id %></th>
         <td><%= cat.title %></td>
         <td><%= cat.price %></td>
         <td><%= cat.cart_cats.count %></td>
-        <td class="text-danger">TODO</td>
+        <td><%= cat.cart_cats.pluck(:price).sum %></td>
         <td>
-            <%= link_to "supprimer", "#" %><br/>
+            <%= link_to "retirer", "#" %><br/>
             <%= link_to "éditer", "#" %>
         </td>
       </tr>
