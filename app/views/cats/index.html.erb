@@ -14,18 +14,27 @@
               <%= link_to (image_tag c.item_picture, alt: 'Cat', style:'width: 100%', class: 'transition'), cat_path(id:c.id)  %>
               <%else%>
               <%= image_tag("example.jpg")%>
-              <%end%>
-              <% if user_signed_in? %>
-              <p><%= seller_email(c) %></p>
+              <% end %>
+              <% if c.seller.present?%>
+                  <br>
+                  <p class="has-text-gray fg pt1">Sold by <%= link_to "#{c.user_seller}", profile_path(c.seller.profile) %></p>
               <% end %>
               <div class="card-body">
                 <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
                 <p class="card-title text-center"> <%= number_to_currency(c.price) %></p>
               </div>
+               <% if current_user.id == c.seller_id %>
+                    <div class="row justify-content-center">
+                      <div class="col-sm text-center">
+                        <%= link_to 'Edit', edit_cat_path(c.id) %>
+                      </div>
+                      <div class="col-sm text-center">
+                        <%= link_to 'Delete', c, method: :delete, data: { confirm: "Are you sure ?" } %>
+                      </div>
+                    </div>
+                   <% end %>
               <div class="card-footer">
                 <div class="row justify-content-center">
-
-
                   <div class="col-3 text-right">
                     <% if cart_cats_quantity(c.id) %>
                     <span class="badge badge-pill badge-info">
@@ -34,7 +43,7 @@
                     </span>
                     <% end %>
                   </div>
-                  <div class="col-3 text-right">
+                  <div class="card-footer">
                     <%= button_to "Ajouter", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
                   </div>
                 </div>
