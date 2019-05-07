@@ -12,11 +12,11 @@
       <div class="boxed">
         <div class="row align-items-center justify-content-between p-3">
           <p><b>Choose your pic</b></p>
-          <div class="col-md-5 text-center text-md-left">
-          <%= form_tag url_for(action: 'create'), method: "post", multipart: true do %>
-          <%= label_tag 'Image' %> <br>
-          <%= file_field_tag :item_picture %>
-        </div>
+            <div class="col-md-5 text-center text-md-left">
+              <%= form_tag url_for(action: 'create'), method: "post", multipart: true do %>
+              <%= label_tag 'Image' %> <br>
+              <%= file_field_tag :item_picture %>
+            </div>
           <div class="col-md-4 text-center text-md-right mt-1 mt-md-0">
         </div>
       </div>
