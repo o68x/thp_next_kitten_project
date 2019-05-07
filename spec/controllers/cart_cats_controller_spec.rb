@@ -21,9 +21,9 @@ RSpec.describe CartCatsController, type: :controller do
     #     end
     #   end
 
-      context 'when item not already in cart' do
-        it 'should create a new item in cart'
-      end
+    context 'when item not already in cart' do
+      it 'should create a new item in cart'
+    end
 
     #   it 'saves the valid new/updated item in cart' do
     #     build(:cart_cat)
