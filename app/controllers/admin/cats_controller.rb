@@ -30,7 +30,6 @@ module Admin
     end
 
     def update
-      @cat = Cat.find(params[:id])
       cat_params = params.permit(:title, :description, :price, :is_available)
 
       if !params[:item_picture].nil?

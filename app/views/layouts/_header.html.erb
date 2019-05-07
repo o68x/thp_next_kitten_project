@@ -21,6 +21,10 @@
               <%= link_to "Profile", edit_profile_path(current_user.id), class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
+              <%= render partial: 'cats/partials/profile_seller' %>
+            </li>
+
+            <li class="nav-item dropdown">
 
 
               <a id="drop_cart_btn" class="nav-link, btn btn-outline-primary btn-sm" style= " width: fit-content;

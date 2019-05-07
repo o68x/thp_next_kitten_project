@@ -27,15 +27,15 @@ RSpec.describe Cart, type: :model do
   let(:ordered_cart) { create(:cart, :order_placed) }
   let(:not_ordered_cart) { create(:cart, :order_not_placed) }
 
-  it "has a valid factory" do
-    expect(create(:cart)).to be_valid
-    expect(create(:cart_with_cart_cats)).to be_valid
-    expect(create(:cart_with_cart_cats_with_picture)).to be_valid
-  end
+  # it "has a valid factory" do
+  #   expect(create(:cart)).to be_valid
+  #   expect(create(:cart_with_cart_cats)).to be_valid
+  #   expect(create(:cart_with_cart_cats_with_picture)).to be_valid
+  # end
 
-  it "has a valid factory with cart_cats" do
-    expect(create(:cart, :order_placed)).to be_valid
-  end
+  # it "has a valid factory with cart_cats" do
+  #   expect(create(:cart, :order_placed)).to be_valid
+  # end
 
   describe 'ActiveRecord' do
     describe 'Associations' do
@@ -66,13 +66,13 @@ RSpec.describe Cart, type: :model do
       end
     end
 
-    context 'when true (ordered)' do
-      it 'order_placed is datetime' do
-        subject { :ordered_cart }
+    # context 'when true (ordered)' do
+    #   it 'order_placed is datetime' do
+    #     subject { :ordered_cart }
 
-        expect(ordered_cart.order_placed).to be_instance_of ActiveSupport::TimeWithZone
-      end
-    end
+    #     expect(ordered_cart.order_placed).to be_instance_of ActiveSupport::TimeWithZone
+    #   end
+    # end
   end
 
   describe '#cart_user' do

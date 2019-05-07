@@ -5,7 +5,6 @@
 # Table name: cats
 #
 #  id           :bigint(8)        not null, primary key
-#  age          :integer
 #  description  :text
 #  image        :text
 #  is_available :boolean          default(TRUE)
@@ -28,6 +27,10 @@ class Cat < ApplicationRecord
 
   has_one_attached :item_picture # active storage
   belongs_to :seller, class_name: 'User', optional: true
+
+  def user_seller
+    Cat.find(id).seller.profile.last_name
+  end
 
   def self.from_seller(seller)
     where(seller: seller)
