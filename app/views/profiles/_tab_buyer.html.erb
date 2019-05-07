@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col"><strong>#</strong></th>
+        <th scope="col"><strong>Date</strong></th>
+        <th scope="col"><strong>Prix</strong></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @carts.each do |cart|%>
+      <tr>
+        <th scope="row"><%= cart.id %></th>
+        <td><%= cart.order_placed.strftime("%F") %></td>
+        <td><%= number_to_currency(cart.total_cart_price) %></td>
+        <td>
+            <%= link_to "télécharger", "#" %>
+        </td>
+      </tr>
+    <%end%>
+    <tr>
+        <td><strong>Total</strong></td>
+        <td><strong></strong></td>
+        <td><strong></strong></td>
+        <td><strong>TODO</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
