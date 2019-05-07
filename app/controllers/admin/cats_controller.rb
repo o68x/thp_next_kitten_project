@@ -17,7 +17,7 @@ module Admin
       if @cat.save
         redirect_to admin_cats_path, flash: { success: "New image created" }
       else
-        render 'index'
+        render 'new', flash: { error: "Check if all fields a completed" }
       end
     end
 
