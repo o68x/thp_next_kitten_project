@@ -22,7 +22,7 @@
 
 class Cart < ApplicationRecord
   belongs_to :user
-  has_many :cart_cats, dependent: :destroy
+  has_many :cart_cats, -> { includes :cat }, inverse_of: :cart, dependent: :destroy
 
   validates :user_id, presence: true
   validates :status, inclusion: { in: [true, false] }
