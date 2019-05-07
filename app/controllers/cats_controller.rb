@@ -15,10 +15,15 @@ class CatsController < ApplicationController
   end
 
   def create
-    cat_params = params.require(:cat).permit(:description, :price, :title, :item_picture)
-    @cat = Cat.new(cat_params)
-    @link_between_user_and_cat = @cat.seller_id == current_user.id
+    if user_signed_in?
+      cat_params = params.require(:cat).permit(:description, :price, :title, :item_picture)
+      @cat = Cat.new(cat_params)
+    else
+      flash[:alert] = "You must login to use your cart"
+      redirect_to new_user_session_path
+    end
     if @cat.save
+      @cat.update(seller_id: current_user.id)
       redirect_to root_path, flash: { success: "Votre image à bien été enregistrer" }
     else
       render 'new'
@@ -40,6 +45,7 @@ class CatsController < ApplicationController
   end
 
   def destroy
+    @cat = Cat.find(params[:id])
     @cat.destroy
     redirect_to root_path, notice: "Votre produit à bien été detruit"
   end

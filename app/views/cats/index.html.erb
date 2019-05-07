@@ -16,7 +16,7 @@
                     <%= image_tag("example.jpg")%>
                   <%end%>
                   
-                  <% if user_signed_in? && c.seller.present?%>
+                  <% if c.seller.present?%>
                     <br>
                      <p class="has-text-gray fg pt1">Sold by <%= link_to "#{c.user_seller}", profile_path(c.seller.profile) %></p>
                   <% else %>
@@ -27,19 +27,16 @@
                     <p class="card-title text-center">  <%= c.price %>€ </p>
                   </div>
 
-                  <% if current_user == c.seller_id %>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                        <% link_to 'Edit', edit_cat_path(c.id) %>
+                  <% if current_user.id == c.seller_id %>
+                    <div class="row justify-content-center">
+                      <div class="col-sm text-center">
+                        <%= link_to 'Edit', edit_cat_path(c.id) %>
                       </div>
-                      <div class="col-sm">
-                        <% link_to 'Delete', c, method: :delete, data: { confirm: "Are you sure ?" } %>
+                      <div class="col-sm text-center">
+                        <%= link_to 'Delete', c, method: :delete, data: { confirm: "Are you sure ?" } %>
                       </div>
                     </div>
-                  </div>
                    <% end %>
-
                   <div class="card-footer">
                     <div class="row justify-content-center">
                       <ul class="list-inline mb-0">
