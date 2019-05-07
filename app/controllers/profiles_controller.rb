@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find(params[:id])
-    profile_params = params.permit(:descrition, :phone_number, :profile_picture)
+    profile_params = params.permit(:descrition, :phone_number, :profile_picture, :first_name, :last_name)
 
     if !params[:profile_picture].nil?
       @profile.profile_picture.attach(params[:profile_picture])
