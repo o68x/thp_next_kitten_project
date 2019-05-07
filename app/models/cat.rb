@@ -5,7 +5,6 @@
 # Table name: cats
 #
 #  id           :bigint(8)        not null, primary key
-#  age          :integer
 #  description  :text
 #  image        :text
 #  is_available :boolean          default(TRUE)
@@ -31,6 +30,10 @@ class Cat < ApplicationRecord
   has_many :cart_cats, dependent: :destroy
 
   before_destroy :ensure_deletable, prepend: true
+
+  def user_seller
+    Cat.find(id).seller.profile.last_name
+  end
 
   def self.from_seller(seller)
     where(seller: seller)

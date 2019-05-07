@@ -7,6 +7,8 @@
 #  id           :bigint(8)        not null, primary key
 #  address      :string
 #  description  :text
+#  first_name   :string
+#  last_name    :string
 #  phone_number :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
