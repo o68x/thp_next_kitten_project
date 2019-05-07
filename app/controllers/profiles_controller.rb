@@ -10,7 +10,10 @@ class ProfilesController < ApplicationController
     redirect_to(edit_profile_path(@profile.id)) if @profile.save
   end
 
-  def edit; end
+  def edit
+    @cats = Cat.from_seller(params[:id])
+    @carts = Cart.where(user_id: params[:id]).where(status: true)
+  end
 
   def update
     @profile = Profile.find(params[:id])
