@@ -5,7 +5,7 @@ module ZipCartContent
   class << self
     def perform(params)
       @cart = Cart.find(params[:cart])
-      @images = @cart.cart_cats.all.map(&:include_cat_info)
+      @images = @cart.cart_cats.all.map(&:cat)
       filename = 'NextKittens_Order.zip'
       Tempfile.new(filename)
       files = save_files_on_server(@images)

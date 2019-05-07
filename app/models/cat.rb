@@ -24,6 +24,7 @@ class Cat < ApplicationRecord
   validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed. " }
   validates :title, length: { maximum: 140, too_long: "%{count} characters is the maximum allowed. " }
   validates :price, length: { maximum: 6 }
+
   has_one_attached :item_picture # active storage
   belongs_to :seller, class_name: 'User', optional: true
 
@@ -31,7 +32,7 @@ class Cat < ApplicationRecord
     Cat.find(id).seller.profile.last_name
   end
 
-  def set_profile
-    current_user.id == Cat.seller_id
+  def self.from_seller(seller)
+    where(seller: seller)
   end
 end
