@@ -23,7 +23,7 @@
                 <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
                 <p class="card-title text-center"> <%= number_to_currency(c.price) %></p>
               </div>
-               <% if current_user.id == c.seller_id %>
+               <% if user_signed_in? && current_user.id == c.seller_id %>
                     <div class="row justify-content-center">
                       <div class="col-sm text-center">
                         <%= link_to 'Edit', edit_cat_path(c.id) %>
