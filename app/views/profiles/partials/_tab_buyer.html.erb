@@ -15,7 +15,7 @@
         <td><%= cart.order_placed.strftime("%F") %></td>
         <td><%= number_to_currency(cart.total_cart_price) %></td>
         <td>
-            <%= link_to "télécharger", "#" %>
+            <%= link_to "Télécharger", download_cart_zip_path(cart: cart.id), class: "btn btn-outline-primary btn-sm" %>
         </td>
       </tr>
     <%end%>

@@ -3,29 +3,43 @@
   <% @cats.each_with_index do |cat, i|%>
   <div class="card">
     <!-- start header -->
-    <div class="card-header d-flex flex-row tab-cat-table" id="header<%= i %>">
-      <div class="tab-cat-cell btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= i %>">
-        <%= cat.title %> (<%= cat.id %>)
+    <div class="card-header p-1" id="header<%= i %>">
+      <div class="btn btn-link d-flex flex-row p-0" data-toggle="collapse" data-target="#collapse<%= i %>">
+        <%= image_tag cat.item_picture, style: "width: 64px;" %>
+        <h5 class="m-1 dropdown-toggle"><%= cat.title %></h5>
       </div>
-      <div class="tab-cat-cell">
-        <%= number_to_currency(cat.price) %>
+      <div class= d-flex flex-row tab-cat-table">
+      <div class="tab-cat-cell p-2">
+        <span class="text-muted">Prix :</span> <%= number_to_currency(cat.price) %>
       </div>
-      <div class="tab-cat-cell">
-        <%= cat.cart_cats.count %>
+      <div class="tab-cat-cell p-2">
+        <span class="text-muted">Qté :</span> <%= cat.cart_cats.count %>
       </div>
-      <div class="tab-cat-cell">
-        <%= number_to_currency(cat.cart_cats.pluck(:price).sum) %>
+      <div class="tab-cat-cell p-2">
+        <span class="text-muted">Total :</span> <%= number_to_currency(cat.cart_cats.pluck(:price).sum) %>
       </div>
-      <div class="tab-cat-cell">
+      <div class="tab-cat-cell text-md-right">
+        <div class="dropdown">
+          <a class="btn btn-ico btn-outline-light rounded btn-sm text-dark" href="#" role="button" id="dropdownLink-<%= i %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="icon-more-vertical fs-22"></i>
+          </a>
+
+          <div class="dropdown-menu" style="z-index:1080;" aria-labelledby="dropdownLink-<%= i %>">
+            <%= link_to "éditer", edit_cat_path, class: "dropdown-item" %>
+            <%= link_to "retirer", "#", class: "dropdown-item text-danger"  %><br />
+          </div>
+        </div>        <!---
         <%= link_to "retirer", "#" %><br />
         <%= link_to "éditer", edit_cat_path %>
+        -->
       </div>
+    </div>
     </div>
     <!-- end header -->
     <!-- start body -->
     <div id="collapse<%= i %>" class="collapse" aria-labelledby="headingOne" data-parent="#cat-table">
 
-      <div class="card-body">
+      <div class="card-body p-2">
         <!-- #TODO: make it a sub-table -->
         <% cat_data_for_seller(cat.id).each do |data| %>
         <div class="boxed p-1 d-flex justify-content-between">
@@ -46,3 +60,4 @@
 
 
 </div>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>

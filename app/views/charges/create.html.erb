@@ -24,7 +24,7 @@
                 <%= render partial: 'ordered_cat', collection: @cart.cart_cats %>
               </ul>
               <p class="card-text">Votre commande restera disponible dans votre <%= link_to "espace utilisateur", edit_user_registration_path %>.</p>
-              <%= link_to "Télécharger", download_cart_zip_path(cart: @cart.id), class: "btn btn-primary btn-lg" %></a>
+              <%= link_to "Télécharger", download_cart_zip_path(cart: @cart.id), class: "btn btn-primary btn-lg" %>
             </div>
           </div>
         </div>
