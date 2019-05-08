@@ -1,37 +1,39 @@
-<div class="table-responsive">
-  <table class="table table-hover table-striped">
-    <thead>
-      <tr>
-        <th scope="col"><strong>#</strong></th>
-        <th scope="col"><strong>Nom</strong></th>
-        <th scope="col"><strong data-toggle="tooltip" title="Tooltip on top">Prix</strong></th>
-        <th scope="col"><strong>Vendus</strong></th>
-        <th scope="col"><strong>Total</strong></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @cats.each do |cat|%>
-    <tr>
-      <th scope="row"><%= cat.id %></th>
-        <td><%= cat.title %></td>
-        <td><%= cat.price %></td>
-        <td><%= cat.cart_cats.count %></td>
-        <td><%= cat.cart_cats.pluck(:price).sum %></td>
-        <td>
-            <%= link_to "retirer", "#" %><br/>
-            <%= link_to "éditer", "#" %>
-        </td>
-      </tr>
-    <%end%>
-    <tr>
-        <td><strong>Total</strong></td>
-        <td><strong></strong></td>
-        <td><strong></strong></td>
-        <td><strong>TODO</strong></td>
-        <td><strong>TODO</strong></td>
-        <td><strong></strong></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="accordion" id="cat-table">
+  <!-- col each -->
+  <% @cats.each_with_index do |cat, i|%>
+  <div class="card">
+    <!-- start header -->
+    <div class="card-header d-flex flex-row tab-cat-table" id="header<%= i %>">
+      <div class="tab-cat-cell btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= i %>">
+        <%= cat.title %> (<%= cat.id %>)
+      </div>
+      <div class="tab-cat-cell">
+        <%= number_to_currency(cat.price) %>
+      </div>
+      <div class="tab-cat-cell">
+        <%= cat.cart_cats.count %>
+      </div>
+      <div class="tab-cat-cell">
+        <%= number_to_currency(cat.cart_cats.pluck(:price).sum) %>
+      </div>
+      <div class="tab-cat-cell">
+        <%= link_to "retirer", "#" %><br />
+        <%= link_to "éditer", edit_cat_path %>
+      </div>
+    </div>
+    <!-- end header -->
+    <!-- start body -->
+    <div id="collapse<%= i %>" class="collapse" aria-labelledby="headingOne" data-parent="#cat-table">
+
+      <div class="card-body">
+        <!-- #TODO: make it a sub-table -->
+        <% cat_data_for_seller(cat.id).each do |data| %>
+          <%= data[:user] %> en a acheté <%= data[:quantity] %> le <%= data[:date] %> <br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  TOTAL: <#= cat_data_for_seller(cat.id).map { |data| data[:total_price] }.sum %>
+
 </div>
