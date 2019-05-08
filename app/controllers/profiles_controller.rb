@@ -11,13 +11,14 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @profile = Profile.find(params[:id])
     @cats = Cat.from_seller(params[:id])
     @carts = Cart.where(user_id: params[:id]).where(status: true)
   end
 
   def update
     @profile = Profile.find(params[:id])
-    profile_params = params.permit(:descrition, :phone_number, :profile_picture, :first_name, :last_name)
+    profile_params = params.permit(:description, :phone_number, :profile_picture, :first_name, :last_name, :country, :city, :zip_code, :address)
 
     if !params[:profile_picture].nil?
       @profile.profile_picture.attach(params[:profile_picture])

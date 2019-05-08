@@ -6,10 +6,13 @@
 #
 #  id           :bigint(8)        not null, primary key
 #  address      :string
+#  city         :string
+#  country      :string
 #  description  :text
 #  first_name   :string
 #  last_name    :string
 #  phone_number :integer
+#  zip_code     :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  user_id      :bigint(8)
