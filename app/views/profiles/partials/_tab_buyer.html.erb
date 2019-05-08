@@ -1,30 +1,49 @@
-<div class="table-responsive">
-  <table class="table table-hover table-striped">
-    <thead>
-      <tr>
-        <th scope="col"><strong>#</strong></th>
-        <th scope="col"><strong>Date</strong></th>
-        <th scope="col"><strong>Prix</strong></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @carts.each do |cart|%>
-      <tr>
-        <th scope="row"><%= cart.id %></th>
-        <td><%= cart.order_placed.strftime("%F") %></td>
-        <td><%= number_to_currency(cart.total_cart_price) %></td>
-        <td>
-            <%= link_to "Télécharger", download_cart_zip_path(cart: cart.id), class: "btn btn-outline-primary btn-sm" %>
-        </td>
-      </tr>
-    <%end%>
-    <tr>
-        <td><strong>Total</strong></td>
-        <td><strong></strong></td>
-        <td><strong></strong></td>
-        <td><strong>TODO</strong></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="accordion" id="cat-table">
+  <!-- col each -->
+  <% @carts.each_with_index do |cart, i|%>
+  <div class="card">
+    <!-- start header -->
+    <div class="card-header p-1" id="header<%= i %>">
+      <div class="btn btn-link d-flex flex-row p-0" data-toggle="collapse" data-target="#collapse<%= i %>">
+        <h5 class="m-1 dropdown-toggle">Commande <%= format("%03d", cart.id) %></h5>
+      </div>
+      <div class= d-flex flex-row tab-cat-table">
+      <div class="tab-cat-cell p-2">
+        <span class="text-muted">Date :</span> <%= cart.order_placed.strftime("%F") %>
+      </div>
+      <div class="tab-cat-cell p-2">
+        <span class="text-muted">Qté :</span> <%= cart.cart_cats.count %>
+      </div>
+      <div class="tab-cat-cell p-2">
+        <span class="text-muted">Prix :</span> <%= number_to_currency(cart.total_cart_price) %>
+      </div>
+      <div class="tab-cat-cell text-md-right">
+        <%= link_to "Télécharger", download_cart_zip_path(cart: cart.id), class: "btn btn-outline-primary btn-sm" %>
+      </div>
+    </div>
+    </div>
+    <!-- end header -->
+    <!-- start body -->
+    <div id="collapse<%= i %>" class="collapse" aria-labelledby="headingOne" data-parent="#cat-table">
+
+      <div class="card-body p-2">
+        <!-- #TODO: make it a sub-table -->
+        <% cart.cart_cats.each do |data| %>
+        <div class="boxed p-1 d-flex justify-content-between">
+          <span>Titre: </span>
+          <span class="text-lg-right">Qté :</span>
+          <span class="text-lg-right">Prix :</span>
+          <span class="text-lg-right">Total :</span>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="boxed p-3 text-lg-right">
+    Et voilà
+  </div>
+
+
 </div>
+
