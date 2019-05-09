@@ -18,7 +18,11 @@ SimpleCov.start do
 end
 
 require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
+SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
+                                                                  SimpleCov::Formatter::HTMLFormatter,
+                                                                  SimpleCov::Formatter::Codecov,
+                                                                ])
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
