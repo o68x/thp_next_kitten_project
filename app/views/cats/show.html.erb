@@ -1,34 +1,47 @@
 <%= render 'banner' %>
-    <section id="default" class="component">
-      <div class="tab-content" id="component-1">
-        <div class="container justify-content-center">
-          <div class="card">
-            <% if @cat.item_picture.attached?%>
-              <%=image_tag @cat.item_picture, alt: @cat.title, class: "card-img-top image_cat"%>
-            <% else %>
-                <%= image_tag("example.jpg", class: "card-img-top image_cat",)%>
-            <% end %>
-            <div class="card-body text-center">
-              <h5 class="card-title"><%= @cat.title %></h5>
-              <p class="card-text"><%= @cat.description %></p>
-            </div>
-            <ul class="list-group list-group-flush text-center">
-              <li class="list-group-item">Price : <%= @cat.price %> €</li>
-            </ul>
-            <div class="card-body text-center">
-              <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: @cat.id, price: @cat.price}, {class:"btn btn-outline-primary btn-sm"} %>
+    
+<section class="component">
+  <div class="tab-content" id="component-1">
+    <div class="tab-pane show active" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
+      <div class="component-example">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <figure class="photo">
+                <a class="lightbox" href="" title="<%=@cat.title%>">
+                  <% if @cat.item_picture.attached?%> 
+                  <%=image_tag @cat.item_picture, alt: @cat.title, class: "lightbox"%>
+                  <% else %>
+                  <%= image_tag("example.jpg", class: "lightbox",)%>
+                  <% end %>
+                </a>
+                </figure>
+              </div>
+              <div class="col-md-6">
+                <div class="container">
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body text-center">
+                          <h5 class="card-title"><%= @cat.title %></h5>
+                          <p class="card-text"><%= @cat.description %></p>
+                        </div>
+                        <ul class="list-group list-group-flush text-center">
+                          <li class="list-group-item">Price : <%= @cat.price %> €</li>
+                        </ul>
+                        <div class="card-body text-center">
+                          <%= button_to "Buy me!", {action: 'create', controller: 'cart_cats', id: @cat.id, price: @cat.price}, {class:"btn btn-outline-primary btn-sm"} %>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <style>
-        .image_cat {
-          margin: auto;
-          width: 70%;
-
-        }
-      </style>
-    </section>
+      </div><br>
+    </div> 
+  </section>
+    
 
 
 
