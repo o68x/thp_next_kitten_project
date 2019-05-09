@@ -70,9 +70,9 @@
               <tbody>
                 <tr>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><%=Cart.count%></td>
+                  <td><%=Cat.where(is_available: true).count%></td>
+                  <td><%=Cart.where(status: true).count%></td>
                   <td></td>
                 </tr>
                 <tr>
@@ -108,11 +108,11 @@
     <script>
       var ctx = document.getElementById("myChart");
       var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          labels: ["Nb of Carts", "Nb of availble cats", "Nb of confimed carts", "Active seller", "Active buyer"],
           datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+            data: [<%= Cart.count %>, <%=Cat.where(is_available: true).count%>, <%=Cart.where(status: true).count%>, <%=User.count%>, <%= %> ],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#007bff',

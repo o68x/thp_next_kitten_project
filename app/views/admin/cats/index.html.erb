@@ -21,7 +21,7 @@
             </div>
           </div>
 
-          <!--<canvas class="my-4" id="myChart" width="900" height="380"></canvas> -->
+          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 
           <h2>Cats pictures preview</h2>
             <div class="row">
@@ -60,3 +60,35 @@
         </main>
       </div>
     </div>
+
+<!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ["Nb of Carts", "Nb of availble cats", "Nb of confimed carts", "Active seller", "Active buyer"],
+          datasets: [{
+            data: [<%= Cart.count %>, <%=Cat.where(is_available: true).count%>, <%=Cart.where(status: true).count%>, <%=User.count%>, <%= %> ],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
