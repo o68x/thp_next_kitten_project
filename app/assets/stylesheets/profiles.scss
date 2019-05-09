@@ -5,13 +5,13 @@
 .tab-cat-table {
   width: 100%;
   flex-wrap: wrap;
-  margin: 0 0 3em 0;
+  margin: 0 0 0 0;
   padding: 0;
 }
 .tab-cat-cell {
   box-sizing: border-box;
   flex-grow: 1;
-  width: 100%;  // Default to full width
+  // width: 100%;  // Default to full width
   padding: 0.8em 1.2em;
   text-align: left;
   overflow: visible; // Or flex might break
@@ -22,4 +22,4 @@
   > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
 }
 
-.tab-cat-table > .tab-cat-cell  { width: 20%; max-width: 20% }
+.tab-cat-table > .tab-cat-cell  { width: 20%; }
