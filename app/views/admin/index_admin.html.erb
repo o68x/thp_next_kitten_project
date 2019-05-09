@@ -17,15 +17,7 @@
   </head>
 
   <body>
-   <!-- <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">The Kitten Project</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
-    </nav> -->
+   
 
     <!-- banner -->
     <%= render 'cats/banner' %>
@@ -70,9 +62,9 @@
               <tbody>
                 <tr>
                   <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><%=Cart.count%></td>
+                  <td><%=Cat.where(is_available: true).count%></td>
+                  <td><%=Cart.where(status: true).count%></td>
                   <td></td>
                 </tr>
                 <tr>
@@ -108,11 +100,11 @@
     <script>
       var ctx = document.getElementById("myChart");
       var myChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          labels: ["Nb of Carts", "Nb of availble cats", "Nb of confimed carts", "Active seller", "Active buyer"],
           datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+            data: [<%= Cart.count %>, <%=Cat.where(is_available: true).count%>, <%=Cart.where(status: true).count%>, <%=User.count%>, <%= %> ],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#007bff',

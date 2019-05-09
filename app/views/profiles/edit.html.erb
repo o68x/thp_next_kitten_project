@@ -443,13 +443,13 @@
                     <div class="col">
                       <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <%= text_field_tag :first_name, "", class: 'form-control' %>
+                        <%= text_field_tag :first_name, @profile.first_name, class: 'form-control' %>
                       </div>
                     </div>
                     <div class="col">
                       <div class="form-group">
                         <label for="secondName">Last Name</label>
-                        <%= text_field_tag :last_name, "", class: 'form-control' %>
+                        <%= text_field_tag :last_name, @profile.last_name, class: 'form-control' %>
                       </div>
                     </div>
                   </div>
@@ -476,13 +476,13 @@
                     <div class="col">
                       <div class="form-group">
                         <label for="userCity">City</label>
-                        <%= text_field_tag :city, "", class: 'form-control' %>
+                        <%= text_field_tag :city, @profile.city, class: 'form-control' %>
                       </div>
                     </div>
                     <div class="col">
                       <div class="form-group">
                         <label for="userCountry">Country</label>
-                        <%= text_field_tag :country, "", class: 'form-control' %>
+                        <%= text_field_tag :country, @profile.country, class: 'form-control' %>
                       </div>
                     </div>
                   </div>
@@ -490,7 +490,7 @@
                     <div class="col">
                       <div class="form-group">
                         <label for="userCity">Zip Code</label>
-                        <%= text_field_tag :zip_code, "", class: 'form-control' %>
+                        <%= text_field_tag :zip_code, @profile.zip_code, class: 'form-control' %>
                       </div>
                     </div>
                     <div class="col">
@@ -501,8 +501,8 @@
                   <div class="form-row">
                   <div class="col">
                       <div class="form-group">
-                        <label for="userCountry">Adress</label>
-                        <%= text_field_tag :adress, "", class: 'form-control' %>
+                        <label for="userCountry">Address</label>
+                        <%= text_field_tag :address, @profile.address, class: 'form-control' %>
                       </div>
                     </div>
                     </div>
@@ -514,7 +514,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">+33</span>
                           </div>
-                            <%= telephone_field_tag :phone_number, "", class: 'form-control' %>
+                            <%= telephone_field_tag :phone_number, @profile.phone_number, class: 'form-control' %>
                         </div>
                       </div>
                     </div>
@@ -523,7 +523,7 @@
                     <div class="col">
                       <div class="form-group">
                         <label for="exampleFormControlTextarea1">Description</label>
-                        <%= text_area_tag :description, "", class: 'form-control' %>
+                        <%= text_area_tag :description, @profile.description, class: 'form-control' %>
                       </div>
                     </div>
                   </div>
