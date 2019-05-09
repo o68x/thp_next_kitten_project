@@ -4,7 +4,7 @@
     <div class="container pt-10">
       <div class="row mb-2 pb-2">
         <div class="col-md-8 col-lg-6">
-          <h1>Votre commande N° <%= format("%03d", cart.id) %></h1>
+          <h1>Votre commande N° <%= format("%03d", @cart.id) %></h1>
           <p><%= @cart.user.email %></p>
           <pre>create.html.erb</pre>
         </div>
@@ -23,7 +23,7 @@
               <ul class="list-group bg-light mb-2">
                 <%= render partial: 'ordered_cat', collection: @cart.cart_cats %>
               </ul>
-              <p class="card-text">Votre commande restera disponible dans votre <%= link_to "espace utilisateur", edit_user_registration_path %>.</p>
+              <p class="card-text">Votre commande restera disponible dans votre <%= link_to "espace utilisateur", edit_profile_path(@cart.user) %>.</p>
               <%= link_to "Télécharger", download_cart_zip_path(cart: @cart.id), class: "btn btn-primary btn-lg" %>
             </div>
           </div>
