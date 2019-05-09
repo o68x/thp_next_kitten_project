@@ -8,32 +8,31 @@
         <%= image_tag cat.item_picture, style: "width: 64px;" %>
         <h5 class="m-1 dropdown-toggle"><%= cat.title %></h5>
       </div>
-      <div class= d-flex flex-row tab-cat-table">
-      <div class="tab-cat-cell p-2">
-        <span class="text-muted">Prix :</span> <%= number_to_currency(cat.price) %>
-      </div>
-      <div class="tab-cat-cell p-2">
-        <span class="text-muted">Qté :</span> <%= cat.cart_cats.count %>
-      </div>
-      <div class="tab-cat-cell p-2">
-        <span class="text-muted">Total :</span> <%= number_to_currency(cat.cart_cats.pluck(:price).sum) %>
-      </div>
-      <div class="tab-cat-cell text-md-right">
-        <div class="dropdown">
-          <a class="btn btn-ico btn-outline-light rounded btn-sm text-dark" href="#" role="button" id="dropdownLink-<%= i %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="icon-more-vertical fs-22"></i>
-          </a>
+      <div class=d-flex flex-row tab-cat-table">
+        <div class="tab-cat-cell p-2">
+          <span class="text-muted">Prix :</span> <%= number_to_currency(cat.price) %>
+        </div>
+        <div class="tab-cat-cell p-2">
+          <span class="text-muted">Qté :</span> <%= cat.cart_cats.count %>
+        </div>
+        <div class="tab-cat-cell p-2">
+          <span class="text-muted">Total :</span> <%= number_to_currency(cat.cart_cats.pluck(:price).sum) %>
+        </div>
+        <div class="tab-cat-cell text-md-right">
+          <div class="dropdown">
+            <a class="btn btn-ico btn-outline-light rounded btn-sm text-dark" href="#" role="button"
+              id="dropdownLink-<%= i %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="icon-more-vertical fs-22"></i>
+            </a>
 
-          <div class="dropdown-menu" style="z-index:1080;" aria-labelledby="dropdownLink-<%= i %>">
-            <%= link_to "Éditer", edit_cat_path(cat), class: "dropdown-item" %>
-            <%= link_to "Retirer", "#", class: "dropdown-item text-danger"  %><br />
+            <div class="dropdown-menu" style="z-index:1080;" aria-labelledby="dropdownLink-<%= i %>">
+              <%= link_to "Éditer", edit_cat_path(cat), class: "dropdown-item" %>
+              <!-- #TODO: add a method to toggle "is_available" -->
+              <%= link_to "Retirer", "#", class: "dropdown-item text-danger"  %><br />
+            </div>
           </div>
-        </div>        <!---
-        <%= link_to "retirer", "#" %><br />
-        <%= link_to "éditer", edit_cat_path %>
-        -->
+        </div>
       </div>
-    </div>
     </div>
     <!-- end header -->
     <!-- start body -->
@@ -54,7 +53,9 @@
   <div class="boxed p-3 text-lg-right">
     Ventes: <%= @cats.map { |c| c.cart_cats.count }.sum %>
     <h5>
-      Total: <%= number_to_currency(@cats.map { |c| cat_data_for_seller(c.id).map{ |data| data[:total_price] }.sum}.sum) %>
+      Total:
+      <!-- #TODO: refactor this away! -->
+      <%= number_to_currency(@cats.map { |c| cat_data_for_seller(c.id).map{ |data| data[:total_price] }.sum}.sum) %>
     </h5>
   </div>
 

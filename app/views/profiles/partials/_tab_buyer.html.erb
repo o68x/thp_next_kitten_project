@@ -12,7 +12,7 @@
         <span class="text-muted">Date :</span> <%= cart.order_placed.strftime("%F") %>
       </div>
       <div class="tab-cat-cell p-2">
-        <span class="text-muted">Qté :</span> <%= cart.cart_cats.count %>
+        <span class="text-muted">Qté :</span> <%= cart.count_cats %>
       </div>
       <div class="tab-cat-cell p-2">
         <span class="text-muted">Prix :</span> <%= number_to_currency(cart.total_cart_price) %>
@@ -30,10 +30,10 @@
         <!-- #TODO: make it a sub-table -->
         <% cart.cart_cats.each do |data| %>
         <div class="boxed p-1 d-flex justify-content-between">
-          <span>Titre: </span>
-          <span class="text-lg-right">Qté :</span>
-          <span class="text-lg-right">Prix :</span>
-          <span class="text-lg-right">Total :</span>
+          <div style="width: 25%;" class="text-md-left"><span class="text-muted">Titre :</span> <%= data.cat.title %></div>
+          <div style="width: 25%;" class="text-md-right"><span class="text-muted">Qté :</span> <%= data.quantity %></div>
+          <div style="width: 25%;" class="text-md-right"><span class="text-muted">Prix :</span> <%= number_to_currency(data.price) %></div>
+          <div style="width: 25%;" class="text-md-right"><span class="text-muted">Total :</span> <%= number_to_currency(data.total_cat_price) %></div>
         </div>
         <% end %>
       </div>
