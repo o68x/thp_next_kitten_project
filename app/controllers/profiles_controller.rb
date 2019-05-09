@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[create show edit update]
+  before_action :set_profile, only: %i[create edit update]
 
   def show
     @seller = User.includes("profile").find(params[:id])
