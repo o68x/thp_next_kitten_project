@@ -3,7 +3,13 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[create show edit update]
 
-  def show; end
+  def show
+    @seller = User.includes("profile").find(params[:id])
+    @cats = Cat.from_seller(params[:id])
+    @cart_cats = current_cart.cart_cats if user_signed_in?
+    puts "#" * 50
+    puts params
+  end
 
   def create
     @profile.new(params_profile)
