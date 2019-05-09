@@ -1,69 +1,56 @@
 <header class="header-sticky header-dark">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark">
-       <%= link_to 'Kitten Project', root_path, class: "navbar-brand" %>
+      <%= link_to 'Kitten Project', root_path, class: "navbar-brand" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
-      <div class="collapse text-right navbar-collapse" id="navbarSupportedContent">
-       <ul class="navbar-nav align-items-center mr-auto">
-       </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+          <ul class="navbar-nav align-items-center mr-auto">
+          </ul>
+
           <ul class="navbar-nav align-items-center mr-0">
           <% if user_signed_in? %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                My Profile    
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Profil    
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item">
-                    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-                  </a>
-                  <a class="dropdown-item">
-                    <%= link_to "Profile", edit_profile_path(current_user.id), class: "nav-link" %>
-                  </a>
-                  <a class="dropdown-item">
-                    <% if current_user.profile.last_name.nil? %>
-                    <a class="nav-item dropdown">
-                      <%= link_to "Update Profile for Sell", edit_profile_path(current_user.id), class: "nav-link" %>
-                    </a>
-                    <% else %>
-                    <a class="nav-item dropdown">
-                      <%= link_to "Sell", new_cat_path, class: "nav-link" %>
-                    </a>
-                    <% end %>
-                  </a>
-
-                  <li class="dropdown-item">
-                </div>
-
-                    <a id="drop_cart_btn" class="nav-link, btn btn-outline-primary btn-sm" style= " width: fit-content;
-                                                                                                    margin-left: auto;
-                                                                                                    background: #fff0" >
-                      <!-- #TODO: CSS Get color right on scroll -->
-                      <span >  <%= image_tag "caddie.png", alt: "Carts", class: " ", id:"drop_cart_btn", style:"width: 35px"  %>&nbsp;</span>
-                      <small id="drop_car_badge" class="badge badge-pill badge-info">
-                        <%= current_cart.count_cats %>
-                      </small>
-                    </a>
-
-                  </li>
-                </li> 
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                <%= link_to "Profile", edit_profile_path(current_user.id), class: "dropdown-item" %>
+                <% if current_user.profile.last_name.nil? %>
+                <%= link_to "Update Profile for Sell", edit_profile_path(current_user.id), class: "dropdown-item" %>
+                <% else %>
+                <%= link_to "Sell", new_cat_path, class: "dropdown-item" %>
+                <% end %>
+              <div class="dropdown-divider"></div>
+                <%if current_user.is_admin%>
+                <%= link_to "Interface Admin", admin_path, class: "dropdown-item"%>
+                <% else %>
+                <% end %>   
               </div>
-               
+            </li>
+            <li id="drop_cart_btn" class="nav-link, btn btn-outline-primary btn-sm" style= "width: fit-content; margin-left: auto; background: #fff0">
+              <!-- #TODO: CSS Get color right on scroll -->
+              <span >  <%= image_tag "caddie.png", alt: "Carts", class: " ", id:"drop_cart_btn", style:"width: 35px"  %>&nbsp;</span>
+              <small id="drop_car_badge" class="badge badge-pill badge-info">
+                <%= current_cart.count_cats %>
+              </small>
+            </li>
+
           <% else %>
-              <li class="nav-item dropdown">
-                <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item dropdown">
-                <%= link_to "Sign in", new_user_registration_path, class: "nav-link" %>
-              </li>
+            <a class="nav-item dropdown">
+              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+            </a>
+            <a class="nav-item dropdown">
+              <%= link_to "Sign in", new_user_registration_path, class: "nav-link" %>
+            </a>
           <% end %>
-          </ul>
+        </ul>
       </div>
     </nav>
     <% if user_signed_in? %>
       <%= render 'carts/partials/cart_dropdown' %>
     <% end %>
   </div>
-  <%=render 'layouts/flash_messages' %>
-  
+<%=render 'layouts/flash_messages' %>
 </header>
 
