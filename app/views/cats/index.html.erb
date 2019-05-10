@@ -3,46 +3,58 @@
 <!-- / cover -->
 <section id="default" class="component">
   <div class="tab-pane show active bg-light" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
-    <div class="card card-cascade card-ecommerce wider">
+    <div class="component-example">
       <% if @cats.present? %>
       <div class="container ">
         <div class="row">
           <% @cats.each do |c| %>
           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 pb-2">
             <article class="card">
-
-              <!--Card image-->
               <%if c.item_picture.attached?%>
-              <%= link_to (image_tag c.item_picture, alt: 'Cat', size:'350x350', class: 'card-img-top'), cat_path(id:c.id)  %>
-                <%else%>
+              <%= link_to (image_tag c.item_picture, alt: 'Cat', style:'width: 100%', class: 'transition'), cat_path(id:c.id)  %>
+              <%else%>
               <%= image_tag("example.jpg")%>
-                <% end %>
-              <!--/.Card image-->
-
+              <% end %>
               <% if c.seller.present?%>
-              <div class="card-body card-body-cascade text-center">
-                  <!--Category & Title-->
-                <h6 class="has-text-gray fg pt1"> Sold by <%= link_to "#{c.user_seller}", profile_path(c.seller.profile) %> </h6>
-                <% end %>
-                <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></strong></h5>
-
-                 <% if user_signed_in? && current_user.id == c.seller_id %>
-                  <div class="row d-flex justify-content-between">
-                  <h6 class="col-sm text-left"> <%= link_to 'Edit', edit_cat_path(c.id) %> </h6>
-                  <h6 class="col-sm text-right"> <%= link_to 'Delete', c, method: :delete, data: { confirm: "Are you sure ?" } %></h6>
-                  </div>
-                 <% else %>
-                <!-- card footer for non-sellers-->
-                  <div class="text-center">
-                    <% if cart_cats_quantity(c.id) %>
-                    <!-- cart_cats_quantity method defined in helper -->
-                  <span class="badge badge-primary"><%= cart_cats_quantity(c.id) %></span>
-                    <% end %>
+              <br>
+              <p class="has-text-gray fg pt1">Sold by <%= link_to "#{c.user_seller}", profile_path(c.seller.profile) %>
+              </p>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>
+                <p class="card-title text-center"> <%= number_to_currency(c.price) %></p>
               </div>
               <div class="card-footer">
-              <h6 class="float-left"><span class="badge badge-secondary"><%= number_to_currency(c.price) %></span></h6>
-                <span class="float-right"><%= button_to "Ajouter", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %></span>
-              </div>
+                <% if user_signed_in? && current_user.id == c.seller_id %>
+                <!-- card footer for seller -->
+                <div class="row d-flex justify-content-between">
+                  <div class="col-sm text-left">
+                    <%= link_to 'Edit', edit_cat_path(c.id) %>
+                  </div>
+                  <div class="col-sm text-right">
+                    <%= link_to 'Delete', c, method: :delete, data: { confirm: "Are you sure ?" } %>
+                  </div>
+                </div>
+                <% else %>
+                <!-- card footer for non-sellers-->
+                <div class="row d-flex justify-content-end">
+                  <div class="text-right pr-0">
+                    <% if cart_cats_quantity(c.id) %>
+                    <span class="badge badge-pill badge-info">
+                      <!-- cart_cats_quantity method defined in helper -->
+                      <%= cart_cats_quantity(c.id) %>
+                    </span>
+                    <% end %>
+                  </div>
+                  <% if current_user.id == c.seller_id %>
+                  <div class="card-footer">
+                  </div>
+                  <% else %>
+                  <div class="text-right px-1">
+                    <%= button_to "Ajouter", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
+                  </div>
+                  <% end %>
+                </div>
                 <% end %>
               </div>
             </article>
@@ -50,7 +62,7 @@
           <%end%>
         </div>
       </div>
-    <%end%>
     </div>
+    <%end%>
   </div>
 </section>
