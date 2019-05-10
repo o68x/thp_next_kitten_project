@@ -8,13 +8,11 @@
           <div class="row">
             <div class="col-md-6">
               <figure class="photo">
-                <a class="lightbox" href="" title="<%=@cat.title%>">
                   <% if @cat.item_picture.attached?%> 
-                  <%=image_tag @cat.item_picture, alt: @cat.title, class: "lightbox"%>
+                  <%=image_tag @cat.item_picture, alt: @cat.title, class: ""%>
                   <% else %>
                   <%= image_tag("example.jpg", class: "lightbox",)%>
                   <% end %>
-                </a>
                 </figure>
               </div>
               <div class="col-md-6">
