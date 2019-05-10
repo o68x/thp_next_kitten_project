@@ -1,25 +1,25 @@
-<div class="accordion" id="cat-table">
+<div class="accordion" id="s-cat-table">
   <!-- col each -->
   <% @cats.each_with_index do |cat, i|%>
   <div class="card">
     <!-- start header -->
     <div class="card-header p-1" id="header<%= i %>">
-      <div class="btn btn-link d-flex flex-row p-0" data-toggle="collapse" data-target="#collapse<%= i %>">
+      <div class="btn btn-link d-flex flex-row p-0" data-toggle="collapse" data-target="#s-collapse<%= i %>">
         <%= image_tag cat.item_picture, style: "width: 64px;" %>
         <h5 class="m-1 dropdown-toggle"><%= cat.title %></h5>
       </div>
-      <div class=d-flex flex-row tab-cat-table">
-        <div class="tab-cat-cell p-2">
+      <div class="d-flex tab-cat-table">
+        <div class="tab-cat-cell col-12 col-sm-3 p-0">
           <span class="text-muted">Prix :</span> <%= number_to_currency(cat.price) %>
         </div>
-        <div class="tab-cat-cell p-2">
-          <span class="text-muted">Qté :</span> <%= cat.cart_cats.count %>
+        <div class="tab-cat-cell col-12 col-sm-3 p-0">
+          <span class="text-muted">Qté :</span> <%= cat_data_for_seller(cat.id).map{ |data| data[:quantity] }.sum %>
         </div>
-        <div class="tab-cat-cell p-2">
-          <span class="text-muted">Total :</span> <%= number_to_currency(cat.cart_cats.pluck(:price).sum) %>
+        <div class="tab-cat-cell col-6 col-sm-3 p-0">
+          <span class="text-muted">Total :</span> <%= number_to_currency(cat_data_for_seller(cat.id).map{ |data| data[:total_price] }.sum) %>
         </div>
-        <div class="tab-cat-cell text-md-right">
-          <div class="dropdown">
+        <div class="tab-cat-cell col-6 col-sm-3 p-0 text-md-right">
+          <div class="dropdown text-right pt-0">
             <a class="btn btn-ico btn-outline-light rounded btn-sm text-dark" href="#" role="button"
               id="dropdownLink-<%= i %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="icon-more-vertical fs-22"></i>
@@ -36,7 +36,7 @@
     </div>
     <!-- end header -->
     <!-- start body -->
-    <div id="collapse<%= i %>" class="collapse" aria-labelledby="headingOne" data-parent="#cat-table">
+    <div id="s-collapse<%= i %>" class="collapse" aria-labelledby="headingOne" data-parent="#s-cat-table">
 
       <div class="card-body p-2">
         <!-- #TODO: make it a sub-table -->
@@ -51,7 +51,7 @@
   </div>
   <% end %>
   <div class="boxed p-3 text-lg-right">
-    Ventes: <%= @cats.map { |c| c.cart_cats.count }.sum %>
+    Ventes: <%= @cats.map { |c| cat_data_for_seller(c.id).map{ |data| data[:quantity] }.sum}.sum %>
     <h5>
       Total:
       <!-- #TODO: refactor this away! -->
