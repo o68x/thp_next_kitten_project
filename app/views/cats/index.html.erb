@@ -19,7 +19,7 @@
               <% end %>
               <!--/.Card image-->
 
-              <% if c.seller.present?%>
+             <% if c.seller.present?%>
               <div class="card-body card-body-cascade text-center">
                   <!--Category & Title-->
                 <h6 class="has-text-gray fg pt1"> Sold by <%= link_to "#{c.user_seller}", profile_path(c.seller.profile) %> </h6>
