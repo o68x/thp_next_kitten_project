@@ -1,3 +1,25 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tab-cat-table {
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 0 0 0 0;
+  padding: 0;
+}
+.tab-cat-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  // width: 100%;  // Default to full width
+  padding: 0.8em 1.2em;
+  text-align: left;
+  overflow: visible; // Or flex might break
+  list-style: none;
+  border: solid 0px white;
+  border-bottom: solid 3px white;
+  background: fade(slategrey,20%);
+  > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+}
+
+.tab-cat-table > .tab-cat-cell  { width: 20%; }

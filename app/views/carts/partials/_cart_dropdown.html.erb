@@ -12,6 +12,11 @@
       <ul class="list-unstyled">
           <%= render partial: 'carts/partials/cart_dropdown_list', collection: current_cart.cart_cats %>
       </ul>
+      <hr/>
+      <div class="d-flex justify-content-between">
+          <span class="text-muted">Total :</span>
+          <span class="text-right"><%= number_to_currency(current_cart.total_cart_price) %></span>
+        </div>
       <%= link_to "Acheter", cart_path(current_cart), class: "btn btn-primary m-2" %>
       <div>
         <small class="text-muted">Vous pourrez modifier votre commande dans le panier.</small>
