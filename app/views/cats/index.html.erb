@@ -31,7 +31,8 @@
                   <h6 class="col-sm text-left"> <%= link_to 'Edit', edit_cat_path(c.id) %> </h6>
                   <h6 class="col-sm text-right"> <%= link_to 'Delete', c, method: :delete, data: { confirm: "Are you sure ?" } %></h6>
                   </div>
-                <% else %>
+              </div>
+                 <% else %>
                 <!-- card footer for non-sellers-->
                   <div class="text-center">
                     <% if cart_cats_quantity(c.id) %>
