@@ -14,9 +14,9 @@
               <!--Card image-->
               <%if c.item_picture.attached?%>
               <%= link_to (image_tag c.item_picture, alt: 'Cat', size:'350x350', class: 'card-img-top'), cat_path(id:c.id)  %>
-              <%else%>
+                <%else%>
               <%= image_tag("example.jpg")%>
-              <% end %>
+                <% end %>
               <!--/.Card image-->
 
               <% if c.seller.present?%>
@@ -38,7 +38,7 @@
                     <!-- cart_cats_quantity method defined in helper -->
                   <span class="badge badge-primary"><%= cart_cats_quantity(c.id) %></span>
                     <% end %>
-                  </div>
+              </div>
               <div class="card-footer">
               <h6 class="float-left"><span class="badge badge-secondary"><%= number_to_currency(c.price) %></span></h6>
                 <span class="float-right"><%= button_to "Ajouter", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %></span>
@@ -53,5 +53,4 @@
     <%end%>
     </div>
   </div>
-
 </section>
