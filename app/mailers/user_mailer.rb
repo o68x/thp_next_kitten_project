@@ -11,6 +11,8 @@ class UserMailer < ApplicationMailer
 
   def order_checkout_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Votre commande chez NextKittens.com')
+    @cart_cat = @user.cart_cat
+    @url = 'http://localhost:3000/'
+    mail(to: @cart_cat.user.email, subject: 'Votre commande chez NextKittens.com')
   end
 end
