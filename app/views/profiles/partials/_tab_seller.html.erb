@@ -13,10 +13,10 @@
           <span class="text-muted">Prix :</span> <%= number_to_currency(cat.price) %>
         </div>
         <div class="tab-cat-cell col-12 col-sm-3 p-0">
-          <span class="text-muted">Qté :</span> <%= cat.cart_cats.count %>
+          <span class="text-muted">Qté :</span> <%= cat_data_for_seller(cat.id).map{ |data| data[:quantity] }.sum %>
         </div>
         <div class="tab-cat-cell col-6 col-sm-3 p-0">
-          <span class="text-muted">Total :</span> <%= number_to_currency(cat.cart_cats.pluck(:price).sum) %>
+          <span class="text-muted">Total :</span> <%= number_to_currency(cat_data_for_seller(cat.id).map{ |data| data[:total_price] }.sum) %>
         </div>
         <div class="tab-cat-cell col-6 col-sm-3 p-0 text-md-right">
           <div class="dropdown text-right pt-0">
@@ -51,7 +51,7 @@
   </div>
   <% end %>
   <div class="boxed p-3 text-lg-right">
-    Ventes: <%= @cats.map { |c| c.cart_cats.count }.sum %>
+    Ventes: <%= @cats.map { |c| cat_data_for_seller(c.id).map{ |data| data[:quantity] }.sum}.sum %>
     <h5>
       Total:
       <!-- #TODO: refactor this away! -->
