@@ -5,10 +5,8 @@
     <div class="row justify-content-center">
 
         <div class="nav nav-tabs mb-1">
-          <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-1">Profile</a>
-          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Connections</a>
-          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Payments</a>
-          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-4"><%= image_tag ('icon_parametre.png') %></a>
+          <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-1">Profil</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-4">Mes infos</a>
           <a class="nav-item nav-link" data-toggle="tab" href="#tab_buyer">Mes achats</a>
           <a class="nav-item nav-link" data-toggle="tab" href="#tab_seller">Mes ventes</a>
         </div>
@@ -26,381 +24,40 @@
       <div class="tab-pane show active" id="demo-2-1" role="tabpanel" aria-labelledby="demo-2-1">
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
-
             <!-- PROFILE -->
-            <div class="row gutter-1 mb-2">
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="equal">
-                  <div class="boxed bg-primary text-white">
-                    <div class="equal-header">
-                      <b class="h2">89</b>
-                    </div>
-                    <div class="equal-footer">
-                      <span class="text-muted">friends</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="equal">
-                  <div class="boxed">
-                    <div class="equal-header">
-                      <b class="h2">14</b>
-                    </div>
-                    <div class="equal-footer">
-                      <span class="text-muted">likes</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="equal">
-                  <div class="boxed">
-                    <div class="equal-header">
-                      <b class="h2">9</b>
-                    </div>
-                    <div class="equal-footer">
-                      <span class="text-muted">articles</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="equal">
-                  <div class="boxed">
-                    <div class="equal-header">
-                      <b class="h2">119</b>
-                    </div>
-                    <div class="equal-footer">
-                      <span class="text-muted">following</span>
+            <div class="tab-content" id="component-1">
+              <div class="tab-pane show active" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
+                <div class="component-example">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="owl-carousel visible" data-items="[3,2]" data-margin="20">
+                          <div class="step">
+                            <h4 class="step-title">Je complète mon profil vendeur</h4>
+                            <p>L'onglet <i><big>MES INFOS</big></i> nous permet de faire un peu plus connaissance.</p>
+                          </div>
+                          <div class="step">
+                            <h4 class="step-title">Je me rends sur le formulaire de téléchargement</h4>
+                            <p>Maintenant qu'on se connait mieux, clique sur bouton <i><big>Vendre</big></i> puis remplis le formulaire de vente de ta photo.</p>
+                          </div>
+                          <div class="step">
+                            <h4 class="step-title">Je consulte mes transactions</h4>
+                            <p>A tout moment tu peux consulter l'état de tes transactions en cours ou passées dans les onglets  <i><big>MES ACHATS</big></i>  <i><big>MES VENTES</big></i></p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- / PROFILE -->
-
-
-          </div>
+          </div> 
         </div>
-      </div>
+      </div>    
+      <!-- / PROFILE -->
       <!-- / tab -->
-
-      <!-- tab connections -->
-      <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2">
-        <div class="row justify-content-center">
-          <div class="col-md-10 col-lg-8">
-            <div class="row gutter-1">
-              <div class="col-md-4">
-
-              </div>
-              <div class="col-md-4">
-
-
-              </div>
-              <div class="col-md-4">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-10 col-lg-8">
-            <div class="row gutter-1">
-              <div class="col-12">
-                <div class="boxed p-2">
-                  <div class="row align-items-center justify-content-between">
-                    <div class="col-10">
-                      <div class="media align-items-center">
-                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                        <div class="media-body">
-                          <h5 class="mb-0">Nicole Doe</h5>
-                          <span class="text-muted">Senior UI Designer</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-2 text-md-right">
-                      <div class="dropdown">
-                        <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="icon-more-vertical fs-22"></i>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-3">
-                          <a class="dropdown-item" href="#">Make Primary</a>
-                          <a class="dropdown-item" href="#">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="boxed p-2">
-                  <div class="row align-items-center justify-content-between">
-                    <div class="col-10">
-                      <div class="media align-items-center">
-                        <img src="../../assets/images/demo/user-2.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                        <div class="media-body">
-                          <h5 class="mb-0">James Doe</h5>
-                          <span class="text-muted">Senior UI Designer</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-2 text-md-right">
-                      <div class="dropdown">
-                        <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="icon-more-vertical fs-22"></i>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-4">
-                          <a class="dropdown-item" href="#">Make Primary</a>
-                          <a class="dropdown-item" href="#">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="boxed p-2">
-                  <div class="row align-items-center justify-content-between">
-                    <div class="col-10">
-                      <div class="media align-items-center">
-                        <img src="../../assets/images/demo/user-3.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                        <div class="media-body">
-                          <h5 class="mb-0">Violet Doe</h5>
-                          <span class="text-muted">Senior UI Designer</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-2 text-md-right">
-                      <div class="dropdown">
-                        <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="icon-more-vertical fs-22"></i>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-5">
-                          <a class="dropdown-item" href="#">Make Primary</a>
-                          <a class="dropdown-item" href="#">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="boxed p-2">
-                  <div class="row align-items-center justify-content-between">
-                    <div class="col-10">
-                      <div class="media align-items-center">
-                        <img src="../../assets/images/demo/user-4.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                        <div class="media-body">
-                          <h5 class="mb-0">Valerie Doe</h5>
-                          <span class="text-muted">Senior UI Designer</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-2 text-md-right">
-                      <div class="dropdown">
-                        <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="icon-more-vertical fs-22"></i>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-6">
-                          <a class="dropdown-item" href="#">Make Primary</a>
-                          <a class="dropdown-item" href="#">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="boxed p-2">
-                  <div class="row align-items-center justify-content-between">
-                    <div class="col-10">
-                      <div class="media align-items-center">
-                        <img src="../../assets/images/demo/user-6.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                        <div class="media-body">
-                          <h5 class="mb-0">Nick Doe</h5>
-                          <span class="text-muted">Senior UI Designer</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-2 text-md-right">
-                      <div class="dropdown">
-                        <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="icon-more-vertical fs-22"></i>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-7">
-                          <a class="dropdown-item" href="#">Make Primary</a>
-                          <a class="dropdown-item" href="#">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- / tab -->
-
-      <!-- tab Payments -->
-      <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
-        <div class="row justify-content-center">
-          <div class="col-md-10 col-lg-8">
-            <div class="row">
-              <div class="col">
-                <div class="boxed p-3">
-                  <div class="row align-items-center justify-content-between">
-                    <div class="col-3 col-md-2">
-                      <img src="../../assets/images/demo/stock/mastercard.png" alt="Image">
-                    </div>
-                    <div class="col-7 col-md-5">
-                      <h5 class="fs-18 font-weight-normal mb-0">•••• •••• •••• 7041</h5>
-                      <small>Exp: 08/20</small>
-                    </div>
-                    <div class="col-2 col-md-4 text-md-right">
-                      <div class="dropdown">
-                        <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-11" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="icon-more-vertical fs-22"></i>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-11">
-                          <a class="dropdown-item" href="#">Make Primary</a>
-                          <a class="dropdown-item" href="#">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="boxed p-3 mt-1">
-                  <div class="row align-items-center justify-content-between">
-                    <div class="col-3 col-md-2">
-                      <img src="../../assets/images/demo/stock/visa.png" alt="Image">
-                    </div>
-                    <div class="col-7 col-md-5">
-                      <h5 class="fs-18 font-weight-normal mb-0">•••• •••• •••• 7041</h5>
-                      <small>Exp: 08/20</small>
-                    </div>
-                    <div class="col-2 col-md-4 text-md-right">
-                      <div class="dropdown">
-                        <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="icon-more-vertical fs-22"></i>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-12">
-                          <a class="dropdown-item" href="#">Make Primary</a>
-                          <a class="dropdown-item" href="#">Remove</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row align-items-center mb-2">
-              <div class="col-lg-6 text-center text-lg-left">
-                <h3 class="fs-22 font-weight-normal">New Payment Method</h3>
-              </div>
-              <div class="col-lg-6 text-center text-lg-right mt-1 mt-lg-0">
-                <div class="nav nav-switch">
-                  <a class="nav-item nav-link active" id="first-tab" data-toggle="tab" href="#pricing-first">Credit Card</a>
-                  <a class="nav-item nav-link" id="second-tab" data-toggle="tab" href="#pricing-second">Paypal</a>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="tab-content" id="myTabContent-2">
-                  <div class="tab-pane show active" id="pricing-first" role="tabpanel" aria-labelledby="first-tab">
-                    <div class="boxed p-3">
-                      <form>
-                        <div class="form-row mb-1">
-                          <div class="col">
-                            <input type="text" class="form-control form-control-minimal" placeholder="Name on card">
-                          </div>
-                        </div>
-                        <div class="form-row mb-1">
-                          <div class="col">
-                            <input type="text" class="form-control form-control-minimal" placeholder="0000-0000-0000-0000">
-                          </div>
-                        </div>
-                        <div class="form-row mb-1">
-                          <div class="col">
-                            <input type="text" class="form-control form-control-minimal" placeholder="MM/YY">
-                          </div>
-                          <div class="col">
-                            <input type="text" class="form-control form-control-minimal" placeholder="CVV">
-                          </div>
-                        </div>
-                        <div class="form-row mt-3">
-                          <div class="col">
-                            <button class="btn btn-primary">Add Card</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="tab-pane" id="pricing-second" role="tabpanel" aria-labelledby="second-tab">
-                    <div class="boxed p-3">
-                      <form>
-                        <div class="form-row">
-                          <div class="col-8">
-                            <input type="text" class="form-control form-control-minimal" placeholder="Paypal Mail">
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-primary btn-block">Subscribe</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="row">
-              <div class="col">
-                <div class="table-responsive-md">
-                  <table class="table table-lined">
-                    <thead>
-                    <tr>
-                      <th scope="col">Date</th>
-                      <th scope="col">Order</th>
-                      <th scope="col">Price</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <th scope="row">July 20, 2018</th>
-                      <td>#110</td>
-                      <td>$8021.47</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">July 20, 2018</th>
-                      <td>#111</td>
-                      <td>$8021.47</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">July 22, 2018</th>
-                      <td>#112</td>
-                      <td>$815</td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- / tab -->
+      
+      
 
       <!-- tab settings -->
       <div class="tab-pane" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
