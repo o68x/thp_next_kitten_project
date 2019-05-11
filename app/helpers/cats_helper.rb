@@ -2,7 +2,8 @@
 
 module CatsHelper
   def cart_cats_quantity(cat_id)
-    @cart_cats.find_by(cat_id: cat_id)&.quantity if user_signed_in?
+    @id = cat_id
+    CartCat.find_by(cat_id: @id)&.quantity if user_signed_in?
   end
 
   def seller_email(cat)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ThpNextKittenProject</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -25,7 +25,7 @@
 <script>
   $(document).ready(function() {
     $("#drop_cart_btn").click(function(){
-      $('#drop_cart').fadeToggle('slow');
+      $('#drop_cart').fadeToggle('fast');
     });
   });
 </script>

@@ -37,5 +37,4 @@ class Profile < ApplicationRecord
       "profile_nil.png"
     end
   end
-
 end
