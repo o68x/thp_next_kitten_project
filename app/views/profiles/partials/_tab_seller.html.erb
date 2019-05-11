@@ -5,7 +5,9 @@
     <!-- start header -->
     <div class="card-header p-1" id="header<%= i %>">
       <div class="btn btn-link d-flex flex-row p-0 pb-1" data-toggle="collapse" data-target="#s-collapse<%= i %>">
-        <%= image_tag cat.item_picture, style: "width: 64px;" %>
+        <div>
+          <%= image_tag cat.item_picture, style: "width: 64px; height: 100%;" %>
+        </div>
         <h5 class="m-1 dropdown-toggle"><%= cat.title %></h5>
       </div>
       <div class="d-flex tab-cat-table">
