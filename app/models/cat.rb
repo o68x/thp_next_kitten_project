@@ -32,7 +32,7 @@ class Cat < ApplicationRecord
   before_destroy :ensure_deletable, prepend: true
 
   def user_seller
-    Cat.find(id).seller.profile.last_name
+    Cat.find(id).seller.profile.full_name_or_email
   end
 
   def self.from_seller(seller)

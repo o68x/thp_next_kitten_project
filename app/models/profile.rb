@@ -30,6 +30,14 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_one_attached :profile_picture # active storage
 
+  def full_name_or_email
+    if first_name.empty? || last_name.empty?
+      user.email
+    else
+      "#{first_name} #{last_name}"
+    end
+  end
+
   def avatar
     if profile_picture.attached?
       profile_picture
