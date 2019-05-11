@@ -46,9 +46,14 @@
                     </span>
                     <% end %>
                   </div>
+                  <% if current_user.id == c.seller_id %>
+                  <div class="card-footer">
+                  </div>
+                  <% else %>
                   <div class="text-right px-1">
                     <%= button_to "Ajouter", {action: 'create', controller: 'cart_cats', id: c.id, price: c.price}, {class:"btn btn-outline-primary btn-sm"} %>
                   </div>
+                  <% end %>
                 </div>
                 <% end %>
               </div>

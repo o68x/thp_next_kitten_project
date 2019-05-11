@@ -23,6 +23,5 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # static_pages
-  get 'about', to: 'static_pages#about'
   get 'team_project', to: 'static_pages#team_project'
 end
