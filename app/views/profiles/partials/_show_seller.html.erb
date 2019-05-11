@@ -1,20 +1,16 @@
-<section id="default" class="component">
+<section id="default" class="component mb-5">
   <div class="tab-pane show active bg-light" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
     <div class="component-example">
       <% if @cats.present? %>
-      <div class="container ">
+      <div class="container">
         <div class="row">
           <% @cats.each do |c| %>
-          <div class="col-6 col-lg-4 col-sm-12 ">
-            <article class="card card-minimal">
+          <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 pb-2">
+            <article class="card">
               <%if c.item_picture.attached?%>
               <%= link_to (image_tag c.item_picture, alt: 'Cat', style:'width: 100%', class: 'transition'), cat_path(id:c.id)  %>
               <%else%>
               <%= image_tag("example.jpg")%>
-              <% end %>
-              <% if c.seller.present?%>
-                  <br>
-                  <p class="has-text-gray fg pt1">Sold by <%= link_to "#{c.user_seller}", profile_path(c.seller.profile) %></p>
               <% end %>
               <div class="card-body">
                 <h5 class="card-title text-center"><%= link_to c.title, cat_path(id:c.id)%></h5>

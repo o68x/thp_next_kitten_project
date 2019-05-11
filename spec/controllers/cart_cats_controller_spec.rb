@@ -39,7 +39,7 @@ RSpec.describe CartCatsController, type: :controller do
       end
 
       it { is_expected.to redirect_to new_user_session_path }
-      it { is_expected.to set_flash[:alert] }
+      it { is_expected.to set_flash[:warning] }
     end
 
     xit 'TODO: what to test?' do

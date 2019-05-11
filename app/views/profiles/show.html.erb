@@ -1,8 +1,17 @@
+<% provide(:title, @seller.profile.first_name) %>
+<%= render partial: 'layouts/banner',
+                    locals: {page_title: "Les chats de #{@seller.profile.first_name}"} %>
 
 <section class="component">
-  <h3>
-    Les cats proposés par <%= @seller.profile.first_name %> <%= @seller.profile.last_name %>
-  </h3>
+  <div class="d-flex justify-content-start m-2">
+    <%= image_tag @seller.profile.avatar, class: "avatar avatar-lg rounded", alt: "Avatar" %>
+    <div class="pl-2">
+      <h5><%= @seller.profile.first_name %> <%= @seller.profile.last_name %></h5>
+      <p>Membre depuis <%= @seller.profile.created_at.strftime("%F") %></p>
+    </div>
+
+  </div>
+
   <%= render 'profiles/partials/show_seller' %>
 </section>
 
