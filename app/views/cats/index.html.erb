@@ -39,10 +39,10 @@
                 <!-- card footer for non-sellers-->
                 <div class="row d-flex justify-content-end align-items-center">
                   <div class="text-right pr-0">
-                    <% if cart_cats_quantity(c.id) %>
+                    <% if current_cart_cats_quantity(c.id) %>
                     <span class="badge badge-pill badge-info">
-                      <!-- cart_cats_quantity method defined in helper -->
-                      <%= cart_cats_quantity(c.id) %>
+                      <!-- current_cart_cats_quantity method defined in helper -->
+                      <%= current_cart_cats_quantity(c.id) %>
                     </span>
                     <% end %>
                   </div>

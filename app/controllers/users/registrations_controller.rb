@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController #rubocop:disable all
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
   # GET /resource/sign_up
   # def new
   #   super
@@ -12,8 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-
-    flash[:success] = "Now edit your profile"
+    puts params
+    puts "#" * 50
   end
 
   # GET /resource/edit
@@ -61,4 +60,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  protected
+
+  def after_sign_up_path_for(resource)
+    edit_profile_path(resource, anchor: 'demo-2-4')
+  end
 end

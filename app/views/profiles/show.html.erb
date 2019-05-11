@@ -1,6 +1,6 @@
-<% provide(:title, @seller.profile.first_name) %>
+<% provide(:title, @seller.profile.full_name_or_email) %>
 <%= render partial: 'layouts/banner',
-                    locals: {page_title: "Les chats de #{@seller.profile.first_name}"} %>
+                    locals: {page_title: "Les chats de #{@seller.profile.full_name_or_email}"} %>
 
 <section class="component">
   <div class="d-flex flex-wrap justify-content-start align-items-stretch m-2 mb-5">
