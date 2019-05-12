@@ -2,7 +2,7 @@
 
 <div class="component-example">
   <div class="row justify-content-center">
-    <h2>Edit the cat card</h2><br>
+    <h2>Editer ma photo</h2><br>
   </div>
   
   <div class="row justify-content-center">
@@ -13,7 +13,7 @@
           <div class="boxed">
             <div class="row align-items-center justify-content-between p-3">
             <div class="col-md-5">
-              <p><b>Current pic</b></p>
+              <p><b>Photo actuelle</b></p>
               <%if @cat.item_picture.attached?%>
                 <%=image_tag @cat.item_picture, alt: 'item picture'%>
                 <% else %>
@@ -23,14 +23,14 @@
              </div>
               
               <div class="col-md-5">
-                <p><b>Current Availability :  </b></p> 
+                <p><b>Disponibilité :  </b></p> 
                 <p><% if @cat.is_available == true %>
-                <%= "Availaible for sale" %>
+                <%= "Disponibile à la vente" %>
                 <% else %>
-                <%= "Unavailaible for sale" %>
+                <%= "Non disponible à la vente" %>
                 <% end %></p>
               
-                <%= "Change availability : "%>   
+                <%= "Inverser la disponibilité : "%>   
                 <%if @cat.is_available == true %>
                 <%= check_box_tag(:is_available, "false") %>
                 <% else %>
@@ -43,17 +43,17 @@
       </div>   
       <div class="row">
         <div class="col">
-          <h5 class="mb-2 fs-20 font-weight-normal">General Information</h5>
+          <h5 class="mb-2 fs-20 font-weight-normal">Informations Generales</h5>
           <div class="form-row">
             <div class="col">
               <div class="form-group">
-                <%= label_tag 'Title' %>
+                <%= label_tag 'Titre' %>
                 <%= text_field_tag 'title', @cat.title, class: "form-control", placeholder:""  %>
               </div>
             </div>
             <div class="col">
               <div class="form-group">
-                <%= label_tag 'Price' %>
+                <%= label_tag 'Prix' %>
                 <%= text_field_tag 'price', @cat.price, class: "form-control", placeholder: "" %>
               </div>
             </div>
@@ -74,7 +74,7 @@
           </div>
           <br>
           <div class="row justify-content-center">
-            <%= submit_tag "Update",  class: "btn btn-primary px-5" %>
+            <%= submit_tag "Mettre à jour",  class: "btn btn-primary px-5" %>
           </div> 
         </div>
         <% end %>

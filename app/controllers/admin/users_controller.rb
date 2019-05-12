@@ -8,7 +8,10 @@ module Admin
     def show
         
     end
-    def delete
+    def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to admin_users_path
         
     end
 

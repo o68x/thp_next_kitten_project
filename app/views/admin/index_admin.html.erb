@@ -21,7 +21,7 @@
         </li>
         <li class="nav-item">
           <span data-feather="users"></span>
-          <%= link_to "Customers", admin_profiles_path, class: "nav-link" %>
+          <%= link_to "Customers", admin_users_path, class: "nav-link" %>
         </li>
       </ul>
       
@@ -120,7 +120,12 @@
           datasets: [{
             data: [<%= Cart.count %>, <%=Cat.where(is_available: true).count%>, <%=Cart.where(status: true).count%>, <%=User.count%>, <%= %> ],
             lineTension: 0,
-            backgroundColor: 'transparent',
+            backgroundColor: ['rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+                ],
             borderColor: '#007bff',
             borderWidth: 4,
             pointBackgroundColor: '#007bff'
