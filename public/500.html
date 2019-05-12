@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
-    background-color: #EFEFEF;
+    background: url(welcomecat.jpg) no-repeat;
+    background-color: #000;
+    background-size: cover;
+    overflow: hidden;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
@@ -23,7 +26,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: purple solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -33,7 +36,7 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: purple;
     line-height: 1.5em;
   }
 
@@ -60,7 +63,7 @@
     <div>
       <h1>We're sorry, but something went wrong.</h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p><a href="/"><- Back</a></p>
   </div>
 </body>
 </html>
