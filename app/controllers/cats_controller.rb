@@ -19,7 +19,7 @@ class CatsController < ApplicationController
       cat_params = params.require(:cat).permit(:description, :price, :title, :item_picture)
       @cat = Cat.new(cat_params)
     else
-      flash[:alert] = "You must login to use your cart"
+      flash[:warning] = "You must login to use your cart"
       redirect_to new_user_session_path
     end
     if @cat.save
@@ -46,8 +46,12 @@ class CatsController < ApplicationController
 
   def destroy
     @cat = Cat.find(params[:id])
-    @cat.destroy
-    redirect_to root_path, notice: "Votre produit à bien été detruit"
+    # @cat.destroy
+    if @cat.toggle(:is_available).save
+      redirect_to root_path, notice: "Votre modification a bien été prise en compte"
+    else
+      render :edit, warning: "Votre modification n'a pas pu être appliquée"
+    end
   end
 
   private

@@ -21,12 +21,12 @@ class CartCatsController < ApplicationController
         flash[:success] = "#{@cart_cat.cat.title} ajouté à votre panier."
         redirect_to cats_path
       else
-        flash[:alert] = "Une erreur est survenue: cat could not be saved to cart."
+        flash[:warning] = "Une erreur est survenue: cat could not be saved to cart."
       end
     else
       # TODO: CTRL change this to more user friendly redirection?
-      flash[:alert] = "Vous devez être connecté pour voir votre panier"
-      redirect_to new_user_session_path
+      flash[:warning] = "Vous devez être connecté pour voir votre panier"
+      redirect_to new_user_registration_path
     end
   end
 

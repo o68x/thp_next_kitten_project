@@ -30,3 +30,4 @@
 coverage
 cypress/*
 cypress.json
+tmux-client*

@@ -1,11 +1,13 @@
 <div class="accordion" id="s-cat-table">
   <!-- col each -->
   <% @cats.each_with_index do |cat, i|%>
-  <div class="card">
+  <div class="card <%= bg_available(cat) %>">
     <!-- start header -->
     <div class="card-header p-1" id="header<%= i %>">
-      <div class="btn btn-link d-flex flex-row p-0" data-toggle="collapse" data-target="#s-collapse<%= i %>">
-        <%= image_tag cat.item_picture, style: "width: 64px;" %>
+      <div class="btn btn-link d-flex flex-row p-0 pb-1" data-toggle="collapse" data-target="#s-collapse<%= i %>">
+        <div>
+          <%= image_tag cat.item_picture, style: "width: 64px; height: 100%;" %>
+        </div>
         <h5 class="m-1 dropdown-toggle"><%= cat.title %></h5>
       </div>
       <div class="d-flex tab-cat-table">
@@ -27,8 +29,11 @@
 
             <div class="dropdown-menu" style="z-index:1080;" aria-labelledby="dropdownLink-<%= i %>">
               <%= link_to "Éditer", edit_cat_path(cat), class: "dropdown-item" %>
-              <!-- #TODO: add a method to toggle "is_available" -->
-              <%= link_to "Retirer", "#", class: "dropdown-item text-danger"  %><br />
+              <% if cat.is_available %>
+                <%= link_to 'Retirer de la vente', cat, method: :delete, class: "dropdown-item text-danger" %>
+              <% else %>
+                <%= link_to 'Remettre en vente', cat, method: :delete, class: "dropdown-item text-info" %>
+              <% end %>
             </div>
           </div>
         </div>
