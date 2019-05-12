@@ -64,6 +64,6 @@ class Users::RegistrationsController < Devise::RegistrationsController #rubocop:
   protected
 
   def after_sign_up_path_for(resource)
-    edit_profile_path(resource, anchor: 'demo-2-4')
+    edit_profile_path(resource)
   end
 end
