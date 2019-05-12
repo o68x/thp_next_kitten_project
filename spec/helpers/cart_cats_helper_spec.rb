@@ -13,5 +13,15 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe CartCatsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:cart_cat) { create(:cart_cat) }
+
+  describe '#cat_data_for_seller' do
+    it 'returns an array' do
+      expect(helper.cat_data_for_seller(cart_cat)).to be_instance_of Array
+    end
+    it 'returns an array of hashes' do
+      pending("#TODO: RSPEC method needs to be refactored to be tested ;)")
+      expect(helper.cat_data_for_seller(cart_cat)[0]).to be_instance_of Hash
+    end
+  end
 end

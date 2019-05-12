@@ -22,11 +22,11 @@
 require 'rails_helper'
 
 RSpec.describe Cat, type: :model do
-  # it "has a valid factory" do
-  #   expect(create(:cat)).to be_valid
-  #   expect(create(:cat_with_picture)).to be_valid
-  #   expect(create(:cat_without_picture)).to be_valid
-  # end
+  it "has a valid factory" do
+    expect(create(:cat)).to be_valid
+    expect(create(:cat_with_picture)).to be_valid
+    expect(create(:cat_without_picture)).to be_valid
+  end
 
   describe 'Model instantiation' do
     subject(:new_cat) { described_class.new }
@@ -39,6 +39,14 @@ RSpec.describe Cat, type: :model do
       it { is_expected.to have_db_column(:title).of_type(:string) }
       it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
       it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
+    end
+  end
+
+  describe 'class method #from_seller' do
+    let(:seller) { create(:seller_with_cats, cats_count: 3) }
+
+    it 'returns all cats sold by a seller' do
+      expect(Cat.from_seller(seller).length).to eq(3)
     end
   end
 end
