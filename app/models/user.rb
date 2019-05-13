@@ -58,11 +58,11 @@ class User < ApplicationRecord
     carts.where(status: true)
   end
 
+  private
+
   def send_email
     UserMailer.welcome_email(self).deliver_now
   end
-
-  private
 
   def create_cart
     carts.create!

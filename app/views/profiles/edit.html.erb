@@ -10,6 +10,14 @@
           <a class="nav-item nav-link" data-toggle="tab" href="#tab_buyer">Mes achats</a>
           <a class="nav-item nav-link" data-toggle="tab" href="#tab_seller">Mes ventes</a>
         </div>
+      <div class="nav nav-tabs mb-1 justify-content-center">
+        <a class="nav-item nav-link active" data-toggle="tab" href="#main">Profile</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#settings"><%= image_tag ('icon_parametre.png') %></a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#tab_buyer">Mes achats</a>
+        <% if current_user.email != current_user.profile.full_name_or_email %>
+        <a class="nav-item nav-link" data-toggle="tab" href="#tab_seller">Mes ventes</a>
+        <% end %>
+      </div>
 
     </div>
   </div>
@@ -21,7 +29,14 @@
     <div class="tab-content" id="demo-2">
 
       <!-- tab info -->
-      <div class="tab-pane show active" id="demo-2-1" role="tabpanel" aria-labelledby="demo-2-1">
+      <div class="tab-pane show active" id="main" role="tabpanel" aria-labelledby="main">
+        <div class="row justify-content-center">
+          <% if current_user.email == current_user.profile.full_name_or_email %>
+          <div class="col text-center">
+            <p class="text-info">Veuillez compléter votre profil (optionnel si vous ne voulez qu'acheter, nécessaire pour vendre).</p>
+          </div>
+          <% end %>
+        </div>
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
             <!-- PROFILE -->
@@ -46,21 +61,68 @@
                           </div>
                         </div>
                       </div>
+            <div class="row gutter-1 mb-2 justify-content-center">
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed bg-primary text-white">
+                    <div class="equal-header">
+                      <b class="h2"><%= @carts.count %></b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">achats</span>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2"><%= @cats.map { |c| cat_data_for_seller(c.id).map{ |data| data[:quantity] }.sum}.sum %></b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">ventes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2">9</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">articles</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2">119</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">following</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            -->
             </div>
-          </div> 
+            <!-- / PROFILE -->
+
+
+          </div>
         </div>
-      </div>    
-      <!-- / PROFILE -->
+      </div>
       <!-- / tab -->
-      
-      
 
       <!-- tab settings -->
-      <div class="tab-pane" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
+      <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings">
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
 
@@ -70,55 +132,55 @@
                   <div class="row align-items-center justify-content-between p-3">
                     <div class="col-md-2 pb-2 pb-md-0 text-center">
                       <% if current_user.profile.profile_picture.attached? %>
-                        <%= image_tag current_user.profile.profile_picture, class: "avatar avatar-lg rounded", alt: "Avatar" %>
+                      <%= image_tag current_user.profile.profile_picture, class: "avatar avatar-lg rounded", alt: "Avatar" %>
                       <% else %>
-                        <%= image_tag "profile_nil.png", class: "avatar avatar-lg rounded", alt: "Avatar"%>
+                      <%= image_tag "profile_nil.png", class: "avatar avatar-lg rounded", alt: "Avatar"%>
                       <% end %>
                     </div>
                     <div class="col-md-5 text-center text-md-left">
-                        <h4 class="mb-0"><%= current_user.email %></h4>
-                        <a href="" class="fs-14 link text-primary">Change Avatar</a>
-                        <%= form_tag url_for(action: 'update'), method: "patch", multipart: true do %>
+                      <h4 class="mb-0"><%= current_user.email %></h4>
+                      <a href="" class="fs-14 link text-primary">Change Avatar</a>
+                      <%= form_tag url_for(action: 'update'), method: "patch", multipart: true do %>
 
-                        <%= file_field_tag :profile_picture %>
-                        </div>
-                        <div class="col-md-4 text-center text-md-right mt-1 mt-md-0">
-                         <!-- <a href="" class="btn btn-primary btn-rounded">Upgrade Plan</a> -->
-                        </div>
+                      <%= file_field_tag :profile_picture %>
+                    </div>
+                    <div class="col-md-4 text-center text-md-right mt-1 mt-md-0">
+                      <!-- <a href="" class="btn btn-primary btn-rounded">Upgrade Plan</a> -->
+                    </div>
 
-                      </div>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div class="row">
               <div class="col">
-                <h5 class="mb-2 fs-20 font-weight-normal">General Information</h5>
                 <form>
 
                   <div class="form-row">
                     <div class="col">
                       <div class="form-group">
-                        <label for="firstName">First Name</label>
+                        <label for="firstName">Prénom</label>
                         <%= text_field_tag :first_name, @profile.first_name, class: 'form-control' %>
                       </div>
                     </div>
                     <div class="col">
                       <div class="form-group">
-                        <label for="secondName">Last Name</label>
+                        <label for="secondName">Nom</label>
                         <%= text_field_tag :last_name, @profile.last_name, class: 'form-control' %>
                       </div>
                     </div>
                   </div>
-                  <div class="form-row">
+                  <!-- <div class="form-row">
                     <div class="col">
                       <div class="form-group">
                         <label for="userMail">Email address</label>
-                        <input type="email" class="form-control" id="userMail" aria-describedby="userMail" placeholder="johndoe@example.com">
+                        <input type="email" class="form-control disabled" id="userMail" aria-describedby="userMail"
+                          placeholder="<%= current_user.email %>">
                       </div>
                     </div>
                   </div>
-                  <!--<div class="form-row mt-1 align-items-center">
+                  <div class="form-row mt-1 align-items-center">
                     <div class="col-3">
                       <%= submit_tag "Save Changes", class: "btn btn-secondary"%>
                     </div>
@@ -128,69 +190,68 @@
 
             <div class="row">
               <div class="col">
-                <h5 class="mb-2 fs-20 font-weight-normal">Profile Information</h5>
-                  <div class="form-row">
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="userCity">City</label>
-                        <%= text_field_tag :city, @profile.city, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="userCountry">Country</label>
-                        <%= text_field_tag :country, @profile.country, class: 'form-control' %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="userCity">Zip Code</label>
-                        <%= text_field_tag :zip_code, @profile.zip_code, class: 'form-control' %>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-row">
+                <div class="form-row">
                   <div class="col">
-                      <div class="form-group">
-                        <label for="userCountry">Address</label>
-                        <%= text_field_tag :address, @profile.address, class: 'form-control' %>
-                      </div>
+                    <div class="form-group">
+                      <label for="userCity">Ville</label>
+                      <%= text_field_tag :city, @profile.city, class: 'form-control' %>
                     </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="userCountry">Pays</label>
+                      <%= text_field_tag :country, @profile.country, class: 'form-control' %>
                     </div>
-                  <div class="form-row">
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="userTwitter">Phone number</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">+33</span>
-                          </div>
-                            <%= telephone_field_tag :phone_number, @profile.phone_number, class: 'form-control' %>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="userCity">Code postal</label>
+                      <%= text_field_tag :zip_code, @profile.zip_code, class: 'form-control' %>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="userCountry">Adresse</label>
+                      <%= text_field_tag :address, @profile.address, class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="userTwitter">Téléphone</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">+33</span>
                         </div>
+                        <%= telephone_field_tag :phone_number, @profile.phone_number, class: 'form-control' %>
                       </div>
                     </div>
                   </div>
-                  <div class="form-row">
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <%= text_area_tag :description, @profile.description, class: 'form-control' %>
-                      </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Description</label>
+                      <%= text_area_tag :description, @profile.description, class: 'form-control' %>
                     </div>
                   </div>
-                  <div class="form-row">
-                    <div class="col-3">
-                      <%= submit_tag "Save Changes", class: "btn btn-secondary"%>
-                    </div>
+                </div>
+                <div class="form-row justify-content-end">
+                  <div class="col-3">
+                    <%= submit_tag "Enregistrer", class: "btn btn-primary"%>
                   </div>
+                </div>
                 </form>
-               <% end%>
+                <% end%>
               </div>
             </div>
           </div>
@@ -199,32 +260,34 @@
 
       <!-- tab mes annonces -->
       <div class="tab-pane" id="tab_buyer" role="tabpanel" aria-labelledby="tab_buyer">
-          <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
 
-              <!-- PROFILE -->
-              <%= render 'profiles/partials/tab_buyer' %>
-              <!-- / PROFILE -->
+            <!-- PROFILE -->
+            <%= render 'profiles/partials/tab_buyer' %>
+            <!-- / PROFILE -->
 
 
-            </div>
           </div>
         </div>
-        <!-- / tab mes annonces -->
+      </div>
+      <!-- / tab mes annonces -->
 
-        <!-- tab mes annonces -->
+      <!-- tab mes annonces -->
+      <% if current_user.email != current_user.profile.full_name_or_email %>
       <div class="tab-pane" id="tab_seller" role="tabpanel" aria-labelledby="tab_seller">
-          <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-8">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
 
-              <!-- PROFILE -->
-              <%= render 'profiles/partials/tab_seller' %>
-              <!-- / PROFILE -->
+            <!-- PROFILE -->
+            <%= render 'profiles/partials/tab_seller' %>
+            <!-- / PROFILE -->
 
-            </div>
           </div>
         </div>
-        <!-- / tab mes annonces -->
+      </div>
+      <% end %>
+      <!-- / tab mes annonces -->
 
 
     </div>
