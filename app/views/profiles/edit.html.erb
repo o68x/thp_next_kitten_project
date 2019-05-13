@@ -4,14 +4,12 @@
   <div class="container">
     <div class="row justify-content-center">
 
-      <div class="nav nav-tabs mb-1 justify-content-center">
-        <a class="nav-item nav-link active" data-toggle="tab" href="#main">Profile</a>
-        <a class="nav-item nav-link" data-toggle="tab" href="#settings"><%= image_tag ('icon_parametre.png') %></a>
-        <a class="nav-item nav-link" data-toggle="tab" href="#tab_buyer">Mes achats</a>
-        <% if current_user.email != current_user.profile.full_name_or_email %>
-        <a class="nav-item nav-link" data-toggle="tab" href="#tab_seller">Mes ventes</a>
-        <% end %>
-      </div>
+        <div class="nav nav-tabs mb-1">
+          <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-1">Profil</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-4">Mes infos</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#tab_buyer">Mes achats</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#tab_seller">Mes ventes</a>
+        </div>
 
     </div>
   </div>
@@ -23,7 +21,7 @@
     <div class="tab-content" id="demo-2">
 
       <!-- tab info -->
-      <div class="tab-pane show active" id="main" role="tabpanel" aria-labelledby="main">
+      <div class="tab-pane show active" id="demo-2-1" role="tabpanel" aria-labelledby="main">
         <div class="row justify-content-center">
           <% if current_user.email == current_user.profile.full_name_or_email %>
           <div class="col text-center">
@@ -33,70 +31,42 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
-
             <!-- PROFILE -->
-            <div class="row gutter-1 mb-2 justify-content-center">
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="equal">
-                  <div class="boxed bg-primary text-white">
-                    <div class="equal-header">
-                      <b class="h2"><%= @carts.count %></b>
-                    </div>
-                    <div class="equal-footer">
-                      <span class="text-muted">achats</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="equal">
-                  <div class="boxed">
-                    <div class="equal-header">
-                      <b class="h2"><%= @cats.map { |c| cat_data_for_seller(c.id).map{ |data| data[:quantity] }.sum}.sum %></b>
-                    </div>
-                    <div class="equal-footer">
-                      <span class="text-muted">ventes</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="equal">
-                  <div class="boxed">
-                    <div class="equal-header">
-                      <b class="h2">9</b>
-                    </div>
-                    <div class="equal-footer">
-                      <span class="text-muted">articles</span>
+            <div class="tab-content" id="component-1">
+              <div class="tab-pane show active" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
+                <div class="component-example">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="owl-carousel visible" data-items="[3,2]" data-margin="20">
+                          <div class="step">
+                            <h4 class="step-title">Je complète mon profil vendeur</h4>
+                            <p>L'onglet <i><big>MES INFOS</big></i> nous permet de faire un peu plus connaissance.</p>
+                          </div>
+                          <div class="step">
+                            <h4 class="step-title">Je me rends sur le formulaire de téléchargement</h4>
+                            <p>Maintenant qu'on se connait mieux, clique sur bouton <i><big>Vendre</big></i> puis remplis le formulaire de vente de ta photo.</p>
+                          </div>
+                          <div class="step">
+                            <h4 class="step-title">Je consulte mes transactions</h4>
+                            <p>A tout moment tu peux consulter l'état de tes transactions en cours ou passées dans les onglets  <i><big>MES ACHATS</big></i>  <i><big>MES VENTES</big></i></p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="equal">
-                  <div class="boxed">
-                    <div class="equal-header">
-                      <b class="h2">119</b>
-                    </div>
-                    <div class="equal-footer">
-                      <span class="text-muted">following</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            -->
             </div>
-            <!-- / PROFILE -->
-
-
-          </div>
+          </div> 
         </div>
-      </div>
+      </div>    
+      <!-- / PROFILE -->
       <!-- / tab -->
+      
 
       <!-- tab settings -->
-      <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings">
+      <div class="tab-pane" id="demo-2-4" role="tabpanel" aria-labelledby="settings">
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
 
