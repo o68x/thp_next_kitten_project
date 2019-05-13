@@ -36,3 +36,12 @@
 .Divalert, .Divheader {
     position: absolute;	
 }
+
+.bg-color {
+    background-color: #06030f !important; }
+
+a.bg-color:hover, a.bg-color:focus,
+button.bg-color:hover,
+button.bg-color:focus {
+    background-color: #371f89 !important; }
+

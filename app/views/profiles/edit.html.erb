@@ -6,7 +6,7 @@
 
       <div class="nav nav-tabs mb-1 justify-content-center">
         <a class="nav-item nav-link active" data-toggle="tab" href="#main">Profile</a>
-        <a class="nav-item nav-link" data-toggle="tab" href="#settings"><%= image_tag ('icon_parametre.png') %></a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#settings">Setting</a>
         <a class="nav-item nav-link" data-toggle="tab" href="#tab_buyer">Mes achats</a>
         <% if current_user.email != current_user.profile.full_name_or_email %>
         <a class="nav-item nav-link" data-toggle="tab" href="#tab_seller">Mes ventes</a>
@@ -159,6 +159,7 @@
                       <%= submit_tag "Save Changes", class: "btn btn-secondary"%>
                     </div>
                   </div> -->
+                </form>
               </div>
             </div>
 

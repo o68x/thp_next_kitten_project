@@ -14,8 +14,8 @@
                 Profil    
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                 <%= link_to "Profile", edit_profile_path(current_user.id), class: "dropdown-item" %>
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                 <% if current_user.profile.last_name.nil? %>
                 <%= link_to "Update Profile for Sell", edit_profile_path(current_user.id), class: "dropdown-item" %>
                 <% else %>
