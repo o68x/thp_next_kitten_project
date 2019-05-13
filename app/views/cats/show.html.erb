@@ -14,7 +14,6 @@
               <%= image_tag("example.jpg", class: "card-img-top image_cat",)%>
               <% end %>
               <% if @cat.seller.present?%>
-              <br>
               <p class="has-text-gray fg pt1">Sold by <%= link_to "#{@cat.user_seller}", profile_path(@cat.seller.profile) %>
               </p>
               <% end %>
@@ -36,10 +35,10 @@
                         <!-- card footer for seller -->
                           <div class="row d-flex justify-content-around align-items-center">
                             <div class="col text-left">
-                            <%= link_to 'Modifier', edit_cat_path(@cat.id) %>
+                            <%= link_to 'Modifier', edit_cat_path(@cat.id), class:"btn btn-outline-primary btn-sm" %>
                             </div>
                             <div class="col text-right">
-                            <%= link_to 'Retirer', @cat, method: :delete %>
+                            <%= link_to 'Retirer', @cat, method: :delete, class:"btn btn-warning btn-sm" %>
                             </div>
                            </div>
                         <% else %>

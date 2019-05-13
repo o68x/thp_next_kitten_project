@@ -68,36 +68,7 @@
 
           <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 
-          <h2>Informations générales</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Orders</th>
-                  <th>Cats pics available</th>
-                  <th>Orders confirmed</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td><%=Cart.count%></td>
-                  <td><%=Cat.where(is_available: true).count%></td>
-                  <td><%=Cart.where(status: true).count%></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          
         </main>
       </div>
     </div>
@@ -116,9 +87,9 @@
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ["Nb of Carts", "Nb of availble cats", "Nb of confimed carts", "Active seller", "Active buyer"],
+          labels: ["Nb d'images", "Nb d'images en ventes", "Nb de paniers crées", "Nb de commandes payées", "Nb d'utilisateurs"],
           datasets: [{
-            data: [<%= Cart.count %>, <%=Cat.where(is_available: true).count%>, <%=Cart.where(status: true).count%>, <%=User.count%>, <%= %> ],
+            data: [<%= Cat.count %>, <%=Cat.where(is_available: true).count%>, <%=Cart.count %>, <%=Cart.where(status: true).count%>, <%=User.count%> ],
             lineTension: 0,
             backgroundColor: ['rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
