@@ -6,6 +6,6 @@
   <span class="flex-shrink-0 w-10"><%= cart.order_placed.strftime("%F")  %></span>
   <div class="flex-shrink-0 w-20">
     <span><%= number_to_currency(cart.total_cart_price) %></span>
-    <small><%= link_to "Télécharger", root_path %></small>
+    <small><%= link_to "Télécharger", download_cart_zip_path(cart: cart.id) %></small>
   </div>
 </li>

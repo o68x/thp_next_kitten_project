@@ -24,6 +24,7 @@
 #
 
 class CartCat < ApplicationRecord
+  after_create :send_email
   belongs_to :cart
   belongs_to :cat
 
@@ -39,5 +40,9 @@ class CartCat < ApplicationRecord
 
   def total_cat_price
     price * quantity
+  end
+
+  def send_email
+    UserMailer.order_checkout_email(self).deliver
   end
 end

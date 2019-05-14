@@ -24,6 +24,7 @@ class ChargesController < ApplicationController
     @cart.status = true
     @cart.save
     current_user.set_current_cart
+    # UserMailer.order_checkout_email(current_user).deliver_now
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
