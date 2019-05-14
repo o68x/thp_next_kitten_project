@@ -1,66 +1,98 @@
-
-    <!-- cover -->
-    <section class="p-0">
-      <div class="swiper-container swiper-container-half text-white"
-        data-top-top="transform: translateY(0px);" 
-        data-top-bottom="transform: translateY(250px);">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide vh-100">
-            <div class="image image-overlay background-image"></div>
-            <div class="caption">
-              <div class="container">
-                <div class="row justify-content-center vh-100">
-                  <div class="col-md-8 align-self-center text-center">
-                    <br><br><h1 data-swiper-parallax="-100%" class="display-2">The <b>best place</b> to find the best cat's pict.</h1>
-                    <%= link_to "Buy Pictures", cats_path, class: "btn btn-rounded btn-white px-5" %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-    </section>
-    <!-- / cover -->
-
-
-    <!-- presentation -->
-    <section class="section-lg">
-      <div class="container">
-        <div class="row text-center text-lg-left">
-          <div class="col-12 col-lg-9">
-            <div class="row">
-              <div class="col-lg-8">
-                <h2>A good website <br>to buy pictures cats.</h2>
-                <p class="lead">The cat is a lion for the mouse.</p>
-              </div>
-            </div>
-            <div class="row gutter-0">
-              <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-                <div class="bordered rising p-3">
-                  <h4 class="mb-0"><%= Cat.count %> pictures</h4>
-                  
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="150">
-                <div class="bordered rising p-3">
-                  <h4 class="mb-0"><%= User.count %> members</h4>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
-                <div class="bordered rising p-3">
-                  <h4 class="mb-0"><%= Cart.count %> orders</h4>
-                </div>
+<!-- cover -->
+<section class="p-0">
+  <div class="swiper-container swiper-container-half text-white" data-top-top="transform: translateY(0px);"
+    data-top-bottom="transform: translateY(250px);">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide vh-100">
+        <div class="image image-overlay background-image"></div>
+        <div class="caption">
+          <div class="container">
+            <div class="row justify-content-center vh-100">
+              <div class="col-md-8 align-self-center text-center">
+                <br><br>
+                <h1 data-swiper-parallax="-100%" class="display-2">The <b>best place</b> to find the best cat's pict.
+                </h1>
+                <%= link_to "Buy Pictures", cats_path, class: "btn btn-rounded btn-white px-5" %>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- / presentation -->
+    </div>
+</section>
+<!-- / cover -->
 
 
+<!-- presentation -->
+<section class="section-lg">
+  <div class="container">
+    <div class="row text-center text-lg-left">
+      <div class="col-12 col-lg-9">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2>A good website <br>to buy pictures cats.</h2>
+            <p class="lead">The cat is a lion for the mouse.</p>
+          </div>
+        </div>
+        <div class="row gutter-0">
+          <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+            <div class="bordered rising p-3">
+              <h4 class="mb-0"><%= Cat.count %> pictures</h4>
 
-    <%# <script src="../../assets/js/vendor.js"></script>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="150">
+            <div class="bordered rising p-3">
+              <h4 class="mb-0"><%= User.count %> members</h4>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+            data-aos-delay="300">
+            <div class="bordered rising p-3">
+              <h4 class="mb-0"><%= Cart.count %> orders</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / presentation -->
+<section>
+  <div class="container-fluid">
+    <div class="card-deck align-items-stretch">
+      <div class="card bg-primary text-white text-center pattern" style="height: 100%;">
+        <div class="card-header">
+          <h1>Achetez</h1>
+        </div>
+        <div class="card-body">
+          Parcourez notre <span style="font-size: x-large">collection exceptionelle</span> de photos de chats. Une
+          simple inscription avec votre adresse email est suffisante pour commencer à acheter sur notre site.
+        </div>
+        <div class="card-footer">
+          <%= link_to "Commencez maintenant !", new_user_registration_path, class: "btn btn-success btn-large" %>
+        </div>
+      </div>
+      <div class="card bg-primary text-white text-center pattern style=" height: 100%;">
+        <div class="card-header">
+          <h1>Vendez</h1>
+        </div>
+        <div class="card-body">
+          Vendez vos photos de chats sur notre site. Après votre inscription, remplissez le <span style="font-size: x-large">profil de
+            vendeur</span> et commencez à charger vos œuvres&nbsp;!
+        </div>
+        <div class="card-footer">
+          <%= link_to "Commencez maintenant !", new_user_registration_path, class: "btn btn-success btn-large" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%# <script src="../../assets/js/vendor.js"></script>
     <script src="../../assets/js/app.js"></script> %>
-  </body>
+</body>
+
 </html>

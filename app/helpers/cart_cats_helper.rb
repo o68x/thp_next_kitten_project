@@ -9,7 +9,7 @@ module CartCatsHelper
       next unless cart.status == true
 
       cat_data_for_seller = {}
-      cat_data_for_seller[:user] = cart.user.profile.first_name
+      cat_data_for_seller[:user] = cart.user.profile.full_name_or_email
       cat_data_for_seller[:date] = cart.order_placed.strftime("%F")
       cat_data_for_seller[:quantity] = cart_cat.quantity
       cat_data_for_seller[:total_price] = cart_cat.total_cat_price

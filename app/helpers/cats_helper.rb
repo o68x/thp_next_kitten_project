@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 module CatsHelper
-  def cart_cats_quantity(cat_id)
-    @cart_cats.find_by(cat_id: cat_id)&.quantity if user_signed_in?
+  def current_cart_cats_quantity(cat_id)
+    @id = cat_id
+    CartCat.where(cart_id: current_cart).find_by(cat_id: @id)&.quantity if user_signed_in?
   end
 
   def seller_email(cat)

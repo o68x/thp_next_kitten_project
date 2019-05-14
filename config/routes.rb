@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
 
   # minimal carts and cats routes for dev purposes
   resources :cats
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :cats
     resources :carts
-    resources :profiles
+    resources :users
   end
 
   # root 'cats#index'

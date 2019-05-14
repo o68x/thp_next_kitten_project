@@ -1,0 +1,46 @@
+ <!-- banner -->
+    <%= render 'cats/banner' %>
+    <!-- /banner -->
+
+    <!-- sidebar -->
+    <%= render 'sidebar' %>
+    <!-- /sidebar -->
+
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <h2>Gérer les Utilisateurs</h2>
+            <div class="row">
+            </div>
+
+              <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                  <thead>
+                    <tr>
+                      <th width="10%">User#id</th>
+                      <th width="25%">Date d'inscription</th>
+                      <th width="25%">Adresse email</th>
+                      <th width="15%">Prénom</th>
+                      <th width="15%">Nom</th>
+                      <th width="10%">Supprimer</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <% @users.each do |user|%>
+                    <tr>
+                      <td><%= user.id%></td>
+                      <td><%= user.created_at%></td>
+                      <td><%= user.email %></td>
+                      <td><%= user.profile.first_name %></td>
+                      <td><%= user.profile.last_name %></td>
+                      <td><span title= "Voir" ><%= link_to '<i class="btn btn-sm btn-ico btn-primary "></i>'.html_safe, admin_user_path(user),  method: "delete", data: { confirm: "Es-tu sûr de vouloir supprimer ce profil ?" }%></span></td>
+
+                    </tr>
+                  <%end%>
+                  </tbody>
+                </table>
+              </div>
+        </main>
+      </div>
+    </div>
+

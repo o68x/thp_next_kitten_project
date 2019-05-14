@@ -1,19 +1,17 @@
 <div class="container-fluid">
-  <section class="bg-purple text-white pattern" data-top-top="transform: translateY(0px);"
+  <section class="bg-primary text-white pattern" data-top-top="transform: translateY(0px);"
     data-top-bottom="transform: translateY(250px);">
     <div class="container pt-10">
       <div class="row mb-2 pb-2">
         <div class="col-md-8 col-lg-6">
           <h1>Votre commande N° <%= format("%03d", @cart.id) %></h1>
-          <p><%= @cart.user.email %></p>
-          <pre>create.html.erb</pre>
+          <p><%= @cart.user.profile.full_name_or_email %></p>
         </div>
       </div>
     </div>
   </section>
   <section>
     <div class="container">
-      <!-- TODO: CSS fix spacing -->
       <div class="row">
         <div class="col">
           <div class="card">
