@@ -22,11 +22,11 @@
 require 'rails_helper'
 
 RSpec.describe Cat, type: :model do
-  # it "has a valid factory" do
-  #   expect(create(:cat)).to be_valid
-  #   expect(create(:cat_with_picture)).to be_valid
-  #   expect(create(:cat_without_picture)).to be_valid
-  # end
+  it "has a valid factory" do
+    expect(create(:cat)).to be_valid
+    expect(create(:cat_with_picture)).to be_valid
+    expect(create(:cat_without_picture)).to be_valid
+  end
 
   describe 'Model instantiation' do
     subject(:new_cat) { described_class.new }

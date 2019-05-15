@@ -12,25 +12,25 @@ RSpec.describe CartCatsController, type: :controller do
 
     let(:cart_cat) { build(:cart_cat, quantity: 1) }
 
-    # context 'when user signed in' do
-    #   context 'when item already in cart' do
-    #     it "increments count of this item" do
-    #       cart_cat.increment_quantity
+    context 'when user signed in' do
+      context 'when item already in cart' do
+        it "increments count of this item" do
+          cart_cat.increment_quantity
 
-    #       expect(cart_cat.quantity).to eq(2)
-    #     end
-    #   end
+          expect(cart_cat.quantity).to eq(2)
+        end
+      end
 
-    context 'when item not already in cart' do
-      it 'should create a new item in cart'
+      context 'when item not already in cart' do
+        it 'should create a new item in cart'
+      end
+
+      it 'saves the valid new/updated item in cart' do
+        build(:cart_cat)
+
+        expect { cart_cat.save }.to change(CartCat, :count)
+      end
     end
-
-    #   it 'saves the valid new/updated item in cart' do
-    #     build(:cart_cat)
-
-    #     expect { cart_cat.save }.to change(CartCat, :count)
-    #   end
-    # end
 
     context 'when user not signed in' do
       before do
