@@ -11,7 +11,7 @@
           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 pb-2">
             <article class="card">
               <%if c.item_picture.attached?%>
-              <%= link_to (image_tag c.item_picture, alt: 'Cat', style:'width: 100%', class: 'transition'), cat_path(id:c.id)  %>
+              <%= link_to (image_tag c.item_picture, alt: 'Cat', class: 'transition'), cat_path(id:c.id)  %>
               <%else%>
               <%= image_tag("example.jpg")%>
               <% end %>
