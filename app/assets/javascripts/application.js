@@ -23,3 +23,9 @@ window.setTimeout(function () {
       $(this).remove();
     });
   }, 5000);
+
+$(document).ready(function() {
+  $("#drop_cart_btn").click(function(){
+    $('#drop_cart').fadeToggle('fast');
+  },1000);
+});

@@ -19,20 +19,14 @@
  */
 
  .Divalert {
+    display: flex;
     opacity: 0.70;
     width: 30%;
-    margin-top: 5%;
     position: fixed;
     top: 0;
     left: 65%;
     z-index: 900;
+    height: 0.5px;
+    align-items: center;
 }
 
-.Divheader {
-    position: fixed;
-    top: 0;
-}
-
-.Divalert, .Divheader {
-    position: absolute;	
-}
