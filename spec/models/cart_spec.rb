@@ -80,6 +80,20 @@ RSpec.describe Cart, type: :model do
   end
 
   describe '#total_cart_price' do
+    let(:cart) { create(:cart_with_cart_cats, :cart_cat.price = 10, :cart_cat.quantity = 1) }
+
+    xit 'returns the total price of the cart' do
+      expect(cart.total_cart_price).to eq(30)
+    end
+  end
+
+  describe '#list_cat_names' do
+    let('cart') { create(:cart_with_cart_cats) }
+
+    it 'returns an array of strings' do
+      expect(cart.list_cat_names).to be_instance_of Array
+      expect(cart.list_cat_names[0]).to be_instance_of String
+    end
   end
 
   describe '#zipfile' do

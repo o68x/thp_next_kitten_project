@@ -26,11 +26,11 @@
 require 'rails_helper'
 
 RSpec.describe CartCat, type: :model do
-  # it 'has a valid Factory' do
-  #   expect(build(:cart_cat)).to be_valid
-  #   expect(build(:cart_cat_with_picture)).to be_valid
-  #   expect(build(:cart_cat_without_picture)).to be_valid
-  # end
+  it 'has a valid Factory' do
+    expect(build(:cart_cat)).to be_valid
+    expect(build(:cart_cat_with_picture)).to be_valid
+    expect(build(:cart_cat_without_picture)).to be_valid
+  end
 
   describe 'records' do
     describe 'associations' do
@@ -50,6 +50,14 @@ RSpec.describe CartCat, type: :model do
 
       subject.increment_quantity
       expect(subject.quantity).to eq(2)
+    end
+  end
+
+  describe '#total_cat_price' do
+    let(:cart_cat) { build :cart_cat }
+
+    it 'returns price times quantity' do
+      expect(cart_cat.total_cat_price).to eq(cart_cat.price * cart_cat.quantity)
     end
   end
 end

@@ -21,8 +21,20 @@
 #
 
 FactoryBot.define do
-  factory :user do
+  factory :user, aliases: [:seller] do
     email    { Faker::Internet.unique.safe_email }
     password { Faker::Internet.password }
+
+    trait :with_cats do
+      transient do
+        cats_count { 3 }
+      end
+
+      after :create do |user, evaluator|
+        create_list :cat, evaluator.cats_count, seller: user
+      end
+    end
+
+    factory :seller_with_cats, traits: %i[with_cats]
   end
 end
